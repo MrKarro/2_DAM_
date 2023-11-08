@@ -31,9 +31,7 @@ public class MainActivity extends AppCompatActivity  {
         llenaCoches(coches);
 
         lista = findViewById(R.id.lista);
-        AdaptadorPersonalizado adap = new AdaptadorPersonalizado(this, coches);
-
-        lista.setAdapter(adap);
+        cargaAdaptador();
         registerForContextMenu(lista);
 
     }
@@ -77,12 +75,16 @@ public class MainActivity extends AppCompatActivity  {
         } else if (item.getItemId() == R.id.eliminar){
             AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
             coches.remove(info.position);
-            AdaptadorPersonalizado adap = new AdaptadorPersonalizado(this, coches);
-
-            lista.setAdapter(adap);
+            cargaAdaptador();
 
         }
         return super.onContextItemSelected(item);
+    }
+
+    private void cargaAdaptador(){
+        AdaptadorPersonalizado adap = new AdaptadorPersonalizado(this, coches);
+
+        lista.setAdapter(adap);
     }
 
     public void llenaCoches(ArrayList<Coche> coches) {

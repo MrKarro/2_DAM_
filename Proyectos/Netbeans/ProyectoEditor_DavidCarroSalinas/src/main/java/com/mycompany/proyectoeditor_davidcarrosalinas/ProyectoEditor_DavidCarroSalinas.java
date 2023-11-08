@@ -11,6 +11,7 @@ package com.mycompany.proyectoeditor_davidcarrosalinas;
 public class ProyectoEditor_DavidCarroSalinas {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        Editor e = new Editor();
+        e.setVisible(true);
     }
 }

@@ -4,6 +4,15 @@
  */
 package com.mycompany.proyectoeditor_davidcarrosalinas;
 
+
+
+import javax.swing.text.AttributeSet;
+import javax.swing.text.Element;
+import javax.swing.text.MutableAttributeSet;
+import javax.swing.text.SimpleAttributeSet;
+import javax.swing.text.StyleConstants;
+import javax.swing.text.StyledDocument;
+
 /**
  *
  * @author 6002755
@@ -15,6 +24,7 @@ public class Editor extends javax.swing.JFrame {
      */
     public Editor() {
         initComponents();
+        
     }
 
     /**
@@ -26,11 +36,11 @@ public class Editor extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jEditorPane1 = new javax.swing.JEditorPane();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        jButtonNegrita = new javax.swing.JButton();
+        jButtonCursiva = new javax.swing.JButton();
+        jButtonSubrayado = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextPane1 = new javax.swing.JTextPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -46,13 +56,28 @@ public class Editor extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jScrollPane1.setViewportView(jEditorPane1);
+        jButtonNegrita.setText("Negrita");
+        jButtonNegrita.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonNegritaActionPerformed(evt);
+            }
+        });
 
-        jButton1.setText("Negrita");
+        jButtonCursiva.setText("Cursiva");
+        jButtonCursiva.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCursivaActionPerformed(evt);
+            }
+        });
 
-        jButton2.setText("Cursiva");
+        jButtonSubrayado.setText("Subrayado");
+        jButtonSubrayado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSubrayadoActionPerformed(evt);
+            }
+        });
 
-        jButton3.setText("Subrayado");
+        jScrollPane2.setViewportView(jTextPane1);
 
         jMenu1.setText("Archivo");
         jMenuBar1.add(jMenu1);
@@ -98,30 +123,68 @@ public class Editor extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(41, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 597, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1)
+                        .addComponent(jButtonNegrita)
                         .addGap(90, 90, 90)
-                        .addComponent(jButton2)
+                        .addComponent(jButtonCursiva)
                         .addGap(94, 94, 94)
-                        .addComponent(jButton3))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 586, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(47, 47, 47))
+                        .addComponent(jButtonSubrayado)))
+                .addGap(36, 36, 36))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30))
+                    .addComponent(jButtonNegrita)
+                    .addComponent(jButtonCursiva)
+                    .addComponent(jButtonSubrayado))
+                .addGap(46, 46, 46)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(44, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButtonNegritaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNegritaActionPerformed
+        
+        int selectionStart = jTextPane1.getSelectionStart();
+        
+        
+        StyledDocument doc = (StyledDocument) jTextPane1.getDocument();
+        Element element = doc.getCharacterElement(selectionStart);
+        AttributeSet as = element.getAttributes();
+        MutableAttributeSet asNew = new SimpleAttributeSet(as.copyAttributes());
+        StyleConstants.setBold(asNew, !StyleConstants.isBold(as));
+        doc.setCharacterAttributes(selectionStart, jTextPane1.getSelectedText().length(), asNew, true);
+        //estilo_seleccionado = doc.getFont(as).getStyle();
+    }//GEN-LAST:event_jButtonNegritaActionPerformed
+
+    private void jButtonCursivaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCursivaActionPerformed
+        int selectionStart = jTextPane1.getSelectionStart();
+        
+        
+        StyledDocument doc = (StyledDocument) jTextPane1.getDocument();
+        Element element = doc.getCharacterElement(selectionStart);
+        AttributeSet as = element.getAttributes();
+        MutableAttributeSet asNew = new SimpleAttributeSet(as.copyAttributes());
+        StyleConstants.setItalic(asNew, !StyleConstants.isItalic(as));
+        doc.setCharacterAttributes(selectionStart, jTextPane1.getSelectedText().length(), asNew, true);
+    }//GEN-LAST:event_jButtonCursivaActionPerformed
+
+    private void jButtonSubrayadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSubrayadoActionPerformed
+        int selectionStart = jTextPane1.getSelectionStart();
+        
+        
+        StyledDocument doc = (StyledDocument) jTextPane1.getDocument();
+        Element element = doc.getCharacterElement(selectionStart);
+        AttributeSet as = element.getAttributes();
+        MutableAttributeSet asNew = new SimpleAttributeSet(as.copyAttributes());
+        StyleConstants.setUnderline(asNew, !StyleConstants.isUnderline(as));
+        doc.setCharacterAttributes(selectionStart, jTextPane1.getSelectedText().length(), asNew, true);
+    }//GEN-LAST:event_jButtonSubrayadoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -159,10 +222,9 @@ public class Editor extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JEditorPane jEditorPane1;
+    private javax.swing.JButton jButtonCursiva;
+    private javax.swing.JButton jButtonNegrita;
+    private javax.swing.JButton jButtonSubrayado;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
@@ -175,6 +237,7 @@ public class Editor extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTextPane jTextPane1;
     // End of variables declaration//GEN-END:variables
 }
