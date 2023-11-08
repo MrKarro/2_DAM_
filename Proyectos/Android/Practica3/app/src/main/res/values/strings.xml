@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Practica3</string>
+    <string name="titulo">Mis Películas</string>
+    <string name="titulo_peli">Los Vengadores</string>
+    <string name="sinopsis">Sinopsis</string>
+    <string name="sinop_venga">El dios asgardiano exiliado Loki se encuentra con El Otro, un líder de una raza extraterrestre conocida como los Chitauri. Llega a un trato con ellos; a cambio de recuperar el Teseracto, una fuente de poderosa energía de potencial desconocido, el Otro le promete a Loki un ejército con el que pueda subyugar a la Tierra.
+
+Nick Fury, director de la Agencia de espionaje S.H.I.E.L.D. y su teniente, la agente María Hill, llegan a un centro de investigación remoto donde se empieza una evacuación inmediata de las instalaciones y donde el físico Dr. Erik Selvig está liderando la investigación del Teseracto. Inesperadamente el cubo abre un agujero de gusano, permitiendo a Loki llegar a la tierra. Loki consigue robar el Teseracto y utiliza su cetro para lavar el cerebro a Selvig, a un par de agentes y a Clint Barton, quienes huyen con él.
+
+En respuesta al ataque, Fury decide reactivar la Iniciativa Vengadores. La agente Natasha Romanoff es contactada por Coulson, quien le informa que Barton ha sido secuestrado y la envía a Calcuta, India a reclutar al Dr. Bruce Banner para que los ayude a rastrear el Teseracto a través de sus emisiones de radiación gamma, mientras, Coulson visita a Anthony "Tony" Stark en la Torre Stark para entregarle una revisión de la investigación de Selvig y finalmente Fury le informa a Steve Rogers y le asigna la tarea de recuperar el Teseracto.</string>
+</resources>

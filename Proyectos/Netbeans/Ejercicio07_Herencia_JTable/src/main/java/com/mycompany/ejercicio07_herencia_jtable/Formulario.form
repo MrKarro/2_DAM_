@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JDialogFormInfo">
+  <Properties>
+    <Property name="defaultCloseOperation" type="int" value="2"/>
+    <Property name="title" type="java.lang.String" value="A&#xf1;adir empleado"/>
+  </Properties>
+  <SyntheticProperties>
+    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="true"/>
+  </SyntheticProperties>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
+                      <Component id="jLabelCodigo" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Component id="jLabelProyecto" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                      <Component id="jLabelNumHoras" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabelDescripcion" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabelPrecioHora" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabelNombre" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Component id="jLabelEmpleado" alignment="0" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="jTextFieldCodigo" max="32767" attributes="0"/>
+                  <Component id="jTextFieldDescripcion" max="32767" attributes="0"/>
+                  <Component id="jTextFieldNumHoras" max="32767" attributes="0"/>
+                  <Component id="jTextFieldNombre" max="32767" attributes="0"/>
+                  <Component id="jTextFieldPrecioHora" min="-2" pref="155" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="30" max="32767" attributes="0"/>
+              <Component id="jButtonEnviar" min="-2" pref="100" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jLabelProyecto" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabelCodigo" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jTextFieldCodigo" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabelDescripcion" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jTextFieldDescripcion" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabelNumHoras" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jTextFieldNumHoras" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                      <Component id="jLabelEmpleado" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabelNombre" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldNombre" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabelPrecioHora" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldPrecioHora" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="74" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="jButtonEnviar" min="-2" pref="100" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Component class="javax.swing.JLabel" name="jLabelProyecto">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI" size="14" style="3"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Proyecto:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabelCodigo">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="C&#xf3;digo:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabelDescripcion">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Descripci&#xf3;n:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabelNumHoras">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="N&#xfa;mero de horas:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="jTextFieldCodigo">
+    </Component>
+    <Component class="javax.swing.JTextField" name="jTextFieldDescripcion">
+    </Component>
+    <Component class="javax.swing.JTextField" name="jTextFieldNumHoras">
+      <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jTextFieldNumHorasFocusLost"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabelEmpleado">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI" size="14" style="3"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Empleado:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabelNombre">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Nombre:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabelPrecioHora">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Precio por hora:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="jTextFieldNombre">
+    </Component>
+    <Component class="javax.swing.JTextField" name="jTextFieldPrecioHora">
+      <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jTextFieldPrecioHoraFocusLost"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="jButtonEnviar">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonEnviarActionPerformed"/>
+      </Events>
+    </Component>
+  </SubComponents>
+</Form>

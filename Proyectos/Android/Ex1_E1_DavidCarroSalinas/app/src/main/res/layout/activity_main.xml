@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/cabecera"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="@string/mi_primer_examen"
+        android:background="@color/azul"
+        android:textColor="@color/white"
+        android:textSize="26sp"
+        android:textAlignment="center"
+        android:layout_marginTop="30dp"
+
+         />
+
+    <EditText
+        android:id="@+id/campo"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/seleccione_el_descuento"
+        android:inputType="numberDecimal"
+        android:layout_below="@id/cabecera"/>
+    <RadioGroup
+        android:id="@+id/grupo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_below="@id/campo">
+        
+        <RadioButton
+            android:id="@+id/rb5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/_5"/>
+        <RadioButton
+            android:id="@+id/rb10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/_10"/>
+        <RadioButton
+            android:id="@+id/rb20"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/_20"/>
+        
+        
+    </RadioGroup>
+    <Button
+        android:id="@+id/boton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/limpiar"
+        android:backgroundTint="@color/white"
+        android:textColor="@color/azul"
+        android:layout_alignRight="@id/grupo"
+        android:layout_below="@id/grupo"
+
+        />
+
+    <TextView
+        android:id="@+id/footer"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text=""
+        android:background="@color/azul"
+        android:textColor="@color/white"
+        android:textSize="26sp"
+        android:textAlignment="center"
+        android:layout_marginBottom="30dp"
+        android:layout_alignParentBottom="true"
+
+        />
+
+
+
+
+</RelativeLayout>

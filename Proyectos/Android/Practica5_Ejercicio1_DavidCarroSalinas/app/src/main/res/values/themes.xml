@@ -1,0 +1,18 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.Practica5_Ejercicio1_DavidCarroSalinas" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="android:buttonStyle">@style/boton</item>
+    </style>
+
+    <style name="Theme.Practica5_Ejercicio1_DavidCarroSalinas" parent="TextAppearance.AppCompat.Button" />
+    <style name="boton" parent="android:Widget.Button">
+        <item name="android:textColor">@color/gris</item>
+        <item name="android:textSize">24sp</item>
+        <item name="backgroundTint">@color/azul</item>
+        <item name="android:radius">5dp</item>
+        <item name="android:shadowRadius">@color/black</item>
+
+    </style>
+</resources>

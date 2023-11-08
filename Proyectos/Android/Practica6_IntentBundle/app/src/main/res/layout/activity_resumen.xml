@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ResumenActivity"
+    android:orientation="vertical">
+
+    <TextView
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/nombre"
+        tools:layout_editor_absoluteX="9dp"
+        tools:layout_editor_absoluteY="46dp" />
+
+    <TextView
+        android:id="@+id/textViewNombre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="" />
+
+    <TextView
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/apellidos" />
+
+    <TextView
+        android:id="@+id/textViewApellidos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="" />
+
+    <TextView
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/fecha_de_nacimiento" />
+
+    <TextView
+        android:id="@+id/textViewFecha"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="" />
+
+    <TextView
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/direcci_n" />
+
+    <TextView
+        android:id="@+id/textViewDireccion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="" />
+
+    <TextView
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/tel_fono" />
+
+    <TextView
+        android:id="@+id/textViewTelefono"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="" />
+</LinearLayout>

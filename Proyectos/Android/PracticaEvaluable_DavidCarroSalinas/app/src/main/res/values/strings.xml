@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">PracticaEvaluable_DavidCarroSalinas</string>
+    <string name="nombre">Nombre</string>
+    <string name="edad">Edad</string>
+    <string name="enviar">Enviar</string>
+    <string name="rosa">Rosa</string>
+    <string name="azul">Azul</string>
+    <string name="verde">Verde</string>
+    <string name="confirmar">Confirmar</string>
+
+</resources>

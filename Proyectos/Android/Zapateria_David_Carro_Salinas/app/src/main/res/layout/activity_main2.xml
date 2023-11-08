@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity2">
+
+    <Spinner
+        android:id="@+id/spTipos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="48dp"/>
+
+    <EditText
+        android:id="@+id/etDesc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Descripción"
+        android:minHeight="48dp"
+        android:maxLength="20"/>
+
+    <EditText
+        android:id="@+id/etNumero"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Número"
+        android:minHeight="48dp"
+        android:inputType="number"
+        android:maxLength="2"/>
+
+    <EditText
+        android:id="@+id/etCodigo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Codigo"
+        android:minHeight="48dp"
+        android:maxLength="6"/>
+
+    <Button
+        android:id="@+id/aceptar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Aceptar"/>
+
+</LinearLayout>

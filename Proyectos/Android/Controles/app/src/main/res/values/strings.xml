@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Controles</string>
+    <string-array name="provincias">
+        <item>Soria</item>
+        <item>Salamanca</item>
+        <item>Zamora</item>
+
+    </string-array>
+</resources>

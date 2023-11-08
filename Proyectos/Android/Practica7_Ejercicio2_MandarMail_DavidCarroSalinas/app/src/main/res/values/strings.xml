@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Practica7_Ejercicio2_DavidCarroSalinas</string>
+    <string name="destinatario">Destinatario:</string>
+    <string name="asunto_del_mail">Asunto del mail:</string>
+    <string name="cuerpo">Cuerpo del mail:</string>
+    <string name="chooser_title">Aplicación</string>
+</resources>

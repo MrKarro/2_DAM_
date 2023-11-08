@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Zapateria_David_Carro_Salinas</string>
+    <string name="no_hay_calzado_de_este_tipo">No hay calzado de este tipo</string>
+    <string name="volver">Volver</string>
+</resources>

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/blue"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+
+    <TextView
+        android:id="@+id/texto1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Primer número"
+        tools:layout_editor_absoluteX="36dp"
+        tools:layout_editor_absoluteY="155dp" />
+
+    <EditText
+        android:id="@+id/num1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="number"
+        tools:layout_editor_absoluteX="166dp"
+        tools:layout_editor_absoluteY="139dp" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="top" />
+
+    <TextView
+        android:id="@+id/texto2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Segundo número"
+        tools:layout_editor_absoluteX="36dp"
+        tools:layout_editor_absoluteY="232dp" />
+
+    <EditText
+        android:id="@+id/num2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="number"
+        tools:layout_editor_absoluteX="166dp"
+        tools:layout_editor_absoluteY="218dp" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="botSumar,botMultip,botDivid,botRestar" />
+
+    <Button
+        android:id="@+id/botSumar"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
+        android:text="Sumar"
+        tools:layout_editor_absoluteX="64dp"
+        tools:layout_editor_absoluteY="308dp" />
+
+    <Button
+        android:id="@+id/botRestar"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
+        android:text="Restar"
+        tools:layout_editor_absoluteX="64dp"
+        tools:layout_editor_absoluteY="358dp" />
+
+    <Button
+        android:id="@+id/botMultip"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
+        android:text="Multiplicar"
+        tools:layout_editor_absoluteX="64dp"
+        tools:layout_editor_absoluteY="408dp" />
+
+    <Button
+        android:id="@+id/botDivid"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
+        android:text="Dividir"
+        tools:layout_editor_absoluteX="64dp"
+        tools:layout_editor_absoluteY="458dp" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="3"/>
+
+
+</LinearLayout>

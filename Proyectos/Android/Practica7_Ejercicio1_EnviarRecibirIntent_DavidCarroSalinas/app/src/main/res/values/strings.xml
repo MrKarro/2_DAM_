@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Practica7_Ejercicio1_DavidCarroSalinas</string>
+    <string name="nombre_de_usuario">Nombre de usuario:</string>
+    <string name="avanzar">Avanzar</string>
+    <string name="confirme">Confirme su elección:</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="aceptar">Aceptar</string>
+    <string name="confirmar">Confirmar</string>
+    <string name="resultado">De acuerdo %s, usted ha %s la suscripción.</string>
+</resources>

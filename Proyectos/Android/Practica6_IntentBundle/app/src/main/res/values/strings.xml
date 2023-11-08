@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Practica6</string>
+    <string name="nombre">Nombre:</string>
+    <string name="apellidos">Apellidos:</string>
+    <string name="fecha_de_nacimiento">Fecha de nacimiento:</string>
+    <string name="direcci_n">Dirección:</string>
+    <string name="tel_fono">Teléfono:</string>
+</resources>

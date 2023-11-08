@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Mi Primera Aplicación, MiMédico</string>
+    <string name="hello_world">Hello World!</string>
+    <string name="bot_n">Botón</string>
+    <string name="elige">Elige</string>
+    <string name="creado">Creado por David Carro Salinas</string>
+</resources>

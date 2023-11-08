@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Practica11_B</string>
+    <string name="detalles">Detalles</string>
+    <string name="eliminar">Eliminar</string>
+    <string name="modificar">Modificar</string>
+    <string-array name="provincias">
+        <item>Salamanca</item>
+        <item>Ávila</item>
+        <item>Zamora</item>
+        <item>Valladolid</item>
+        <item>León</item>
+    </string-array>
+</resources>

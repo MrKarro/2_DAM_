@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Practica10_A</string>
+    <string name="ajustes">Ajustes</string>
+    <string name="configuraci_n">Configuración</string>
+    <string name="detalles">Detalles</string>
+    <string name="eliminar">Eliminar</string>
+</resources>

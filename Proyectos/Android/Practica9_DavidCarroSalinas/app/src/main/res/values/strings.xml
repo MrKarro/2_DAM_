@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Practica9_DavidCarroSalinas</string>
+    <string name="coches">Coches</string>
+    <string name="enviar">Enviar</string>
+    <string-array name="modeloAudi">
+        <item>A1</item>
+        <item>A3</item>
+        <item>A4</item>
+    </string-array>
+    <string-array name="modeloPeugeot">
+        <item>208</item>
+        <item>308</item>
+        <item>3008</item>
+    </string-array>
+    <string-array name="modeloSeat">
+        <item>Ibiza</item>
+        <item>León</item>
+    </string-array>
+
+</resources>
