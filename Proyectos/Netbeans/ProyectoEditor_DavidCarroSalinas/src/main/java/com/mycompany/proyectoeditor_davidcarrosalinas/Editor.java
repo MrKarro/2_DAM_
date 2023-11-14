@@ -6,13 +6,16 @@ package com.mycompany.proyectoeditor_davidcarrosalinas;
 
 
 
+import java.awt.Image;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 import javax.swing.text.AttributeSet;
 import javax.swing.text.Element;
 import javax.swing.text.MutableAttributeSet;
@@ -33,6 +36,8 @@ public class Editor extends javax.swing.JFrame {
     String buffer;
     public Editor() {
         initComponents();
+        
+        
         
     }
 
@@ -74,15 +79,21 @@ public class Editor extends javax.swing.JFrame {
         jMenuItemInstituto = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Editor de texto");
+        setResizable(false);
 
+        jButtonNegrita.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jButtonNegrita.setText("Negrita");
+        jButtonNegrita.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 0, 255)));
         jButtonNegrita.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonNegritaActionPerformed(evt);
             }
         });
 
+        jButtonCursiva.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
         jButtonCursiva.setText("Cursiva");
+        jButtonCursiva.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(255, 0, 51)));
         jButtonCursiva.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonCursivaActionPerformed(evt);
@@ -90,16 +101,23 @@ public class Editor extends javax.swing.JFrame {
         });
 
         jButtonSubrayado.setText("Subrayado");
+        jButtonSubrayado.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 255, 0)));
         jButtonSubrayado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonSubrayadoActionPerformed(evt);
             }
         });
 
+        jTextPane1.setBackground(new java.awt.Color(255, 255, 204));
+        jTextPane1.setContentType("rtf"); // NOI18N
         jScrollPane2.setViewportView(jTextPane1);
+
+        jMenuBar1.setBackground(new java.awt.Color(102, 102, 102));
+        jMenuBar1.setBorder(javax.swing.BorderFactory.createCompoundBorder(null, javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1)));
 
         jMenu1.setText("Archivo");
 
+        jMenuItemAbrir.setIcon(new ImageIcon("./imagenes/abrir.png"));
         jMenuItemAbrir.setText("Abrir archivo");
         jMenuItemAbrir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -108,6 +126,7 @@ public class Editor extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItemAbrir);
 
+        jMenuItemGuardar.setIcon(new ImageIcon("./imagenes/guardar.png"));
         jMenuItemGuardar.setText("Guardar archivo");
         jMenuItemGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -129,6 +148,7 @@ public class Editor extends javax.swing.JFrame {
 
         jMenu2.setText("Edicion");
 
+        jMenuItemCopiar.setIcon(new ImageIcon("./imagenes/copiar.png"));
         jMenuItemCopiar.setText("Copiar");
         jMenuItemCopiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -137,6 +157,7 @@ public class Editor extends javax.swing.JFrame {
         });
         jMenu2.add(jMenuItemCopiar);
 
+        jMenuItemCortar.setIcon(new ImageIcon("./imagenes/cortar.png"));
         jMenuItemCortar.setText("Cortar");
         jMenuItemCortar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -145,6 +166,7 @@ public class Editor extends javax.swing.JFrame {
         });
         jMenu2.add(jMenuItemCortar);
 
+        jMenuItemPegar.setIcon(new ImageIcon("./imagenes/pegar.png"));
         jMenuItemPegar.setText("Pegar");
         jMenuItemPegar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -214,12 +236,27 @@ public class Editor extends javax.swing.JFrame {
         jMenu5.setText("Opciones");
 
         jMenuItemSalir.setText("Salir del programa");
+        jMenuItemSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemSalirActionPerformed(evt);
+            }
+        });
         jMenu5.add(jMenuItemSalir);
 
         jMenuItemAutor.setText("Autor");
+        jMenuItemAutor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemAutorActionPerformed(evt);
+            }
+        });
         jMenu5.add(jMenuItemAutor);
 
         jMenuItemInstituto.setText("Instituto");
+        jMenuItemInstituto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemInstitutoActionPerformed(evt);
+            }
+        });
         jMenu5.add(jMenuItemInstituto);
 
         jMenuBar1.add(jMenu5);
@@ -230,29 +267,31 @@ public class Editor extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(41, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 597, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButtonNegrita)
-                        .addGap(90, 90, 90)
-                        .addComponent(jButtonCursiva)
-                        .addGap(94, 94, 94)
-                        .addComponent(jButtonSubrayado)))
-                .addGap(36, 36, 36))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 8, Short.MAX_VALUE)
+                        .addComponent(jButtonNegrita, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButtonCursiva, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButtonSubrayado, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 9, Short.MAX_VALUE))
+                    .addComponent(jScrollPane2))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(28, 28, 28)
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonNegrita)
                     .addComponent(jButtonCursiva)
                     .addComponent(jButtonSubrayado))
-                .addGap(46, 46, 46)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(44, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 299, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
@@ -396,18 +435,34 @@ public class Editor extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItemLimpiarActionPerformed
 
     private void jMenuItemCopiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCopiarActionPerformed
-        buffer = jTextPane1.getText().substring(jTextPane1.getSelectionStart(), jTextPane1.getSelectionEnd());
+        jTextPane1.copy();
     }//GEN-LAST:event_jMenuItemCopiarActionPerformed
 
     private void jMenuItemCortarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCortarActionPerformed
-        buffer = jTextPane1.getText().substring(jTextPane1.getSelectionStart(), jTextPane1.getSelectionEnd());
+        jTextPane1.cut();
         
         
     }//GEN-LAST:event_jMenuItemCortarActionPerformed
 
     private void jMenuItemPegarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemPegarActionPerformed
-        
+        jTextPane1.paste();
     }//GEN-LAST:event_jMenuItemPegarActionPerformed
+
+    private void jMenuItemSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemSalirActionPerformed
+        String mensaje = "Gracias por usar esta aplicación, vuelva pronto.";
+        JOptionPane.showMessageDialog(this, mensaje);
+        System.exit(0);
+    }//GEN-LAST:event_jMenuItemSalirActionPerformed
+
+    private void jMenuItemAutorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemAutorActionPerformed
+        String mensaje = "Esta aplicación ha sido creada por\nDavid Carro Salinas\nAlumno del Ciclo Superior de \nDesarrollo de Aplicaciones Multiplataforma";
+        JOptionPane.showMessageDialog(this, mensaje);
+    }//GEN-LAST:event_jMenuItemAutorActionPerformed
+
+    private void jMenuItemInstitutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemInstitutoActionPerformed
+        String mensaje = "I.E.S. Venancio Blanco\nC/Filipinas, 33, 37003\nSalamanca\nwww.iesvenancioblanco.es";
+        JOptionPane.showMessageDialog(this, mensaje);
+    }//GEN-LAST:event_jMenuItemInstitutoActionPerformed
 
     /**
      * @param args the command line arguments

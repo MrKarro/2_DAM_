@@ -31,6 +31,9 @@ public class Empleado {
         this.comision = comision;
         this.dept_no = dept_no;
     }
+    public Empleado(){
+        
+    }
 
     public int getEmp_no() {
         return emp_no;
