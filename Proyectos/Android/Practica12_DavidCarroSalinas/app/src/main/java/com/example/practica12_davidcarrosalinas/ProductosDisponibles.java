@@ -3,7 +3,7 @@ package com.example.practica12_davidcarrosalinas;
 import java.util.ArrayList;
 
 public class ProductosDisponibles {
-    public ArrayList<Producto> rellenar () {
+    public static ArrayList<Producto> rellenar () {
         ArrayList<Producto> array = new ArrayList<>();
 
         Producto o1 = new Producto("Pórtatil MSI", "msi", 1537.87, "MSI Raider GE73VR 7RF-258XES - Ordenador portátil de 17.3 FHD (Kabylake i7-7700HQ, RAM de 16 GB DDR4, HDD de 1 TB y SSD de 512 GB, Nvidia GeForce GTX 1070, sin Sistema operativo) Color Negro");

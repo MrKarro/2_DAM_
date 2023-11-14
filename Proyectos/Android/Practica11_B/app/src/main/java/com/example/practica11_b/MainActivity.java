@@ -55,8 +55,7 @@ public class MainActivity extends AppCompatActivity {
                                     if (posicion == -1){
                                         Toast.makeText(MainActivity.this, "No ha llegado entero", Toast.LENGTH_SHORT).show();
                                     }else {
-                                        usuarios.remove(posicion);
-                                        usuarios.add(posicion, u);
+                                        usuarios.set(posicion, u);
                                     }
 
                                 }

@@ -6,6 +6,13 @@ package com.mycompany.proyectoeditor_davidcarrosalinas;
 
 
 
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JFileChooser;
 import javax.swing.text.AttributeSet;
 import javax.swing.text.Element;
 import javax.swing.text.MutableAttributeSet;
@@ -22,6 +29,8 @@ public class Editor extends javax.swing.JFrame {
     /**
      * Creates new form Editor
      */
+    
+    String buffer;
     public Editor() {
         initComponents();
         
@@ -43,16 +52,26 @@ public class Editor extends javax.swing.JFrame {
         jTextPane1 = new javax.swing.JTextPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
+        jMenuItemAbrir = new javax.swing.JMenuItem();
+        jMenuItemGuardar = new javax.swing.JMenuItem();
+        jSeparator1 = new javax.swing.JPopupMenu.Separator();
+        jMenuItemLimpiar = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuItemCopiar = new javax.swing.JMenuItem();
+        jMenuItemCortar = new javax.swing.JMenuItem();
+        jMenuItemPegar = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
+        jMenuItemMonospaced = new javax.swing.JMenuItem();
+        jMenuItemSerif = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
+        jMenuItem14 = new javax.swing.JMenuItem();
+        jMenuItem18 = new javax.swing.JMenuItem();
+        jMenuItem20 = new javax.swing.JMenuItem();
+        jMenuItem26 = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
-        jMenuItem4 = new javax.swing.JMenuItem();
-        jMenuItem5 = new javax.swing.JMenuItem();
-        jMenuItem6 = new javax.swing.JMenuItem();
+        jMenuItemSalir = new javax.swing.JMenuItem();
+        jMenuItemAutor = new javax.swing.JMenuItem();
+        jMenuItemInstituto = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -80,37 +99,128 @@ public class Editor extends javax.swing.JFrame {
         jScrollPane2.setViewportView(jTextPane1);
 
         jMenu1.setText("Archivo");
+
+        jMenuItemAbrir.setText("Abrir archivo");
+        jMenuItemAbrir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemAbrirActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItemAbrir);
+
+        jMenuItemGuardar.setText("Guardar archivo");
+        jMenuItemGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemGuardarActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItemGuardar);
+        jMenu1.add(jSeparator1);
+
+        jMenuItemLimpiar.setText("Limpiar texto");
+        jMenuItemLimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemLimpiarActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItemLimpiar);
+
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Edicion");
 
-        jMenuItem1.setText("Copiar");
-        jMenu2.add(jMenuItem1);
+        jMenuItemCopiar.setText("Copiar");
+        jMenuItemCopiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemCopiarActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItemCopiar);
 
-        jMenuItem2.setText("Cortar");
-        jMenu2.add(jMenuItem2);
+        jMenuItemCortar.setText("Cortar");
+        jMenuItemCortar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemCortarActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItemCortar);
 
-        jMenuItem3.setText("Pegar");
-        jMenu2.add(jMenuItem3);
+        jMenuItemPegar.setText("Pegar");
+        jMenuItemPegar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemPegarActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItemPegar);
 
         jMenuBar1.add(jMenu2);
 
         jMenu3.setText("Fuente");
+
+        jMenuItemMonospaced.setText("Monospaced");
+        jMenuItemMonospaced.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemMonospacedActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuItemMonospaced);
+
+        jMenuItemSerif.setText("Serif");
+        jMenuItemSerif.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemSerifActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuItemSerif);
+
         jMenuBar1.add(jMenu3);
 
         jMenu4.setText("Tamaño");
+
+        jMenuItem14.setText("14");
+        jMenuItem14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem14ActionPerformed(evt);
+            }
+        });
+        jMenu4.add(jMenuItem14);
+
+        jMenuItem18.setText("18");
+        jMenuItem18.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem18ActionPerformed(evt);
+            }
+        });
+        jMenu4.add(jMenuItem18);
+
+        jMenuItem20.setText("20");
+        jMenuItem20.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem20ActionPerformed(evt);
+            }
+        });
+        jMenu4.add(jMenuItem20);
+
+        jMenuItem26.setText("26");
+        jMenuItem26.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem26ActionPerformed(evt);
+            }
+        });
+        jMenu4.add(jMenuItem26);
+
         jMenuBar1.add(jMenu4);
 
         jMenu5.setText("Opciones");
 
-        jMenuItem4.setText("Salir del programa");
-        jMenu5.add(jMenuItem4);
+        jMenuItemSalir.setText("Salir del programa");
+        jMenu5.add(jMenuItemSalir);
 
-        jMenuItem5.setText("Autor");
-        jMenu5.add(jMenuItem5);
+        jMenuItemAutor.setText("Autor");
+        jMenu5.add(jMenuItemAutor);
 
-        jMenuItem6.setText("Instituto");
-        jMenu5.add(jMenuItem6);
+        jMenuItemInstituto.setText("Instituto");
+        jMenu5.add(jMenuItemInstituto);
 
         jMenuBar1.add(jMenu5);
 
@@ -159,13 +269,11 @@ public class Editor extends javax.swing.JFrame {
         MutableAttributeSet asNew = new SimpleAttributeSet(as.copyAttributes());
         StyleConstants.setBold(asNew, !StyleConstants.isBold(as));
         doc.setCharacterAttributes(selectionStart, jTextPane1.getSelectedText().length(), asNew, true);
-        //estilo_seleccionado = doc.getFont(as).getStyle();
+        
     }//GEN-LAST:event_jButtonNegritaActionPerformed
 
     private void jButtonCursivaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCursivaActionPerformed
         int selectionStart = jTextPane1.getSelectionStart();
-        
-        
         StyledDocument doc = (StyledDocument) jTextPane1.getDocument();
         Element element = doc.getCharacterElement(selectionStart);
         AttributeSet as = element.getAttributes();
@@ -185,6 +293,121 @@ public class Editor extends javax.swing.JFrame {
         StyleConstants.setUnderline(asNew, !StyleConstants.isUnderline(as));
         doc.setCharacterAttributes(selectionStart, jTextPane1.getSelectedText().length(), asNew, true);
     }//GEN-LAST:event_jButtonSubrayadoActionPerformed
+
+    private void jMenuItem14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem14ActionPerformed
+        int selectionStart = jTextPane1.getSelectionStart();
+        StyledDocument doc = (StyledDocument) jTextPane1.getDocument();
+        Element element = doc.getCharacterElement(selectionStart);
+        AttributeSet as = element.getAttributes();
+        MutableAttributeSet asNew = new SimpleAttributeSet(as.copyAttributes());
+        StyleConstants.setFontSize(asNew, 14);
+        doc.setCharacterAttributes(selectionStart, jTextPane1.getSelectedText().length(), asNew, true);
+    }//GEN-LAST:event_jMenuItem14ActionPerformed
+
+    private void jMenuItem18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem18ActionPerformed
+        int selectionStart = jTextPane1.getSelectionStart();
+        StyledDocument doc = (StyledDocument) jTextPane1.getDocument();
+        Element element = doc.getCharacterElement(selectionStart);
+        AttributeSet as = element.getAttributes();
+        MutableAttributeSet asNew = new SimpleAttributeSet(as.copyAttributes());
+        StyleConstants.setFontSize(asNew, 18);
+        doc.setCharacterAttributes(selectionStart, jTextPane1.getSelectedText().length(), asNew, true);
+    }//GEN-LAST:event_jMenuItem18ActionPerformed
+
+    private void jMenuItem20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem20ActionPerformed
+        int selectionStart = jTextPane1.getSelectionStart();
+        StyledDocument doc = (StyledDocument) jTextPane1.getDocument();
+        Element element = doc.getCharacterElement(selectionStart);
+        AttributeSet as = element.getAttributes();
+        MutableAttributeSet asNew = new SimpleAttributeSet(as.copyAttributes());
+        StyleConstants.setFontSize(asNew, 20);
+        doc.setCharacterAttributes(selectionStart, jTextPane1.getSelectedText().length(), asNew, true);
+    }//GEN-LAST:event_jMenuItem20ActionPerformed
+
+    private void jMenuItem26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem26ActionPerformed
+        int selectionStart = jTextPane1.getSelectionStart();
+        StyledDocument doc = (StyledDocument) jTextPane1.getDocument();
+        Element element = doc.getCharacterElement(selectionStart);
+        AttributeSet as = element.getAttributes();
+        MutableAttributeSet asNew = new SimpleAttributeSet(as.copyAttributes());
+        StyleConstants.setFontSize(asNew, 26);
+        doc.setCharacterAttributes(selectionStart, jTextPane1.getSelectedText().length(), asNew, true);
+    }//GEN-LAST:event_jMenuItem26ActionPerformed
+
+    private void jMenuItemMonospacedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemMonospacedActionPerformed
+        int selectionStart = jTextPane1.getSelectionStart();
+        StyledDocument doc = (StyledDocument) jTextPane1.getDocument();
+        Element element = doc.getCharacterElement(selectionStart);
+        AttributeSet as = element.getAttributes();
+        MutableAttributeSet asNew = new SimpleAttributeSet(as.copyAttributes());
+        StyleConstants.setFontFamily(asNew, "monospaced");
+        doc.setCharacterAttributes(selectionStart, jTextPane1.getSelectedText().length(), asNew, true);
+    }//GEN-LAST:event_jMenuItemMonospacedActionPerformed
+
+    private void jMenuItemSerifActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemSerifActionPerformed
+        int selectionStart = jTextPane1.getSelectionStart();
+        StyledDocument doc = (StyledDocument) jTextPane1.getDocument();
+        Element element = doc.getCharacterElement(selectionStart);
+        AttributeSet as = element.getAttributes();
+        MutableAttributeSet asNew = new SimpleAttributeSet(as.copyAttributes());
+        StyleConstants.setFontFamily(asNew, "serif");
+        doc.setCharacterAttributes(selectionStart, jTextPane1.getSelectedText().length(), asNew, true);
+    }//GEN-LAST:event_jMenuItemSerifActionPerformed
+
+    private void jMenuItemAbrirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemAbrirActionPerformed
+        JFileChooser fc = new JFileChooser();
+        
+        int i = fc.showOpenDialog(this);
+        
+        if (i == JFileChooser.APPROVE_OPTION){
+            File f = fc.getSelectedFile();
+            try (FileReader lector = new FileReader(f)){
+                String cadena ="";
+                int valor = lector.read();
+                while (valor != -1){
+                    cadena += (char)valor;
+                    valor = lector.read();
+                }
+                jTextPane1.setText(cadena);
+                lector.close();
+            } catch (IOException ex) {
+                Logger.getLogger(Editor.class.getName()).log(Level.SEVERE, null, ex);
+            } 
+        }
+    }//GEN-LAST:event_jMenuItemAbrirActionPerformed
+
+    private void jMenuItemGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemGuardarActionPerformed
+        JFileChooser fc = new JFileChooser();
+        
+        int i = fc.showOpenDialog(this);
+        if (i == JFileChooser.APPROVE_OPTION) {
+            
+            File f = fc.getSelectedFile();
+            try (FileWriter fw = new FileWriter(f)){
+                fw.write(jTextPane1.getText());
+            } catch (IOException ex) {
+                Logger.getLogger(Editor.class.getName()).log(Level.SEVERE, null, ex);
+            } 
+        }
+    }//GEN-LAST:event_jMenuItemGuardarActionPerformed
+
+    private void jMenuItemLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemLimpiarActionPerformed
+        jTextPane1.setText("");
+    }//GEN-LAST:event_jMenuItemLimpiarActionPerformed
+
+    private void jMenuItemCopiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCopiarActionPerformed
+        buffer = jTextPane1.getText().substring(jTextPane1.getSelectionStart(), jTextPane1.getSelectionEnd());
+    }//GEN-LAST:event_jMenuItemCopiarActionPerformed
+
+    private void jMenuItemCortarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCortarActionPerformed
+        buffer = jTextPane1.getText().substring(jTextPane1.getSelectionStart(), jTextPane1.getSelectionEnd());
+        
+        
+    }//GEN-LAST:event_jMenuItemCortarActionPerformed
+
+    private void jMenuItemPegarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemPegarActionPerformed
+        
+    }//GEN-LAST:event_jMenuItemPegarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -231,13 +454,23 @@ public class Editor extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JMenuItem jMenuItem14;
+    private javax.swing.JMenuItem jMenuItem18;
+    private javax.swing.JMenuItem jMenuItem20;
+    private javax.swing.JMenuItem jMenuItem26;
+    private javax.swing.JMenuItem jMenuItemAbrir;
+    private javax.swing.JMenuItem jMenuItemAutor;
+    private javax.swing.JMenuItem jMenuItemCopiar;
+    private javax.swing.JMenuItem jMenuItemCortar;
+    private javax.swing.JMenuItem jMenuItemGuardar;
+    private javax.swing.JMenuItem jMenuItemInstituto;
+    private javax.swing.JMenuItem jMenuItemLimpiar;
+    private javax.swing.JMenuItem jMenuItemMonospaced;
+    private javax.swing.JMenuItem jMenuItemPegar;
+    private javax.swing.JMenuItem jMenuItemSalir;
+    private javax.swing.JMenuItem jMenuItemSerif;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JTextPane jTextPane1;
     // End of variables declaration//GEN-END:variables
 }

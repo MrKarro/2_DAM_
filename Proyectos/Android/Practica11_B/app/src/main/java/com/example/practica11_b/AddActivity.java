@@ -47,6 +47,9 @@ public class AddActivity extends AppCompatActivity implements View.OnClickListen
             edad.setText(String.valueOf(u.getEdad()));
             dni.setText(u.getDni());
             telefono.setText(u.getTelefono());
+            provincia.setSelection(adaptador.getPosition(u.getProvincia()));
+
+            /*
             if (u.getProvincia().equals("Salamanca")){
                 provincia.setSelection(0);
             } else if (u.getProvincia().equals("Ávila")) {
@@ -58,6 +61,8 @@ public class AddActivity extends AppCompatActivity implements View.OnClickListen
             } else if (u.getProvincia().equals("León")) {
                 provincia.setSelection(4);
             }
+            */
+
 
         }
 
@@ -65,6 +70,8 @@ public class AddActivity extends AppCompatActivity implements View.OnClickListen
 
     @Override
     public void onClick(View view) {
+
+
         String nom = nombre.getText().toString();
         String apell = apellidos.getText().toString();
         int ed = Integer.parseInt(edad.getText().toString());
@@ -72,15 +79,13 @@ public class AddActivity extends AppCompatActivity implements View.OnClickListen
         String telef = telefono.getText().toString();
         String prov = provincia.getSelectedItem().toString();
 
+        Usuario u = new Usuario(nom, apell, ed, dniOk, telef, prov);
+        Intent intent = new Intent();
         if (!recibido) {
-            Usuario u = new Usuario(nom, apell, ed, dniOk, telef, prov);
-            Intent intent = new Intent();
             intent.putExtra("nuevo", u);
             setResult(RESULT_OK, intent);
             finish();
         } else {
-            Usuario u = new Usuario(nom, apell, ed, dniOk, telef, prov);
-            Intent intent = new Intent();
             intent.putExtra("posicion", getIntent().getIntExtra("posicion", -1));
             intent.putExtra("modificado", u);
             setResult(RESULT_OK, intent);
