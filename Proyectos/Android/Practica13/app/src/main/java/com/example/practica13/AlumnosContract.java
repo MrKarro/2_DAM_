@@ -8,5 +8,6 @@ public class AlumnosContract implements BaseColumns {
     public static final String NOMBRE = "Nombre";
     public static final String APELLIDOS = "Apellidos";
     public static final String EDAD = "Edad";
+    public static final String TELEFONO = "Telefono";
 
 }

@@ -12,10 +12,9 @@ public class SQLHelper extends SQLiteOpenHelper {
     final String BBDD = "Alumnos.db";
 
     public SQLHelper(@Nullable Context context) {
-
-
         super(context, "Alumnos.db", null, 1);
     }
+
 
     @Override
     public void onCreate(SQLiteDatabase db) {
@@ -29,8 +28,8 @@ public class SQLHelper extends SQLiteOpenHelper {
     }
 
     @Override
-    public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
-
+    public void onUpgrade(SQLiteDatabase db, int i, int i1) {
+        db.execSQL("ALTER TABLE " + AlumnosContract.TABLE_NAME + " ADD COLUMN " + AlumnosContract.TELEFONO + " text ");
     }
 
     public long insertarAlumno(Alumno a){

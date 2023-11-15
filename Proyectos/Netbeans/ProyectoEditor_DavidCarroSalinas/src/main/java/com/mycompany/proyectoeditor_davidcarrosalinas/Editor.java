@@ -109,7 +109,7 @@ public class Editor extends javax.swing.JFrame {
         });
 
         jTextPane1.setBackground(new java.awt.Color(255, 255, 204));
-        jTextPane1.setContentType("rtf"); // NOI18N
+        jTextPane1.setContentType("text/html"); // NOI18N
         jScrollPane2.setViewportView(jTextPane1);
 
         jMenuBar1.setBackground(new java.awt.Color(102, 102, 102));
@@ -295,6 +295,7 @@ public class Editor extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonNegritaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNegritaActionPerformed

@@ -7,11 +7,22 @@ public class Alumno {
     private String apellidos;
     private int edad;
 
+    private String telefono;
+
     public Alumno(String dni, String nombre, String apellidos, int edad) {
         this.dni = dni;
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.edad = edad;
+        this.telefono = "";
+    }
+
+    public Alumno(String dni, String nombre, String apellidos, int edad, String telefono) {
+        this.dni = dni;
+        this.nombre = nombre;
+        this.apellidos = apellidos;
+        this.edad = edad;
+        this.telefono = telefono;
     }
 
     @Override
@@ -21,6 +32,7 @@ public class Alumno {
                 ", nombre='" + nombre + '\'' +
                 ", apellidos='" + apellidos + '\'' +
                 ", edad=" + edad +
+                ", telefono='" + telefono + '\'' +
                 '}';
     }
 
@@ -54,5 +66,13 @@ public class Alumno {
 
     public void setEdad(int edad) {
         this.edad = edad;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
     }
 }
