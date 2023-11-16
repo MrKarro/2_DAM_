@@ -28,7 +28,6 @@ for turno in range(9):
     if tablero[fila][columna] == '-':
         tablero[fila][columna] = jugador_actual
         
-        # Mostrar el tablero actualizado
         mostrarTablero(tablero)
         
         # Verificar si hay un ganador

@@ -29,6 +29,7 @@ public class SQLHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
+
         db.execSQL("ALTER TABLE " + AlumnosContract.TABLE_NAME + " ADD COLUMN " + AlumnosContract.TELEFONO + " text ");
     }
 
