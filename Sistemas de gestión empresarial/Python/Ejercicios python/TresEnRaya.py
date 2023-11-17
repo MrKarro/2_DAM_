@@ -1,6 +1,9 @@
 def mostrarTablero(tablero):
     for fila in tablero:
-        print("|".join(fila))
+        print('|', end='')
+        for columna in fila:
+            print(columna, '|', end='')
+        print()
 
 def comprobarGanador(tablero, jugador_actual):
     if (tablero[0][0] == tablero[1][1] == tablero[2][2] == jugador_actual or

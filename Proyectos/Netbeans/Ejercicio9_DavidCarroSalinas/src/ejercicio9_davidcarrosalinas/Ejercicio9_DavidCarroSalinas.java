@@ -4,7 +4,7 @@
  */
 package ejercicio9_davidcarrosalinas;
 
-import com.mysql.cj.jdbc.PreparedStatementWrapper;
+
 
 import java.sql.*;
 import java.time.LocalDate;
@@ -121,10 +121,7 @@ public class Ejercicio9_DavidCarroSalinas {
     
     public static void creaTablaDpto() throws SQLException{
         int fil = st.executeUpdate("CREATE TABLE departamentos ( dept_no int primary key, dnombre VARCHAR(15), loc VARCHAR(15));");
-        if (fil != 0)
-            System.out.println("Se han modificado " + fil + " filas.");
-        else
-            System.out.println("No se ha podido crear.");
+        
     }
     public static void borraTablaDpto() throws SQLException{
         int fil = st.executeUpdate("DROP TABLE departamentos;");
@@ -146,10 +143,7 @@ public class Ejercicio9_DavidCarroSalinas {
                                 "    dept_no int, \n" +
                                 "    foreign key (dept_no) references departamentos (dept_no)\n" +
                                 ");");
-        if (fil != 0)
-            System.out.println("Se han modificado " + fil + " filas.");
-        else
-            System.out.println("No se ha podido crear.");
+        
     }
     
     public static void borraTablaEmp() throws SQLException{
@@ -167,9 +161,9 @@ public class Ejercicio9_DavidCarroSalinas {
             return;
         } else {
         
-            String sentencia = "INSERT INTO departamentos VALUES (?, ?, ?)";
-            PreparedStatement ps = connection.prepareStatement(sentencia, datos);
-            int fil = ps.executeUpdate();
+            String sentencia = "INSERT INTO departamentos VALUES (" + datos[0] + ", " + datos[1] + ", " + datos[2] + " )";
+            
+            int fil = st.executeUpdate(sentencia);
             if (fil != 0)
                 System.out.println("Se han modificado " + fil + " filas.");
             else
@@ -215,9 +209,8 @@ public class Ejercicio9_DavidCarroSalinas {
             return;
         } else {
         
-            String sentencia = "INSERT INTO empleados VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-            PreparedStatement ps = connection.prepareStatement(sentencia, datos);
-            int fil = ps.executeUpdate();
+            String sentencia = "INSERT INTO empleados VALUES (" + datos[0] + ", " + datos[1] + ", "  + datos[2] + ", " + datos[3] + ", " + datos[4] + ", " + datos[5] + ", " + datos[6] + ", " + datos[7] + " )";
+            int fil = st.executeUpdate(sentencia);
             if (fil != 0)
                 System.out.println("Se han modificado " + fil + " filas.");
             else
@@ -247,7 +240,7 @@ public class Ejercicio9_DavidCarroSalinas {
         datos[2] = String.valueOf(teclado.nextInt());
         
         datos[3] = LocalDate.now().toString();
-        System.out.println("Introduce salario de departamento:");
+        System.out.println("Introduce salario de empleado:");
         datos[4] = String.valueOf(teclado.nextInt());
         System.out.println("Introduce comisión de empleado: ");
         datos[5] = String.valueOf(teclado.nextInt());
