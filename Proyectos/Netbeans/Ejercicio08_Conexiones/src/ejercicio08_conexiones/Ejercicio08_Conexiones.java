@@ -28,9 +28,6 @@ public class Ejercicio08_Conexiones {
         do{
         
             try {
-                
-
-
                 elec = muestraMenu();
                 switch (elec) {
                     case 1:
@@ -57,7 +54,11 @@ public class Ejercicio08_Conexiones {
         
         }while (elec != 5);
         
-        
+        try {
+            muestraMetadata();
+        } catch (SQLException ex) {
+            Logger.getLogger(Ejercicio08_Conexiones.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
         
     }
@@ -122,11 +123,11 @@ public class Ejercicio08_Conexiones {
         for (String tabla : lista){
             columnas= dbmd.getColumns(null, "prueba", tabla , null);
             while (columnas.next()){
-                String name= columnas.getString("TABLE_NAME"); //getString(3);
-                String nombreCol= columnas.getString("COLUMN_NAME"); //getString(4);
-                String tipoCol= columnas.getString("TYPE_NAME"); //getString(6);
-                String tamCol= columnas.getString("COLUMN_SIZE"); //getString(7);
-                String nula= columnas.getString("IS_NULLABLE"); //getString(18);
+                String name= columnas.getString("TABLE_NAME"); 
+                String nombreCol= columnas.getString("COLUMN_NAME"); 
+                String tipoCol= columnas.getString("TYPE_NAME"); 
+                String tamCol= columnas.getString("COLUMN_SIZE"); 
+                String nula= columnas.getString("IS_NULLABLE"); 
                 System.out.println("Tabla: "+name+" Columna: "+nombreCol+", Tipo: "+ 
                 tipoCol + ", Tamaño: "+tamCol+", ¿Es nula?: "+ nula);
             }
