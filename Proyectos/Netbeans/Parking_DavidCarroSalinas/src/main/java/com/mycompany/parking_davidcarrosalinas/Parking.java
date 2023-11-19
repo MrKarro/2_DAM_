@@ -4,6 +4,9 @@
  */
 package com.mycompany.parking_davidcarrosalinas;
 
+import java.awt.*;
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author 6002755
@@ -15,6 +18,9 @@ public class Parking extends javax.swing.JFrame {
      */
     public Parking() {
         initComponents();
+        Image img = new ImageIcon("./imagenes/logo.png").getImage();
+        ImageIcon img2 = new ImageIcon(img.getScaledInstance(100, 100, Image.SCALE_SMOOTH));
+        jLabelLogo.setIcon(img2);
     }
 
     /**
@@ -30,13 +36,19 @@ public class Parking extends javax.swing.JFrame {
         jTextFieldMatricula = new javax.swing.JTextField();
         jLabelMatricula = new javax.swing.JLabel();
         jButtonConfirmar = new javax.swing.JButton();
+        jLabelLogo = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jComboBoxTipo = new javax.swing.JComboBox<>();
         jLabelVehiculo = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(0, 102, 204));
+        jPanel1.setBackground(new java.awt.Color(77, 178, 199));
 
         jLabelMatricula.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabelMatricula.setForeground(new java.awt.Color(0, 0, 0));
@@ -44,19 +56,23 @@ public class Parking extends javax.swing.JFrame {
 
         jButtonConfirmar.setText("Confirmar");
 
+        jLabelLogo.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(25, 25, 25)
+                .addContainerGap()
+                .addComponent(jLabelLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabelMatricula)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jTextFieldMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jButtonConfirmar)))
-                .addContainerGap(372, Short.MAX_VALUE))
+                .addContainerGap(285, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -67,10 +83,14 @@ public class Parking extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextFieldMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonConfirmar))
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap(38, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabelLogo, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
-        jPanel2.setBackground(new java.awt.Color(0, 204, 204));
+        jPanel2.setBackground(new java.awt.Color(137, 210, 210));
 
         jComboBoxTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Coche", "Moto", "Furgoneta" }));
 
@@ -95,8 +115,23 @@ public class Parking extends javax.swing.JFrame {
                 .addComponent(jLabelVehiculo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jComboBoxTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(236, Short.MAX_VALUE))
+                .addContainerGap(213, Short.MAX_VALUE))
         );
+
+        jMenu1.setText("Consultar");
+
+        jMenuItem1.setText("Coches dentro");
+        jMenu1.add(jMenuItem1);
+
+        jMenuItem2.setText("Coches fuera");
+        jMenu1.add(jMenuItem2);
+
+        jMenuBar1.add(jMenu1);
+
+        jMenu2.setText("Edit");
+        jMenuBar1.add(jMenu2);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -154,8 +189,14 @@ public class Parking extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonConfirmar;
     private javax.swing.JComboBox<String> jComboBoxTipo;
+    private javax.swing.JLabel jLabelLogo;
     private javax.swing.JLabel jLabelMatricula;
     private javax.swing.JLabel jLabelVehiculo;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField jTextFieldMatricula;
