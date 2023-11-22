@@ -9,7 +9,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0f30c5aa-137d-4be8-b6dc-3c366b7962e9" name="Changes" comment="" />
+    <list default="true" id="3af33405-fb9b-405e-9c49-6d9136bfa970" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -62,9 +62,6 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="layoutResourceFile" />
-        <option value="layoutResourceFile_vertical" />
-        <option value="resourceFile" />
         <option value="Class" />
       </list>
     </option>
@@ -75,7 +72,7 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="2YRndh3g2bKO2IoWjJrFLa9jDl1" />
+  <component name="ProjectId" id="2YUQq8iFpah5WvEP5jURNvueQLq" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -89,15 +86,6 @@
     "last_opened_file_path": "C:/Users/6002755/Desktop/2_DAM/2_DAM/Proyectos/Android/PracticaEV_DavidCarro_Salinas"
   }
 }]]></component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\6002755\Desktop\2_DAM\2_DAM\Proyectos\Android\PracticaEV_DavidCarro_Salinas\app\src\main\res\layout" />
-      <recent name="C:\Users\6002755\Desktop\2_DAM\2_DAM\Proyectos\Android\PracticaEV_DavidCarro_Salinas\app\src\main\java\com\example\practicaev_davidcarro_salinas" />
-    </key>
-    <key name="android.template.-1837094872">
-      <recent name="com.example.practicaev_davidcarro_salinas" />
-    </key>
-  </component>
   <component name="RunManager">
     <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App">
       <module name="PracticaEV_DavidCarro_Salinas.app.main" />
@@ -169,11 +157,11 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="0f30c5aa-137d-4be8-b6dc-3c366b7962e9" name="Changes" comment="" />
-      <created>1700497348520</created>
+      <changelist id="3af33405-fb9b-405e-9c49-6d9136bfa970" name="Changes" comment="" />
+      <created>1700577869198</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1700497348520</updated>
+      <updated>1700577869198</updated>
     </task>
     <servers />
   </component>

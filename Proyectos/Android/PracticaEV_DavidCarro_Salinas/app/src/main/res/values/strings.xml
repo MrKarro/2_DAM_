@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">PracticaEV_DavidCarro_Salinas</string>
+    <string name="la_categor_a_no_puede_ser_todos">La categoría no puede ser Todos</string>
+    <string name="todos_los_campos_deben_estar_rellenos">Todos los campos deben estar rellenos.</string>
+    <string name="no_se_puede_mostrar">No se puede mostrar si hay filtro.</string>
+    <string-array name="categorias">
+        <item>Todos</item>
+        <item>Thriller</item>
+        <item>Romántica</item>
+        <item>Fantasía</item>
+        <item>Histórica</item>
+        <item>Ciencia Ficción</item>
+        <item>Aventura</item>
+        <item>Terror</item>
+    </string-array>
+</resources>
