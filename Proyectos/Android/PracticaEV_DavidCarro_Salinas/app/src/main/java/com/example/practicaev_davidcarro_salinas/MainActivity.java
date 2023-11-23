@@ -109,6 +109,12 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     }
 
     @Override
+    protected void onResume() {
+        categoria.setSelection(0);
+        super.onResume();
+    }
+
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_opciones, menu);
@@ -137,6 +143,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             libros = Biblioteca.rellenar();
             AdaptadorPersonalizado adap = new AdaptadorPersonalizado(this, libros);
             lista.setAdapter(adap);
+
+        } else if (item.getItemId() == R.id.prueba1){
+            Toast.makeText(this, "Prueba", Toast.LENGTH_SHORT).show();
 
         }
 

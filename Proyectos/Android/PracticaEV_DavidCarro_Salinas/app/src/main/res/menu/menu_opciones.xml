@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:id="@+id/anadir" android:title="Añadir"></item>
-    <item android:id="@+id/actualizar" android:title="Actualizar stock"></item>
+    <item android:id="@+id/actualizar" android:title="Actualizar stock">
+        <menu>
+            <item android:id="@+id/prueba1" android:title="prueba1"></item>
+
+
+        </menu>
+
+
+
+    </item>
+
 
 </menu>
