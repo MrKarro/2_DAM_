@@ -1,0 +1,11 @@
+primero		Sistemas operativos monopuesto
+primero		Aplicaciones ofimáticas
+primero		Redes locales
+primero		Aplicaciones web
+primero		Formación y orientación laboral
+segundo		Montaje y mantenimiento de equipos
+segundo		Sistemas operativos en red
+segundo		Seguridad informática
+segundo		Servicios en red
+segundo		Empresa e iniciativa emprendedora
+segundo		Formación en centros de trabajo

@@ -1,0 +1,14 @@
+create database examen;
+
+create table ciclo (
+	nombre_corto varchar(10) primary key,
+    nombre_largo varchar(50),
+    grado varchar(20),
+    horas integer );
+    
+create table modulo (
+	nombre varchar(50) primary key,
+    curso varchar(10),
+    id_ciclo varchar(10) 
+);
+    

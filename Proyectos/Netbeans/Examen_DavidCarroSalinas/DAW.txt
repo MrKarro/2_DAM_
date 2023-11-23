@@ -1,0 +1,15 @@
+primero		Sistemas informáticos
+primero		Bases de datos
+primero		Programación
+primero		
+                    Lenguajes de marcas y sistemas de gestión de información
+                
+primero		Entornos de desarrollo
+primero		Formación y orientación laboral
+segundo		Desarrollo web en entorno cliente
+segundo		Desarrollo web en entorno servidor
+segundo		Despliegue de aplicaciones web
+segundo		Diseño de interfaces web
+segundo		Proyecto de desarrollo aplicaciones web
+segundo		Empresa e iniciativa emprendedora
+segundo		Formación en centros de trabajo

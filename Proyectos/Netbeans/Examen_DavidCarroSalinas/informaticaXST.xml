@@ -1,0 +1,256 @@
+<InformaticaXS>
+  <ciclos>
+    <CicloXS>
+      <nombreCorto>SMR</nombreCorto>
+      <nombreLargo>Sistemas Microinformáticos y Redes</nombreLargo>
+      <grado>Medio</grado>
+      <horas>2000</horas>
+      <modulos>
+        <ModuloXS>
+          <nombre>Sistemas operativos monopuesto</nombre>
+          <curso>primero</curso>
+        </ModuloXS>
+        <ModuloXS>
+          <nombre>Aplicaciones ofimáticas</nombre>
+          <curso>primero</curso>
+        </ModuloXS>
+        <ModuloXS>
+          <nombre>Redes locales</nombre>
+          <curso>primero</curso>
+        </ModuloXS>
+        <ModuloXS>
+          <nombre>Aplicaciones web</nombre>
+          <curso>primero</curso>
+        </ModuloXS>
+        <ModuloXS>
+          <nombre>Formación y orientación laboral</nombre>
+          <curso>primero</curso>
+        </ModuloXS>
+        <ModuloXS>
+          <nombre>Montaje y mantenimiento de equipos</nombre>
+          <curso>segundo</curso>
+        </ModuloXS>
+        <ModuloXS>
+          <nombre>Sistemas operativos en red</nombre>
+          <curso>segundo</curso>
+        </ModuloXS>
+        <ModuloXS>
+          <nombre>Seguridad informática</nombre>
+          <curso>segundo</curso>
+        </ModuloXS>
+        <ModuloXS>
+          <nombre>Servicios en red</nombre>
+          <curso>segundo</curso>
+        </ModuloXS>
+        <ModuloXS>
+          <nombre>Empresa e iniciativa emprendedora</nombre>
+          <curso>segundo</curso>
+        </ModuloXS>
+        <ModuloXS>
+          <nombre>Formación en centros de trabajo</nombre>
+          <curso>segundo</curso>
+        </ModuloXS>
+      </modulos>
+    </CicloXS>
+    <CicloXS>
+      <nombreCorto>ASIR</nombreCorto>
+      <nombreLargo>Administración de sistemas informáticos en red</nombreLargo>
+      <grado>Superior</grado>
+      <horas>2000</horas>
+      <modulos>
+        <ModuloXS>
+          <nombre>Implantación de sistemas operativos</nombre>
+          <curso>primero</curso>
+        </ModuloXS>
+        <ModuloXS>
+          <nombre>Planificación y administración de redes</nombre>
+          <curso>primero</curso>
+        </ModuloXS>
+        <ModuloXS>
+          <nombre>Fundamentos de hardware</nombre>
+          <curso>primero</curso>
+        </ModuloXS>
+        <ModuloXS>
+          <nombre>Gestión de bases de datos</nombre>
+          <curso>primero</curso>
+        </ModuloXS>
+        <ModuloXS>
+          <nombre>
+                    Lenguajes de marcas y sistemas de gestión de información
+                </nombre>
+          <curso>primero</curso>
+        </ModuloXS>
+        <ModuloXS>
+          <nombre>Formación y orientación laboral</nombre>
+          <curso>primero</curso>
+        </ModuloXS>
+        <ModuloXS>
+          <nombre>Administración de sistemas operativos</nombre>
+          <curso>segundo</curso>
+        </ModuloXS>
+        <ModuloXS>
+          <nombre>Servicios de rede e internet</nombre>
+          <curso>segundo</curso>
+        </ModuloXS>
+        <ModuloXS>
+          <nombre>Implantación de aplicaciones web</nombre>
+          <curso>segundo</curso>
+        </ModuloXS>
+        <ModuloXS>
+          <nombre>
+                    Administración de sistemas gestores de bases de datos
+                </nombre>
+          <curso>segundo</curso>
+        </ModuloXS>
+        <ModuloXS>
+          <nombre>Seguridad y alta disponibilidad</nombre>
+          <curso>segundo</curso>
+        </ModuloXS>
+        <ModuloXS>
+          <nombre>Empresa e iniciativa emprendedora</nombre>
+          <curso>segundo</curso>
+        </ModuloXS>
+        <ModuloXS>
+          <nombre>
+                    Proyecto de administración de sistemas informáticos en red
+                </nombre>
+          <curso>segundo</curso>
+        </ModuloXS>
+        <ModuloXS>
+          <nombre>Formación en centros de trabajo</nombre>
+          <curso>segundo</curso>
+        </ModuloXS>
+      </modulos>
+    </CicloXS>
+    <CicloXS>
+      <nombreCorto>DAM</nombreCorto>
+      <nombreLargo>Desarrollo de aplicaciones multiplataforma</nombreLargo>
+      <grado>Superior</grado>
+      <horas>2000</horas>
+      <modulos>
+        <ModuloXS>
+          <nombre>Sistemas informáticos</nombre>
+          <curso>primero</curso>
+        </ModuloXS>
+        <ModuloXS>
+          <nombre>Bases de datos</nombre>
+          <curso>primero</curso>
+        </ModuloXS>
+        <ModuloXS>
+          <nombre>Programación</nombre>
+          <curso>primero</curso>
+        </ModuloXS>
+        <ModuloXS>
+          <nombre>
+                    Lenguajes de marcas y sistemas de gestión de información
+                </nombre>
+          <curso>primero</curso>
+        </ModuloXS>
+        <ModuloXS>
+          <nombre>Entornos de desarrollo</nombre>
+          <curso>primero</curso>
+        </ModuloXS>
+        <ModuloXS>
+          <nombre>Formación y orientación laboral</nombre>
+          <curso>primero</curso>
+        </ModuloXS>
+        <ModuloXS>
+          <nombre>Acceso a datos</nombre>
+          <curso>segundo</curso>
+        </ModuloXS>
+        <ModuloXS>
+          <nombre>Desarrollo de interfaces</nombre>
+          <curso>segundo</curso>
+        </ModuloXS>
+        <ModuloXS>
+          <nombre>Programación multimedia y dispositivos móviles</nombre>
+          <curso>segundo</curso>
+        </ModuloXS>
+        <ModuloXS>
+          <nombre>Programación de servicios y procesos</nombre>
+          <curso>segundo</curso>
+        </ModuloXS>
+        <ModuloXS>
+          <nombre>Sistemas de gestión empresarial</nombre>
+          <curso>segundo</curso>
+        </ModuloXS>
+        <ModuloXS>
+          <nombre>Empresa e iniciativa emprendedora</nombre>
+          <curso>segundo</curso>
+        </ModuloXS>
+        <ModuloXS>
+          <nombre>
+                    Proyecto de desarrollo de aplicaciones multiplataforma
+                </nombre>
+          <curso>segundo</curso>
+        </ModuloXS>
+        <ModuloXS>
+          <nombre>Formación en centros de trabajo</nombre>
+          <curso>segundo</curso>
+        </ModuloXS>
+      </modulos>
+    </CicloXS>
+    <CicloXS>
+      <nombreCorto>DAW</nombreCorto>
+      <nombreLargo>Desarrollo de aplicaciones web</nombreLargo>
+      <grado>Superior</grado>
+      <horas>2000</horas>
+      <modulos>
+        <ModuloXS>
+          <nombre>Sistemas informáticos</nombre>
+          <curso>primero</curso>
+        </ModuloXS>
+        <ModuloXS>
+          <nombre>Bases de datos</nombre>
+          <curso>primero</curso>
+        </ModuloXS>
+        <ModuloXS>
+          <nombre>Programación</nombre>
+          <curso>primero</curso>
+        </ModuloXS>
+        <ModuloXS>
+          <nombre>
+                    Lenguajes de marcas y sistemas de gestión de información
+                </nombre>
+          <curso>primero</curso>
+        </ModuloXS>
+        <ModuloXS>
+          <nombre>Entornos de desarrollo</nombre>
+          <curso>primero</curso>
+        </ModuloXS>
+        <ModuloXS>
+          <nombre>Formación y orientación laboral</nombre>
+          <curso>primero</curso>
+        </ModuloXS>
+        <ModuloXS>
+          <nombre>Desarrollo web en entorno cliente</nombre>
+          <curso>segundo</curso>
+        </ModuloXS>
+        <ModuloXS>
+          <nombre>Desarrollo web en entorno servidor</nombre>
+          <curso>segundo</curso>
+        </ModuloXS>
+        <ModuloXS>
+          <nombre>Despliegue de aplicaciones web</nombre>
+          <curso>segundo</curso>
+        </ModuloXS>
+        <ModuloXS>
+          <nombre>Diseño de interfaces web</nombre>
+          <curso>segundo</curso>
+        </ModuloXS>
+        <ModuloXS>
+          <nombre>Proyecto de desarrollo aplicaciones web</nombre>
+          <curso>segundo</curso>
+        </ModuloXS>
+        <ModuloXS>
+          <nombre>Empresa e iniciativa emprendedora</nombre>
+          <curso>segundo</curso>
+        </ModuloXS>
+        <ModuloXS>
+          <nombre>Formación en centros de trabajo</nombre>
+          <curso>segundo</curso>
+        </ModuloXS>
+      </modulos>
+    </CicloXS>
+  </ciclos>
+</InformaticaXS>

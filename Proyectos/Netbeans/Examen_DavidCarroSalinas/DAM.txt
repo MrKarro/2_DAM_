@@ -1,0 +1,18 @@
+primero		Sistemas informáticos
+primero		Bases de datos
+primero		Programación
+primero		
+                    Lenguajes de marcas y sistemas de gestión de información
+                
+primero		Entornos de desarrollo
+primero		Formación y orientación laboral
+segundo		Acceso a datos
+segundo		Desarrollo de interfaces
+segundo		Programación multimedia y dispositivos móviles
+segundo		Programación de servicios y procesos
+segundo		Sistemas de gestión empresarial
+segundo		Empresa e iniciativa emprendedora
+segundo		
+                    Proyecto de desarrollo de aplicaciones multiplataforma
+                
+segundo		Formación en centros de trabajo

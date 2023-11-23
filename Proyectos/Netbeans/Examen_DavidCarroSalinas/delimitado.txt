@@ -1,0 +1,4 @@
+Ciclo{#SMR#Sistemas Microinformáticos y Redes#Medio#2000}
+Ciclo{#ASIR#Administración de sistemas informáticos en red#Superior#2000}
+Ciclo{#DAM#Desarrollo de aplicaciones multiplataforma#Superior#2000}
+Ciclo{#DAW#Desarrollo de aplicaciones web#Superior#2000}

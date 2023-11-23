@@ -1,0 +1,20 @@
+primero		Implantación de sistemas operativos
+primero		Planificación y administración de redes
+primero		Fundamentos de hardware
+primero		Gestión de bases de datos
+primero		
+                    Lenguajes de marcas y sistemas de gestión de información
+                
+primero		Formación y orientación laboral
+segundo		Administración de sistemas operativos
+segundo		Servicios de rede e internet
+segundo		Implantación de aplicaciones web
+segundo		
+                    Administración de sistemas gestores de bases de datos
+                
+segundo		Seguridad y alta disponibilidad
+segundo		Empresa e iniciativa emprendedora
+segundo		
+                    Proyecto de administración de sistemas informáticos en red
+                
+segundo		Formación en centros de trabajo
