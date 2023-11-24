@@ -15,6 +15,9 @@ public class Empleados {
     private String nombre;
     private int edad;
     private double sueldo;
+    private static final String[] nombres = {"Juan", "Ricardo", "Rosa", "Ana", "Sandra", "Laura", "Mario", "José", "Gael", "Clara", "Carlos", "Paz"};
+    private static final String[] apellidos = {"Wayne", "García", "Castro", "Lane", "Cano", "Pérez", "Martín", "Gil", "Iglesias", "Sánchez"};
+    private static final float[] salarios = {900, 1200, 1600, 1800, 2000, 2200, 3000};
 
     public Empleados(int id, String nombre, int edad, double sueldo) {
         this.id = id;
@@ -22,6 +25,10 @@ public class Empleados {
         this.edad = edad;
         this.sueldo = sueldo;
     }
+
+    public Empleados() {
+    }
+    
 
     public int getId() {
         return id;
@@ -60,7 +67,7 @@ public class Empleados {
         setNombre(nombres[r.nextInt(nombres.length)]);
         setApell1(apellidos[r.nextInt(apellidos.length)]);
         setApell2(apellidos[r.nextInt(apellidos.length)]);
-        setSalario(salarios[r.nextInt(salarios.length)]);
+        setSueldo(salarios[r.nextInt(salarios.length)]);
     }
     
     
