@@ -5,22 +5,63 @@
 package com.mycompany.parking_davidcarrosalinas;
 
 import java.awt.*;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author 6002755
  */
+
 public class Parking extends javax.swing.JFrame {
 
     /**
      * Creates new form Parking
      */
+    static ArrayList<Vehiculo> dentro;
+    static ArrayList<Vehiculo> fuera;
+    static Auxiliar a;
     public Parking() {
-        initComponents();
-        Image img = new ImageIcon("./imagenes/logo.png").getImage();
-        ImageIcon img2 = new ImageIcon(img.getScaledInstance(100, 100, Image.SCALE_SMOOTH));
-        jLabelLogo.setIcon(img2);
+        try {
+            initComponents();
+            Image img = new ImageIcon("./imagenes/logo.png").getImage();
+            ImageIcon img2 = new ImageIcon(img.getScaledInstance(100, 100, Image.SCALE_SMOOTH));
+            jLabelLogo.setIcon(img2);
+            jPanelDatos.setVisible(false);
+            jPanelPropietario.setVisible(false);
+            a = new Auxiliar(this, false);
+            a.setVisible(false);
+            dentro = new ArrayList<>();
+            fuera = new ArrayList<>();
+            iniciaListas();
+            
+            img = new ImageIcon("./imagenes/coche.png").getImage();
+            img2 = new ImageIcon(img.getScaledInstance(100, 100, Image.SCALE_SMOOTH));
+            jLabelIcono.setIcon(img2);
+            
+            img = new ImageIcon("./imagenes/entra.png").getImage();
+            img2 = new ImageIcon(img.getScaledInstance(50, 50, Image.SCALE_SMOOTH));
+            jButtonEntra.setIcon(img2);
+            
+            img = new ImageIcon("./imagenes/sale.png").getImage();
+            img2 = new ImageIcon(img.getScaledInstance(50, 50, Image.SCALE_SMOOTH));
+            jButtonSale.setIcon(img2);
+            
+            
+        } catch (IOException ex) {
+            Logger.getLogger(Parking.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Parking.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
     }
 
@@ -33,63 +74,76 @@ public class Parking extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        jMenu3 = new javax.swing.JMenu();
+        jPanelPrincipal = new javax.swing.JPanel();
         jTextFieldMatricula = new javax.swing.JTextField();
         jLabelMatricula = new javax.swing.JLabel();
         jButtonConfirmar = new javax.swing.JButton();
         jLabelLogo = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
+        jPanelDatos = new javax.swing.JPanel();
         jComboBoxTipo = new javax.swing.JComboBox<>();
         jLabelVehiculo = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        jButtonEntra = new javax.swing.JButton();
+        jButtonSale = new javax.swing.JButton();
         jCheckBox1 = new javax.swing.JCheckBox();
-        jPanel3 = new javax.swing.JPanel();
+        jPanelPropietario = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        jTextFieldNomProp = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        jTextFieldDniProp = new javax.swing.JTextField();
+        jLabelIcono = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItemDentro = new javax.swing.JMenuItem();
+        jMenuItemFuera = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
-        jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuItemGuardar = new javax.swing.JMenuItem();
+        jMenu4 = new javax.swing.JMenu();
+        jMenuItemSalir = new javax.swing.JMenuItem();
+
+        jMenu3.setText("jMenu3");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(77, 178, 199));
-        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 5));
+        jPanelPrincipal.setBackground(new java.awt.Color(77, 178, 199));
+        jPanelPrincipal.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 5));
 
         jLabelMatricula.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabelMatricula.setForeground(new java.awt.Color(0, 0, 0));
         jLabelMatricula.setText("Matrícula:");
 
         jButtonConfirmar.setText("Confirmar");
+        jButtonConfirmar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonConfirmarActionPerformed(evt);
+            }
+        });
 
         jLabelLogo.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout jPanelPrincipalLayout = new javax.swing.GroupLayout(jPanelPrincipal);
+        jPanelPrincipal.setLayout(jPanelPrincipalLayout);
+        jPanelPrincipalLayout.setHorizontalGroup(
+            jPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelPrincipalLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabelLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabelMatricula)
                     .addComponent(jTextFieldMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonConfirmar))
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addContainerGap(46, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        jPanelPrincipalLayout.setVerticalGroup(
+            jPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelPrincipalLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabelLogo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
-            .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(jPanelPrincipalLayout.createSequentialGroup()
                 .addGap(16, 16, 16)
                 .addComponent(jLabelMatricula)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -99,34 +153,52 @@ public class Parking extends javax.swing.JFrame {
                 .addContainerGap(19, Short.MAX_VALUE))
         );
 
-        jPanel2.setBackground(new java.awt.Color(137, 210, 210));
-        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 5));
-        jPanel2.setLayout(null);
+        jPanelDatos.setBackground(new java.awt.Color(137, 210, 210));
+        jPanelDatos.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 5));
+        jPanelDatos.setLayout(null);
 
         jComboBoxTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Coche", "Moto", "Furgoneta" }));
-        jPanel2.add(jComboBoxTipo);
-        jComboBoxTipo.setBounds(39, 46, 126, 22);
+        jComboBoxTipo.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jComboBoxTipoItemStateChanged(evt);
+            }
+        });
+        jPanelDatos.add(jComboBoxTipo);
+        jComboBoxTipo.setBounds(40, 40, 126, 22);
 
         jLabelVehiculo.setForeground(new java.awt.Color(0, 0, 0));
         jLabelVehiculo.setText("Tipo de vehículo:");
-        jPanel2.add(jLabelVehiculo);
-        jLabelVehiculo.setBounds(39, 24, 89, 16);
+        jPanelDatos.add(jLabelVehiculo);
+        jLabelVehiculo.setBounds(40, 20, 90, 16);
 
-        jButton1.setText("Entra");
-        jPanel2.add(jButton1);
-        jButton1.setBounds(71, 86, 72, 23);
+        jButtonEntra.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonEntraActionPerformed(evt);
+            }
+        });
+        jPanelDatos.add(jButtonEntra);
+        jButtonEntra.setBounds(40, 100, 60, 60);
 
-        jButton2.setText("Sale");
-        jPanel2.add(jButton2);
-        jButton2.setBounds(192, 86, 72, 23);
+        jButtonSale.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSaleActionPerformed(evt);
+            }
+        });
+        jPanelDatos.add(jButtonSale);
+        jButtonSale.setBounds(120, 100, 60, 60);
 
         jCheckBox1.setForeground(new java.awt.Color(0, 0, 0));
         jCheckBox1.setText("Añadir propietario");
-        jPanel2.add(jCheckBox1);
-        jCheckBox1.setBounds(31, 145, 134, 20);
+        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox1ActionPerformed(evt);
+            }
+        });
+        jPanelDatos.add(jCheckBox1);
+        jCheckBox1.setBounds(30, 170, 134, 20);
 
-        jPanel3.setBackground(new java.awt.Color(255, 255, 204));
-        jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        jPanelPropietario.setBackground(new java.awt.Color(255, 255, 204));
+        jPanelPropietario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
 
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Nombre:");
@@ -134,54 +206,93 @@ public class Parking extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("DNI:");
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+        javax.swing.GroupLayout jPanelPropietarioLayout = new javax.swing.GroupLayout(jPanelPropietario);
+        jPanelPropietario.setLayout(jPanelPropietarioLayout);
+        jPanelPropietarioLayout.setHorizontalGroup(
+            jPanelPropietarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelPropietarioLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addGroup(jPanelPropietarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel2)
                     .addComponent(jLabel1))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextField1)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 155, Short.MAX_VALUE))
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addGroup(jPanelPropietarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jTextFieldNomProp)
+                    .addComponent(jTextFieldDniProp, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(46, Short.MAX_VALUE))
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(11, 11, 11)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+        jPanelPropietarioLayout.setVerticalGroup(
+            jPanelPropietarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelPropietarioLayout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addGroup(jPanelPropietarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldNomProp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanelPropietarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(15, Short.MAX_VALUE))
+                    .addComponent(jTextFieldDniProp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
-        jPanel2.add(jPanel3);
-        jPanel3.setBounds(19, 177, 266, 92);
+        jPanelDatos.add(jPanelPropietario);
+        jPanelPropietario.setBounds(20, 200, 300, 110);
+
+        jLabelIcono.setText("jLabel3");
+        jPanelDatos.add(jLabelIcono);
+        jLabelIcono.setBounds(220, 40, 100, 100);
+
+        jLabel3.setText("Entrar:");
+        jPanelDatos.add(jLabel3);
+        jLabel3.setBounds(40, 80, 60, 16);
+
+        jLabel4.setText("Salir:");
+        jPanelDatos.add(jLabel4);
+        jLabel4.setBounds(120, 80, 60, 16);
 
         jMenu1.setText("Consultar");
 
-        jMenuItem1.setText("Coches dentro");
-        jMenu1.add(jMenuItem1);
+        jMenuItemDentro.setText("Coches dentro");
+        jMenuItemDentro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemDentroActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItemDentro);
 
-        jMenuItem2.setText("Coches fuera");
-        jMenu1.add(jMenuItem2);
+        jMenuItemFuera.setText("Coches fuera");
+        jMenuItemFuera.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemFueraActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItemFuera);
 
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Guardar");
 
-        jMenuItem3.setText("jMenuItem3");
-        jMenu2.add(jMenuItem3);
+        jMenuItemGuardar.setText("Guardar estado parking");
+        jMenuItemGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemGuardarActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItemGuardar);
 
         jMenuBar1.add(jMenu2);
+
+        jMenu4.setText("Salir");
+
+        jMenuItemSalir.setText("Salir del programa");
+        jMenuItemSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemSalirActionPerformed(evt);
+            }
+        });
+        jMenu4.add(jMenuItemSalir);
+
+        jMenuBar1.add(jMenu4);
 
         setJMenuBar(jMenuBar1);
 
@@ -189,20 +300,166 @@ public class Parking extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanelPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanelDatos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanelPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 290, Short.MAX_VALUE))
+                .addComponent(jPanelDatos, javax.swing.GroupLayout.DEFAULT_SIZE, 321, Short.MAX_VALUE))
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jMenuItemSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemSalirActionPerformed
+
+        //Muestra un panel de despedida
+        int elec = JOptionPane.showConfirmDialog(this, "¿Seguro que desea salir?");
+        if (elec == JOptionPane.OK_OPTION){
+            
+            //Guardamos el estado del parking antes de salir
+            try {
+                ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("datosFuera.bin"));
+                oos.writeObject(fuera);
+                oos = new ObjectOutputStream(new FileOutputStream("datosDentro.bin"));
+                oos.writeObject(dentro);
+                oos.close();
+
+            } catch (IOException ex) {
+                Logger.getLogger(Parking.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            String mensaje = "Gracias por usar esta aplicación, vuelva pronto.";
+            JOptionPane.showMessageDialog(this, mensaje);
+            System.exit(0);
+        }
+    }//GEN-LAST:event_jMenuItemSalirActionPerformed
+
+    private void iniciaListas() throws IOException, ClassNotFoundException{
+        ObjectInputStream ois = new ObjectInputStream(new FileInputStream("datosFuera.bin"));
+        fuera = (ArrayList<Vehiculo>) ois.readObject();
+        ois = new ObjectInputStream(new FileInputStream("datosDentro.bin"));
+        dentro = (ArrayList<Vehiculo>) ois.readObject();
+        ois.close();
+        
+        
+        
+    }
+    
+    private void jMenuItemGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemGuardarActionPerformed
+        try {
+            ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("datosFuera.bin"));
+            oos.writeObject(fuera);
+            oos.close();
+            oos = new ObjectOutputStream(new FileOutputStream("datosDentro.bin"));
+            oos.writeObject(dentro);
+            oos.close();
+            
+        } catch (IOException ex) {
+            Logger.getLogger(Parking.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jMenuItemGuardarActionPerformed
+
+    private void jMenuItemDentroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemDentroActionPerformed
+        
+        a.llenaDatos(dentro);
+        a.setVisible(true);
+        
+    }//GEN-LAST:event_jMenuItemDentroActionPerformed
+
+    private void jMenuItemFueraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemFueraActionPerformed
+        
+        a.llenaDatos(fuera);
+        a.setVisible(true);
+    }//GEN-LAST:event_jMenuItemFueraActionPerformed
+
+    private void jButtonEntraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEntraActionPerformed
+        String matricula = jTextFieldMatricula.getText().toUpperCase();
+        String tipo = jComboBoxTipo.getSelectedItem().toString();
+        float precioHora = 2f;
+        LocalDateTime entrada = LocalDateTime.now();
+        LocalDateTime salida = null;
+        String[] propietario = null;
+        if (jCheckBox1.isSelected()){
+            propietario =new String[]{jTextFieldNomProp.getText(), jTextFieldDniProp.getText()};
+        }  
+           
+        Vehiculo v = new Vehiculo(matricula, tipo, precioHora, entrada, salida, propietario);
+        dentro.add(v);
+        limpiaCampos();
+       
+    }//GEN-LAST:event_jButtonEntraActionPerformed
+
+    
+    private void limpiaCampos(){
+        jTextFieldDniProp.setText("");
+        jTextFieldMatricula.setText("");
+        jTextFieldNomProp.setText("");
+        jCheckBox1.setSelected(false);
+        jPanelPropietario.setVisible(false);
+        jPanelDatos.setVisible(false);
+        jButtonEntra.setEnabled(true);
+        jButtonSale.setEnabled(true);
+    }
+    private void jButtonConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConfirmarActionPerformed
+       
+        if (!jTextFieldMatricula.getText().isEmpty())
+            jPanelDatos.setVisible(true);
+        for (Vehiculo v : dentro){
+            if (v.getMatricula().equals(jTextFieldMatricula.getText().toUpperCase())){
+                jButtonEntra.setEnabled(false);
+                jButtonSale.setEnabled(true);
+            } else {
+                jButtonEntra.setEnabled(true);
+                jButtonSale.setEnabled(false);
+            }
+        }
+    }//GEN-LAST:event_jButtonConfirmarActionPerformed
+
+    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
+        if (jPanelPropietario.isVisible()){
+            jPanelPropietario.setVisible(false);
+        } else
+            jPanelPropietario.setVisible(true);
+    }//GEN-LAST:event_jCheckBox1ActionPerformed
+
+    private void jButtonSaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaleActionPerformed
+        String mat = jTextFieldMatricula.getText().toUpperCase();
+        for ( Vehiculo v : dentro){
+            if (v.getMatricula().equals(mat)){
+                v.setSalida(LocalDateTime.now());
+                
+                int elec = JOptionPane.showConfirmDialog(this, "Tiene que abonar " + v.precioEstancia() + " euros.");
+                if (elec == JOptionPane.OK_OPTION){
+                    fuera.add(v);
+                    dentro.remove(v);
+                } else {
+                   JOptionPane.showMessageDialog(this, "No se ha aceptado la salida.");
+                }
+            }                
+        }
+        limpiaCampos();        
+    }//GEN-LAST:event_jButtonSaleActionPerformed
+
+    private void jComboBoxTipoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBoxTipoItemStateChanged
+        if (jComboBoxTipo.getSelectedItem().toString().equals("Coche")){
+            Image img = new ImageIcon("./imagenes/coche.png").getImage();
+            ImageIcon img2 = new ImageIcon(img.getScaledInstance(100, 100, Image.SCALE_SMOOTH));
+            jLabelIcono.setIcon(img2);
+        } else if (jComboBoxTipo.getSelectedItem().toString().equals("Moto")) {
+            Image img = new ImageIcon("./imagenes/moto.png").getImage();
+            ImageIcon img2 = new ImageIcon(img.getScaledInstance(100, 100, Image.SCALE_SMOOTH));
+            jLabelIcono.setIcon(img2);
+        } else if (jComboBoxTipo.getSelectedItem().toString().equals("Furgoneta")) {
+            Image img = new ImageIcon("./imagenes/furgo.png").getImage();
+            ImageIcon img2 = new ImageIcon(img.getScaledInstance(100, 100, Image.SCALE_SMOOTH));
+            jLabelIcono.setIcon(img2);
+        }
+    }//GEN-LAST:event_jComboBoxTipoItemStateChanged
 
     /**
      * @param args the command line arguments
@@ -240,27 +497,33 @@ public class Parking extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButtonConfirmar;
+    private javax.swing.JButton jButtonEntra;
+    private javax.swing.JButton jButtonSale;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JComboBox<String> jComboBoxTipo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabelIcono;
     private javax.swing.JLabel jLabelLogo;
     private javax.swing.JLabel jLabelMatricula;
     private javax.swing.JLabel jLabelVehiculo;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JMenuItem jMenuItemDentro;
+    private javax.swing.JMenuItem jMenuItemFuera;
+    private javax.swing.JMenuItem jMenuItemGuardar;
+    private javax.swing.JMenuItem jMenuItemSalir;
+    private javax.swing.JPanel jPanelDatos;
+    private javax.swing.JPanel jPanelPrincipal;
+    private javax.swing.JPanel jPanelPropietario;
+    private javax.swing.JTextField jTextFieldDniProp;
     private javax.swing.JTextField jTextFieldMatricula;
+    private javax.swing.JTextField jTextFieldNomProp;
     // End of variables declaration//GEN-END:variables
 }

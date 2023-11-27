@@ -1,3 +1,12 @@
+def limpiar_pantalla(func):
+    def funcion(*args, **kwargs):
+        for i in range(20):
+            print("\n")
+        return func(*args, **kwargs)
+    return funcion
+
+
+@limpiar_pantalla
 def nuevoAlumno(asignaturas):
     
     # Leemos los datos del alumno
@@ -17,10 +26,8 @@ def nuevoAlumno(asignaturas):
         asignaturas[asignaturaRecibida].append(alumno)
     else:
         print("asignaturas no válida. No se ha agregado el alumno.")
-    
-    limpiaPantalla()
 
-
+@limpiar_pantalla
 def muestraMenu():
     
     # mostramos el menu principal de la aplicación
@@ -33,13 +40,11 @@ def muestraMenu():
     print("============================================")
     print("============================================")
     elec = int(input("Ingrese la opción que desea:"))
-    limpiaPantalla()
     return elec
 
-def limpiaPantalla():
-    for i in range(20):
-        print("\n")
 
+    
+@limpiar_pantalla
 def muestraAsignaturas(asignaturas):
     # mostramos los alumnos por asignatura
     for clave, valor in asignaturas.items():

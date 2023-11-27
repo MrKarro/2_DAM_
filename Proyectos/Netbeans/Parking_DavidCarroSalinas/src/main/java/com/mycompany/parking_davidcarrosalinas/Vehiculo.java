@@ -4,33 +4,68 @@
  */
 package com.mycompany.parking_davidcarrosalinas;
 
+import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
 
 /**
  *
  * @author usuario
  */
-public class Vehiculo {
+public class Vehiculo implements Serializable{
     
-    String tipo;
-    float precioHora;
-    String[] propietario;
-    LocalDate entrada;
-    LocalDate salida;
+    
+    private String matricula;
+    private String tipo;
+    private float precioHora;
+    private String[] propietario;
+    private LocalDateTime entrada;
+    private LocalDateTime salida;
 
-    public Vehiculo(String tipo, float precioHora, String[] propietario, LocalDate entrada, LocalDate salida) {
+    public Vehiculo(String matricula, String tipo, float precioHora, LocalDateTime entrada, LocalDateTime salida, String[] propietario) {
+        this.matricula = matricula;
         this.tipo = tipo;
         this.precioHora = precioHora;
         this.propietario = propietario;
         this.entrada = entrada;
-        this.salida = salida;
+        this.salida = null;
     }
 
-    public Vehiculo(String tipo, float precioHora, LocalDate entrada, LocalDate salida) {
+    public Vehiculo(String matricula, String tipo, float precioHora, LocalDateTime entrada, LocalDateTime salida) {
+        this.matricula = matricula;
         this.tipo = tipo;
         this.precioHora = precioHora;
         this.entrada = entrada;
-        this.salida = salida;
+        this.salida = null;
+        this.propietario = null;
+    }
+
+    @Override
+    public String toString() {
+        String str = "";
+        if (this.propietario != null){
+            str = "Matrícula: " + this.matricula + " Tipo: " + this.tipo + " Propietario: " + this.propietario[0];
+        } else {
+            str = "Matrícula: " + this.matricula + " Tipo: " + this.tipo;
+        }
+        
+        return str;
+    }
+    
+    public double precioEstancia(){
+        
+        long minutos = ChronoUnit.MINUTES.between(this.entrada, this.salida);
+        return minutos * this.precioHora;
+    }
+    
+    
+    public String getMatricula() {
+        return matricula;
+    }
+
+    public void setMatricula(String matricula) {
+        this.matricula = matricula;
     }
 
     public String getTipo() {
@@ -57,19 +92,19 @@ public class Vehiculo {
         this.propietario = propietario;
     }
 
-    public LocalDate getEntrada() {
+    public LocalDateTime getEntrada() {
         return entrada;
     }
 
-    public void setEntrada(LocalDate entrada) {
+    public void setEntrada(LocalDateTime entrada) {
         this.entrada = entrada;
     }
 
-    public LocalDate getSalida() {
+    public LocalDateTime getSalida() {
         return salida;
     }
 
-    public void setSalida(LocalDate salida) {
+    public void setSalida(LocalDateTime salida) {
         this.salida = salida;
     }
 
