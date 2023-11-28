@@ -49,12 +49,12 @@ def colocaBarco(tablero, barco):
     elif posicion == 'O':
         for i in range(len(barco)):
             tablero[fila][columna - i] = barco[i]
-    
     cambiarCasillas(tablero)
 
 def cambiarCasillas(tablero):
     filas = len(tablero)
     columnas = len(tablero[0])
+    # Recoremos las filas y las casillas una a una comprobando
     for i in range(filas):
         for j in range(columnas):
             if tablero[i][j] not in ['-', '*']:

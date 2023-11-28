@@ -1,0 +1,1 @@
+al hacer una sentencia join en android se tiene que tener en cuenta que desde el select hasta el from (es decir donde iria el table:name en un select normal) hay que pasarle todas las tablas que queramos
