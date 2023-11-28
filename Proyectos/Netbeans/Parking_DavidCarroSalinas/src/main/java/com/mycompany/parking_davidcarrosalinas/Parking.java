@@ -56,6 +56,13 @@ public class Parking extends javax.swing.JFrame {
             img2 = new ImageIcon(img.getScaledInstance(50, 50, Image.SCALE_SMOOTH));
             jButtonSale.setIcon(img2);
             
+            img = new ImageIcon("./imagenes/punto.png").getImage();
+            img2 = new ImageIcon(img.getScaledInstance(16, 16, Image.SCALE_SMOOTH));
+            jMenuItemDentro.setIcon(img2);
+            jMenuItemFuera.setIcon(img2);
+            jMenuItemGuardar.setIcon(img2);
+            jMenuItemSalir.setIcon(img2);
+            
             
         } catch (IOException ex) {
             Logger.getLogger(Parking.class.getName()).log(Level.SEVERE, null, ex);
