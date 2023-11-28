@@ -25,10 +25,10 @@ public class SQLHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
 
         db.execSQL( "CREATE TABLE " + AnimalContract.TABLE_NAME + "(" +
-                AnimalContract.CODIGO + "integer primary key, " +
-                AnimalContract.NOMBRE + "text not null, " +
-                AnimalContract.PESO + "decimal not null, " +
-                AnimalContract.TIPO + "text not null)");
+                AnimalContract.CODIGO + " integer primary key, " +
+                AnimalContract.NOMBRE + " text not null, " +
+                AnimalContract.PESO + " decimal not null, " +
+                AnimalContract.TIPO + " text not null)");
 
     }
 

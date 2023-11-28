@@ -30,20 +30,22 @@ public class MostrarActivity extends AppCompatActivity {
         helper = new SQLHelper(this);
         animales = helper.consultaTodo();
         animalesPrueba = new ArrayList<>();
-        Animal a = new Animal(11, "prueba", 12.0f, "Gato");
-        animalesPrueba.add(a);
-        a = new Animal(111, "prueba", 12.0f, "Perro");
-        animalesPrueba.add(a);
+        //Animal a = new Animal(11, "prueba", 12.0f, "Gato");
+        //animalesPrueba.add(a);
+        //a = new Animal(111, "prueba", 12.0f, "Perro");
+        //animalesPrueba.add(a);
 
 
-        actualizaLista(animalesPrueba);
+
         registerForContextMenu(lista);
 
-        if (getIntent().getStringExtra("animal") != null){
+        if (getIntent().getExtras() != null){
             String anim = getIntent().getStringExtra("animal");
-            actualizaLista(helper.consultaAnimal(anim));
+            Toast.makeText(this, anim, Toast.LENGTH_SHORT).show();
+            actualizaLista(helper.consultaAnimal("Gato"));
 
-        }
+        } else
+            actualizaLista(animalesPrueba);
 
 
     }
@@ -59,7 +61,7 @@ public class MostrarActivity extends AppCompatActivity {
 
     @Override
     protected void onResume() {
-        actualizaLista(animales);
+        //actualizaLista(animales);
 
         super.onResume();
     }

@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 public class BuscarActivity extends AppCompatActivity implements RadioGroup.OnCheckedChangeListener, View.OnClickListener {
 
@@ -43,6 +44,7 @@ public class BuscarActivity extends AppCompatActivity implements RadioGroup.OnCh
         if (view.getId() == R.id.buscar){
             if (gato.isChecked()){
                 intent.putExtra("animal", "Gato");
+                Toast.makeText(this, "Prueba entra gato", Toast.LENGTH_SHORT).show();
             } else if (perro.isChecked()){
                 intent.putExtra("animal", "Perro");
             } else if (pajaro.isChecked()) {
