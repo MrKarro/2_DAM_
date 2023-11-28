@@ -416,15 +416,7 @@ public class Parking extends javax.swing.JFrame {
        
         if (!jTextFieldMatricula.getText().isEmpty())
             jPanelDatos.setVisible(true);
-        for (Vehiculo v : dentro){
-            if (v.getMatricula().equals(jTextFieldMatricula.getText().toUpperCase())){
-                jButtonEntra.setEnabled(false);
-                jButtonSale.setEnabled(true);
-            } else {
-                jButtonEntra.setEnabled(true);
-                jButtonSale.setEnabled(false);
-            }
-        }
+        
     }//GEN-LAST:event_jButtonConfirmarActionPerformed
 
     private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
