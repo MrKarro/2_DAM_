@@ -7,6 +7,7 @@ package XStream;
 import com.thoughtworks.xstream.XStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.util.ArrayList;
 import modelo.Ciclo;
 import modelo.Informatica;
 import modelo.Modulo;

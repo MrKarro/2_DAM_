@@ -82,6 +82,7 @@ public class DatosReader implements XMLReader {
             handler.endElement("", "ciclo", "ciclo");
 
         }
+        handler.endElement("", "informatica", "informatica");
     }
     
     @Override

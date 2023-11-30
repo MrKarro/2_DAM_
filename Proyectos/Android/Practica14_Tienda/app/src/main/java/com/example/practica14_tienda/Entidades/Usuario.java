@@ -1,6 +1,8 @@
 package com.example.practica14_tienda.Entidades;
 
-public class Usuario {
+import java.io.Serializable;
+
+public class Usuario implements Serializable {
     private String user;
     private String pass;
     private String nombre;
@@ -9,6 +11,11 @@ public class Usuario {
         this.user = user;
         this.pass = pass;
         this.nombre = nombre;
+    }
+    public Usuario(String user, String pass) {
+        this.user = user;
+        this.pass = pass;
+        this.nombre = "";
     }
 
     @Override

@@ -12,7 +12,7 @@ import org.xml.sax.InputSource;
  *
  * @author 6002755
  */
-public class Informatica extends InputSource implements Serializable{
+public class Informatica  implements Serializable{
     private ArrayList<Ciclo> ciclos;
 
     public Informatica() {

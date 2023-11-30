@@ -3,4 +3,6 @@
     <string name="user">User</string>
     <string name="password">Password</string>
     <string name="entrar">Entrar</string>
+    <string name="a_adir_al_carrito">Añadir al carrito</string>
+    <string name="no_ha_introducido_unas_credenciales_correctas">No ha introducido unas credenciales correctas</string>
 </resources>
