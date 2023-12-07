@@ -17,6 +17,11 @@ public class Alumno {
         this.foto = foto;
     }
 
+    @Override
+    public String toString() {
+        return nombre + " " + apellidos;
+    }
+
     public String getNombre() {
         return nombre;
     }
