@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Practica16</string>
+    <string-array name="colores">
+        <item>blanco</item>
+        <item>negro</item>
+        <item>azul</item>
+        <item>rojo</item>
+        <item>gris</item>
+        <item>verde</item>
+        <item>amarillo</item>
+    </string-array>
+    <string-array name="combustibles">
+        <item>Diesel</item>
+        <item>Gasolina</item>
+        <item>Hibrido</item>
+    </string-array>
+
+</resources>
