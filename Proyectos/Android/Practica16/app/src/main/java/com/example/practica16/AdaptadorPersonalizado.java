@@ -35,7 +35,7 @@ public class AdaptadorPersonalizado extends ArrayAdapter {
         TextView marca = vista.findViewById(R.id.marca);
         TextView modelo = vista.findViewById(R.id.modelo);
 
-        numBast.setText(this.coches.get(position).getNumBastidor());
+        numBast.setText(String.valueOf(this.coches.get(position).getNumBastidor()));
         marca.setText(this.coches.get(position).getMarca());
         modelo.setText(this.coches.get(position).getModelo());
 

@@ -3,10 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Vista.BlankFragment">
+    tools:context=".Vista.ListFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <Spinner
+    <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/lista"/>

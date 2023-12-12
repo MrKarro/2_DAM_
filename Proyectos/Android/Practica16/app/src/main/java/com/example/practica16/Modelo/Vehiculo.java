@@ -1,6 +1,8 @@
 package com.example.practica16.Modelo;
 
-public class Vehiculo {
+import java.io.Serializable;
+
+public class Vehiculo implements Serializable {
     private int numBastidor;
     private String marca;
     private String modelo;
@@ -21,8 +23,17 @@ public class Vehiculo {
         this.kilometraje = kilometraje;
     }
 
-
-
+    @Override
+    public String toString() {
+        return "Vehiculo{" +
+                "numBastidor=" + numBastidor +
+                ", marca='" + marca + '\'' +
+                ", modelo='" + modelo + '\'' +
+                ", combustible='" + combustible + '\'' +
+                ", color='" + color + '\'' +
+                ", kilometraje=" + kilometraje +
+                '}';
+    }
 
     public int getNumBastidor() {
         return numBastidor;

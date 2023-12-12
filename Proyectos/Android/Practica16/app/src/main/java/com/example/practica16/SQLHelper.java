@@ -1,5 +1,6 @@
 package com.example.practica16;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -53,6 +54,38 @@ public class SQLHelper extends SQLiteOpenHelper {
             coches.add(v);
         }
         return coches;
+    }
+
+    public void borrarCoche(Vehiculo v){
+        SQLiteDatabase db = getWritableDatabase();
+        db.delete(VehiculoContract.TABLE_NAME,
+                VehiculoContract.NUM_BASTI + " = ?", new String[]{String.valueOf(v.getNumBastidor())});
+    }
+    public void modificarCoche(Vehiculo v){
+        ContentValues values = new ContentValues();
+        values.put(VehiculoContract.MARCA, v.getMarca());
+        values.put(VehiculoContract.MODELO, v.getModelo());
+        values.put(VehiculoContract.COLOR, v.getColor());
+        values.put(VehiculoContract.COMBUSTIBLE, v.getCombustible());
+        values.put(VehiculoContract.KMS, v.getKilometraje());
+
+        SQLiteDatabase db = getWritableDatabase();
+        db.update(VehiculoContract.TABLE_NAME, values, VehiculoContract.NUM_BASTI + " = ?", new String[]{String.valueOf(v.getNumBastidor())});
+
+
+    }
+    public void insertarCoche(Vehiculo v){
+        ContentValues values = new ContentValues();
+        values.put(VehiculoContract.NUM_BASTI, v.getNumBastidor());
+        values.put(VehiculoContract.MARCA, v.getMarca());
+        values.put(VehiculoContract.MODELO, v.getModelo());
+        values.put(VehiculoContract.COLOR, v.getColor());
+        values.put(VehiculoContract.COMBUSTIBLE, v.getCombustible());
+        values.put(VehiculoContract.KMS, v.getKilometraje());
+
+        SQLiteDatabase db = getWritableDatabase();
+        db.insert(VehiculoContract.TABLE_NAME, null, values);
+
     }
 
 }

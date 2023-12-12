@@ -7,6 +7,16 @@
     tools:context=".Vista.MainActivity"
     >
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/flButton2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        app:srcCompat="@android:drawable/ic_input_add"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="20dp"/>
+
     <FrameLayout
         android:layout_width="360dp"
         android:layout_height="match_parent"
@@ -16,7 +26,9 @@
         android:layout_width="360dp"
         android:layout_height="match_parent"
         android:id="@+id/fragDere"
-        android:layout_alignParentEnd="true"/>
+        android:layout_alignParentEnd="true">
+
+    </FrameLayout>
 
 
 </RelativeLayout>
