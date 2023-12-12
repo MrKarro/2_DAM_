@@ -1,4 +1,4 @@
-package com.example.practica16;
+package com.example.practica16.Vista;
 
 import android.os.Bundle;
 
@@ -8,6 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Spinner;
+
+import com.example.practica16.R;
 
 
 public class BlankFragment extends Fragment {

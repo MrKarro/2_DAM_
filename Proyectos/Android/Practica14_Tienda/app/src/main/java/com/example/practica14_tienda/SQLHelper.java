@@ -32,7 +32,7 @@ public class SQLHelper extends SQLiteOpenHelper {
                 UsuarioContract.NOMBRE + " text not null" +
                 "); ");
         db.execSQL("create table " + ArticuloContract.TABLE_NAME + "( " +
-                ArticuloContract.CODIGO +  " int primary key, " +
+                ArticuloContract.CODIGO +  " int primary key autoincrement, " +
                 ArticuloContract.NOMBRE + " text not null, " +
                 ArticuloContract.DESCRIPCION + " text not null, " +
                 ArticuloContract.COLOR + " text not null,  " +

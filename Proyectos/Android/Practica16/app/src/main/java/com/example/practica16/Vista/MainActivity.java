@@ -1,8 +1,10 @@
-package com.example.practica16;
+package com.example.practica16.Vista;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.practica16.R;
 
 public class MainActivity extends AppCompatActivity {
 

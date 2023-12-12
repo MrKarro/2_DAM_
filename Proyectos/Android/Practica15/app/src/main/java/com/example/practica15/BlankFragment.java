@@ -60,6 +60,12 @@ public class BlankFragment extends Fragment implements View.OnClickListener {
     }
 
     @Override
+    public void onDetach() {
+        super.onDetach();
+        listener = null;
+    }
+
+    @Override
     public void onClick(View view) {
         if (view.getId() == R.id.botonDelegado){
             listener.setDelegado(alumno);

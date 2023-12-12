@@ -7,6 +7,9 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
 
+import com.example.practica16.Modelo.Vehiculo;
+import com.example.practica16.Modelo.VehiculoContract;
+
 import java.util.ArrayList;
 
 public class SQLHelper extends SQLiteOpenHelper {

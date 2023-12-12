@@ -1,4 +1,4 @@
-package com.example.practica16;
+package com.example.practica16.Modelo;
 
 public class Vehiculo {
     private int numBastidor;

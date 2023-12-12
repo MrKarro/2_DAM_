@@ -42,7 +42,7 @@ public class Ejercicio7Hilos {
         } catch (InterruptedException ex) {
                 Logger.getLogger(Ejercicio7Hilos.class.getName()).log(Level.SEVERE, null, ex);
             }
-        System.out.println("Todos los hilos han muerto.");
+        System.out.println("\t\tTodos los hilos han muerto.");
     }
     
 }

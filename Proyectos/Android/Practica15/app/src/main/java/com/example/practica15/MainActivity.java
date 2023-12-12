@@ -1,6 +1,7 @@
 package com.example.practica15;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -15,15 +16,17 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, AdapterView.OnItemSelectedListener, OnFragmentEventListener {
 
     Spinner lista;
-    Button datos, foto;
+    Button datos, foto, dialog;
     TextView delegado;
+
     Alumno a;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         lista = findViewById(R.id.lista);
-
+        dialog = findViewById(R.id.dialog);
+        dialog.setOnClickListener(this);
         datos = findViewById(R.id.datos);
         foto = findViewById(R.id.foto);
         delegado = findViewById(R.id.delegado);
@@ -57,7 +60,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             fragmentTransaction.replace(R.id.frag, frag);
             fragmentTransaction.commit();
+        } else if (view.getId() == R.id.dialog){
+            DialogEliminar del = new DialogEliminar();
+            del.show(getSupportFragmentManager(), "Eliminar");
+
         }
+
     }
 
     @Override

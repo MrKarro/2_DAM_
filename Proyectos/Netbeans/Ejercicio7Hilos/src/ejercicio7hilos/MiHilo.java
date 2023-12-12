@@ -4,10 +4,6 @@
  */
 package ejercicio7hilos;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-
 
 /**
  *
@@ -16,7 +12,6 @@ import java.util.logging.Logger;
 public class MiHilo extends Thread{
     private String nombre;
     
-
     MiHilo(String nombre){
         setName(nombre);
         
@@ -37,7 +32,7 @@ public class MiHilo extends Thread{
             
         } catch (InterruptedException ex) {
             interrupt();
-            System.out.println("Soy el hilo " + getName() + " y me muero.");
+            System.out.println("\tSoy el hilo " + getName() + " y me muero.");
         }
         
     }
