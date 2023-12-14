@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="modif" android:title="Modificar"></item>
-    <item android:id="elim" android:title="Eliminar"></item>
+    <item android:id="@+id/modif" android:title="Modificar"></item>
+    <item android:id="@+id/elim" android:title="Eliminar"></item>
 </menu>

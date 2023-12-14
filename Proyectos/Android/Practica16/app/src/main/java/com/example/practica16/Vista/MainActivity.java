@@ -1,14 +1,12 @@
 package com.example.practica16.Vista;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Context;
+import android.content.res.Configuration;
 import android.os.Bundle;
-import android.view.ContextMenu;
-import android.view.MenuItem;
 import android.view.Surface;
 import android.view.View;
 import android.view.WindowManager;
@@ -18,7 +16,7 @@ import com.example.practica16.Interfaces.OnFragmentEventListener;
 import com.example.practica16.Modelo.Vehiculo;
 import com.example.practica16.Interfaces.OnDialogEvent;
 import com.example.practica16.R;
-import com.example.practica16.SQLHelper;
+import com.example.practica16.Modelo.SQLHelper;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
@@ -39,7 +37,7 @@ public class MainActivity extends AppCompatActivity implements OnDialogEvent, Vi
         helper = new SQLHelper(this);
         lista = helper.consultaVehiculos();
 
-        if(getRotation(getApplicationContext()).equals("vertical")){ //es vertical o portrait.
+        if(Configuration.ORIENTATION_PORTRAIT == getResources().getConfiguration().orientation){ //es vertical o portrait.
             boton = findViewById(R.id.flButton1);
             actualizaFragment(lista);
 
@@ -67,9 +65,9 @@ public class MainActivity extends AppCompatActivity implements OnDialogEvent, Vi
         Bundle args = new Bundle();
         args.putSerializable("lista", lista);
 
+        if (Configuration.ORIENTATION_PORTRAIT == getResources().getConfiguration().orientation){
 
-        if(getRotation(getApplicationContext()).equals("vertical")){ //es vertical o portrait.
-            args.putString("orientacion", getRotation(getApplicationContext()));
+
             fragment.setArguments(args);
             fragmentTransaction.replace(R.id.fragVertical, fragment);
         } else { // es horizontal o landscape.
@@ -82,9 +80,16 @@ public class MainActivity extends AppCompatActivity implements OnDialogEvent, Vi
     }
 
     @Override
-    public void addVehiculo(Vehiculo v) {
-        helper.insertarCoche(v);
-        lista.add(v);
+    public void addVehiculo(Vehiculo v, boolean modif) {
+        if (modif){
+            helper.modificarCoche(v);
+        } else {
+            helper.insertarCoche(v);
+            lista.add(v);
+        }
+        actualizaFragment(helper.consultaVehiculos());
+
+
 
     }
 
@@ -110,17 +115,7 @@ public class MainActivity extends AppCompatActivity implements OnDialogEvent, Vi
         fragmentTransaction.commit();
 
     }
-    public String getRotation(Context context){
-        final int rotation = ((WindowManager) context.getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay().getOrientation();
-        switch (rotation) {
-            case Surface.ROTATION_0:
-            case Surface.ROTATION_180:
-                return "vertical";
-            case Surface.ROTATION_90:
-            default:
-                return "horizontal";
-        }
-    }
+
 
 
 }
