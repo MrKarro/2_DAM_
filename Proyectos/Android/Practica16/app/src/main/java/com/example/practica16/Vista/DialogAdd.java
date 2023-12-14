@@ -23,6 +23,9 @@ public class DialogAdd extends DialogFragment implements DialogInterface.OnClick
 
     OnDialogEvent listener;
     Vehiculo add;
+    Vehiculo v;
+    boolean modificar = false;
+
 
     EditText bastidor;
     EditText marca;
@@ -30,6 +33,14 @@ public class DialogAdd extends DialogFragment implements DialogInterface.OnClick
     EditText kilometraje;
     Spinner color;
     Spinner combustible;
+
+    public DialogAdd(){}
+
+    public DialogAdd(Vehiculo v){
+        this.v = v;
+    }
+
+
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
@@ -56,6 +67,10 @@ public class DialogAdd extends DialogFragment implements DialogInterface.OnClick
         builder.setTitle("Añadir vehiculo");
 
         builder.setPositiveButton("Añadir", this);
+        if (this.v != null){
+            modificaCoche(this.v);
+            builder.setPositiveButton("Modificar", this);
+        }
 
 
         return builder.create();
@@ -73,7 +88,7 @@ public class DialogAdd extends DialogFragment implements DialogInterface.OnClick
                 add.setColor(color.getSelectedItem().toString());
                 add.setCombustible(combustible.getSelectedItem().toString());
 
-                listener.addVehiculo(add);
+                listener.addVehiculo(add, modificar);
                 break;
 
         }
@@ -91,6 +106,28 @@ public class DialogAdd extends DialogFragment implements DialogInterface.OnClick
     public void onDetach() {
         super.onDetach();
         listener = null;
+    }
+
+    public void modificaCoche(Vehiculo v){
+        modificar = true;
+        bastidor.setText(String.valueOf(v.getNumBastidor()));
+        bastidor.setEnabled(false);
+        marca.setText(v.getMarca());
+        modelo.setText(v.getModelo());
+        kilometraje.setText(String.valueOf(v.getKilometraje()));
+
+        for (int i = 0; i< color.getAdapter().getAutofillOptions().length; i++){
+            if (color.getAdapter().getAutofillOptions()[i].equals(v.getColor())){
+                color.setSelection(i);
+            }
+
+        }
+        for (int i = 0; i< combustible.getAdapter().getAutofillOptions().length; i++){
+            if (combustible.getAdapter().getAutofillOptions()[i].equals(v.getColor())){
+                combustible.setSelection(i);
+            }
+
+        }
     }
 
 }
