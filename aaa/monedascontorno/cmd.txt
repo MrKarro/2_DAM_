@@ -1,0 +1,2 @@
+en cmd pegar esto
+pip install opencv-contrib-python
