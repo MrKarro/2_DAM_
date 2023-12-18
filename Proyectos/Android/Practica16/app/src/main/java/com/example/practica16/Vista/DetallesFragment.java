@@ -16,21 +16,16 @@ import com.example.practica16.R;
 public class DetallesFragment extends Fragment {
 
     Vehiculo v;
-
     public DetallesFragment() {
         // Required empty public constructor
     }
     public DetallesFragment(Vehiculo v) {
         this.v = v;
     }
-
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
     }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -52,8 +47,6 @@ public class DetallesFragment extends Fragment {
             combust.setText("Tipo de combustible: " + v.getCombustible());
             kms.setText("Kilometraje: " + v.getKilometraje());
         }
-
-
         return vista;
     }
 }
