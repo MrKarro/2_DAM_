@@ -1,0 +1,42 @@
+
+
+Version:	3.50
+CmdLine:	C:\Users\usuario\Documents\GitHub\2_DAM_\Proyectos\Netbeans\GestEmplMVC\dist\GestEmplMVC.exe --l4j-debug
+JNI:		No
+WOW64:		Yes
+Working dir:	C:\Users\usuario\Documents\GitHub\2_DAM_\Proyectos\Netbeans\GestEmplMVC\dist\.
+Requires JDK:	No
+Requires 64-Bit: No
+Java min ver:	
+Java max ver:	
+Substitute:	JAVA_HOME = 
+Substitute:	PATH = C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files\Java\jdk-19\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\xampp\mysql\bin;C:\Program Files\nodejs\;D:\Instalaciones\Git\cmd;C:\Users\usuario\AppData\Local\Programs\Python\Python37\Scripts\;C:\Users\usuario\AppData\Local\Programs\Python\Python37\;C:\Users\usuario\AppData\Local\Microsoft\WindowsApps;D:\Microsoft VS Code\bin;C:\Users\usuario\AppData\Local\GitHubDesktop\bin;C:\Users\usuario\AppData\Roaming\npm;C:\Program Files\Java\jdk-19\bin
+JRE paths:	;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files\Java\jdk-19\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\xampp\mysql\bin;C:\Program Files\nodejs\;D:\Instalaciones\Git\cmd;C:\Users\usuario\AppData\Local\Programs\Python\Python37\Scripts\;C:\Users\usuario\AppData\Local\Programs\Python\Python37\;C:\Users\usuario\AppData\Local\Microsoft\WindowsApps;D:\Microsoft VS Code\bin;C:\Users\usuario\AppData\Local\GitHubDesktop\bin;C:\Users\usuario\AppData\Roaming\npm;C:\Program Files\Java\jdk-19\bin
+Check launcher:	C:\Program Files\Common Files\Oracle\Java\javapath\bin\javaw.exe (not found)
+Check launcher:	C:\Program Files\Java\jdk-19\bin\javaw.exe (OK)
+Version string: 1.019.000 / 64-Bit (OK)
+Launcher:	C:\Program Files\Java\jdk-19\bin\javaw.exe
+Launcher args:	-jar "C:\Users\usuario\Documents\GitHub\2_DAM_\Proyectos\Netbeans\GestEmplMVC\dist\GestEmplMVC.exe"
+Args length:	99/32768 chars
+Error msg:	An error occurred while starting the application.
+
+
+Version:	3.50
+CmdLine:	C:\Users\usuario\Documents\GitHub\2_DAM_\Proyectos\Netbeans\GestEmplMVC\dist\GestEmplMVC.exe --l4j-debug
+JNI:		No
+WOW64:		Yes
+Working dir:	C:\Users\usuario\Documents\GitHub\2_DAM_\Proyectos\Netbeans\GestEmplMVC\dist\.
+Requires JDK:	No
+Requires 64-Bit: No
+Java min ver:	
+Java max ver:	
+Substitute:	JAVA_HOME = 
+Substitute:	PATH = C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files\Java\jdk-19\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\xampp\mysql\bin;C:\Program Files\nodejs\;D:\Instalaciones\Git\cmd;C:\Users\usuario\AppData\Local\Programs\Python\Python37\Scripts\;C:\Users\usuario\AppData\Local\Programs\Python\Python37\;C:\Users\usuario\AppData\Local\Microsoft\WindowsApps;D:\Microsoft VS Code\bin;C:\Users\usuario\AppData\Local\GitHubDesktop\bin;C:\Users\usuario\AppData\Roaming\npm;C:\Program Files\Java\jdk-19\bin
+JRE paths:	;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files\Java\jdk-19\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\xampp\mysql\bin;C:\Program Files\nodejs\;D:\Instalaciones\Git\cmd;C:\Users\usuario\AppData\Local\Programs\Python\Python37\Scripts\;C:\Users\usuario\AppData\Local\Programs\Python\Python37\;C:\Users\usuario\AppData\Local\Microsoft\WindowsApps;D:\Microsoft VS Code\bin;C:\Users\usuario\AppData\Local\GitHubDesktop\bin;C:\Users\usuario\AppData\Roaming\npm;C:\Program Files\Java\jdk-19\bin
+Check launcher:	C:\Program Files\Common Files\Oracle\Java\javapath\bin\javaw.exe (not found)
+Check launcher:	C:\Program Files\Java\jdk-19\bin\javaw.exe (OK)
+Version string: 1.019.000 / 64-Bit (OK)
+Launcher:	C:\Program Files\Java\jdk-19\bin\javaw.exe
+Launcher args:	-jar "C:\Users\usuario\Documents\GitHub\2_DAM_\Proyectos\Netbeans\GestEmplMVC\dist\GestEmplMVC.exe"
+Args length:	99/32768 chars
+Error msg:	An error occurred while starting the application.
