@@ -1,0 +1,66 @@
+<odoo>
+     <data>
+
+         <record id="Autores0" model="biblioteca.autores">
+            <field name="name"> Miguel de Cervantes Saavedra</field>
+         </record>
+         <record model="biblioteca.autores" id="autor1">
+            <field name="name">Ken Follet</field>
+        </record>
+        <record model="biblioteca.autores" id="autor2">
+            <field name="name">Autor prueba</field>
+        </record>
+
+         <record id="Libro0" model="biblioteca.libro">
+             <field name="name">El Señor de los Anillos</field>
+             <field name="imagen" type="base64" file="biblioteca_dcs/static/img/SenorAnillos.png"/>
+             <field name="pages">568</field>
+             <field name="discontinued">False</field>
+             <field name="language">Es</field>
+            <!-- <field name="autor_ids" eval="[(4,3,0)]"/>-->
+         </record>
+         <record id="Libro1" model="biblioteca.libro">
+             <field name="name">El Principito</field>
+             <field name="imagen" type="base64" file="biblioteca_dcs/static/img/ElPrincipito.png"/>
+             <field name="pages">33</field>
+             <field name="discontinued">True</field>
+             <field name="language">Fr</field>
+             <field name="date_release">2020-10-15</field>
+            <!-- <field name="autor_ids" eval="[(4, ref('base.partner_admin'),0)]" />-->
+             <field name="sumario">El principito es una narración corta del escritor francés Antoine de SaintExupéry, que trata de la historia de un pequeño príncipe que parte de su asteroide a una travesía por el
+            universo, en la cual descubre la extraña forma en que los adultos ven la vida y comprende el valor del amor y
+            la amistad.
+             </field>
+         </record>
+         <record id="Libro2" model="biblioteca.libro">
+             <field name="name">El ingenioso hidalgo don Quijote de la Mancha</field>
+             <field name="imagen" type="base64" file="biblioteca_dcs/static/img/DonQuijote.png"/>
+             <field name="pages">704</field>
+             <field name="discontinued">False</field>
+             <field name="language">Es</field>
+             <field name="date_release">1605-1-1</field>
+             <field name="autor_ids" eval="[(4, ref('Autores0'),0)]" />
+             <field name="sumario">Don Quijote, hombre valiente y de lo más aventurero, se embarca
+            (arrastrando a Sancho) en locas aventuras, hazañas, batallas y misiones, todas ellas en nombre de la justicia,
+            el amor, y en definitiva, con el fin de salvar a cualquiera que esté en problemas.
+             </field>
+         </record>
+
+         <record model="biblioteca.editorial" id="Editorial1">
+            <field name="name">Planeta</field>
+            <field name="direccion">Calle falsa 123</field>
+            <field name="poblacion">Salamanca</field>
+            <field name="provincia">Salamanca</field>
+            <field name="codigopostal">12345</field>
+
+        </record>
+        <record model="biblioteca.editorial" id="Editorial2">
+            <field name="name">Barco de vapor</field>
+            <field name="direccion">Calle verdad 123</field>
+            <field name="poblacion">Madrid</field>
+            <field name="provincia">Madrid</field>
+            <field name="codigopostal">54321</field>
+
+        </record>
+     </data>
+</odoo>

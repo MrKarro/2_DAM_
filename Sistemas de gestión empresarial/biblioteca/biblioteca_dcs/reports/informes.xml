@@ -1,0 +1,38 @@
+<odoo>
+    <data>
+        <report
+            string="Imprimir la ficha del libro"
+            id="biblioteca_libro_report"
+            model="biblioteca.libro"
+            report_type="qweb-pdf"
+            print_report_name="(object.name)"
+            name="biblioteca_dcs.plantilla_ficha_libro"
+        />
+
+        <report string="Previsualizar la ficha del libro"
+            id="biblioteca_libro_report_preview"
+            model="biblioteca.libro"
+            report_type="qweb-html"
+            name="biblioteca_dcs.plantilla_ficha_libro"
+            print_report_name="(object.name)"
+        />
+
+
+        <record id="action_report_imprimir_fichas" model="ir.actions.report">
+            <field name="name">Imprimir todas las fichas</field>
+            <field name="model">biblioteca.libro</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">biblioteca_dcs.report_imprimir_fichas</field>
+            <field name="binding_model_id" ref="model_biblioteca_libro"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <record id="action_report_imprimir_listado" model="ir.actions.report">
+            <field name="name">Imprimir listado libros</field>
+            <field name="model">biblioteca.libro</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">biblioteca_dcs.report_imprimir_listado</field>
+        </record>
+
+    </data>
+</odoo>

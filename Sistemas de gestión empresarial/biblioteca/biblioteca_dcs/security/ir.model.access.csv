@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+biblioteca_dcs.bibliotecarios,biblioteca_dcs.bibliotecarios,model_biblioteca_libro,biblioteca_bibliotecarios_group,1,1,1,1
+biblioteca_dcs.administrador,biblioteca_dcs.administrador,model_biblioteca_libro,base.group_system,1,1,1,1
+biblioteca_dcs.bibliotecarios_autores,biblioteca_dcs.bibliotecarios_autores,model_biblioteca_autores,biblioteca_bibliotecarios_group,1,1,1,1
+biblioteca_dcs.bibliotecarios_autores,biblioteca_dcs.bibliotecarios_autores,model_biblioteca_autores,base.group_system,1,1,1,1
+biblioteca_dcs.bibliotecarios_editorial,biblioteca_dcs.bibliotecarios_editorial,model_biblioteca_editorial,biblioteca_bibliotecarios_group,1,1,1,1
+biblioteca_dcs.bibliotecarios_editorial,biblioteca_dcs.bibliotecarios_editorial,model_biblioteca_editorial,base.group_system,1,1,1,1
