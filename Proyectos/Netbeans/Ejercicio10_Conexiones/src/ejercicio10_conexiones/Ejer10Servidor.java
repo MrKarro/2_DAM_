@@ -24,6 +24,12 @@ public class Ejer10Servidor {
             DatagramPacket datagrama = new DatagramPacket(recibido, recibido.length);
 
             while (true) {
+                recibido = new byte[1024];
+                
+                datagrama.setData(recibido);
+                datagrama.setLength(recibido.length);
+                
+                
                 socketServidor.receive(datagrama);
                 String infoRecibida = new String(datagrama.getData());
                 

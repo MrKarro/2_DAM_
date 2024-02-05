@@ -4,6 +4,10 @@
  */
 package com.mycompany.projectobbdd2;
 
+import java.util.ArrayList;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author 6002755
@@ -13,8 +17,12 @@ public class AddVendedor extends javax.swing.JDialog {
     /**
      * Creates new form AddVendedor
      */
+    private static ArrayList<Vendedor> vendedores;
+    private static Ventana principal;
+    
     public AddVendedor(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
+        this.vendedores = vendedores;
         initComponents();
     }
 
@@ -30,9 +38,9 @@ public class AddVendedor extends javax.swing.JDialog {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jSpinner1 = new javax.swing.JSpinner();
-        jButton1 = new javax.swing.JButton();
+        jTextFieldNombre = new javax.swing.JTextField();
+        jButtonAdd = new javax.swing.JButton();
+        jTextFieldNum = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Añadir vendedor");
@@ -44,16 +52,16 @@ public class AddVendedor extends javax.swing.JDialog {
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel2.setText("Número de vendedor:");
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                jTextFieldNombreActionPerformed(evt);
             }
         });
 
-        jButton1.setText("Añadir");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButtonAdd.setText("Añadir");
+        jButtonAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButtonAddActionPerformed(evt);
             }
         });
 
@@ -69,12 +77,12 @@ public class AddVendedor extends javax.swing.JDialog {
                             .addComponent(jLabel1)
                             .addComponent(jLabel2))
                         .addGap(69, 69, 69)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jTextFieldNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 153, Short.MAX_VALUE)
+                            .addComponent(jTextFieldNum)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(152, 152, 152)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jButtonAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(67, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -83,13 +91,13 @@ public class AddVendedor extends javax.swing.JDialog {
                 .addGap(42, 42, 42)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldNum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(26, 26, 26)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jButtonAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(33, Short.MAX_VALUE))
         );
 
@@ -108,14 +116,70 @@ public class AddVendedor extends javax.swing.JDialog {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void jTextFieldNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNombreActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_jTextFieldNombreActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void jButtonAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddActionPerformed
+        int numEmp = -1;
+        try{
+            numEmp = Integer.parseInt(jTextFieldNum.getText());
+            
+        } catch (Exception e){
+            JOptionPane.showMessageDialog(rootPane, "Error, ID de vendedor no válido.", "Error", JOptionPane.WARNING_MESSAGE);
+            jTextFieldNum.requestFocus();
+        }
+        if (numEmp <= 0){
+            JOptionPane.showMessageDialog(rootPane, "Error, ID de vendedor no válido.", "Error", JOptionPane.WARNING_MESSAGE);
+            jTextFieldNum.requestFocus();
+        }
+        
+        Vendedor nuevo = new Vendedor(jTextFieldNombre.getText(), numEmp);
+        if (vendedores.size() != 0){
+            boolean existe = false;
+        
+            for (Vendedor v : vendedores){
+                if (numEmp == v.getNumVenta()){
+                    existe = true;
+                }
+                
+            }
+            if (existe){
+                JOptionPane.showMessageDialog(rootPane, "Error, ID de vendedor existente.", "Error", JOptionPane.WARNING_MESSAGE);
+            } else {
+                vendedores.add(nuevo);
 
+                principal.setVendedores(vendedores);
+                setVisible(false);
+            }
+              
+        } else {
+            vendedores.add(nuevo);
+                
+                principal.setVendedores(vendedores);
+                setVisible(false);
+        }
+        
+    }//GEN-LAST:event_jButtonAddActionPerformed
+
+    public static ArrayList<Vendedor> getVendedores() {
+        return vendedores;
+    }
+
+    public static void setVendedores(ArrayList<Vendedor> vendedores) {
+        AddVendedor.vendedores = vendedores;
+    }
+
+    public static Ventana getPrincipal() {
+        return principal;
+    }
+
+    public static void setPrincipal(Ventana principal) {
+        AddVendedor.principal = principal;
+    }
+    
+
+    
     /**
      * @param args the command line arguments
      */
@@ -159,11 +223,11 @@ public class AddVendedor extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButtonAdd;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JSpinner jSpinner1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextFieldNombre;
+    private javax.swing.JTextField jTextFieldNum;
     // End of variables declaration//GEN-END:variables
 }

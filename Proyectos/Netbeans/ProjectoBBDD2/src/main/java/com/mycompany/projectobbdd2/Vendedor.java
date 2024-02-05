@@ -17,6 +17,30 @@ public class Vendedor {
         this.nombre = nombre;
         this.numVenta = numVenta;
     }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public int getNumVenta() {
+        return numVenta;
+    }
+
+    public void setNumVenta(int numVenta) {
+        this.numVenta = numVenta;
+    }
+
+    @Override
+    public String toString() {
+        return  "nombre=" + nombre + ", numVenta=" + numVenta + '}';
+    }
+    
+    
+    
     
     
     

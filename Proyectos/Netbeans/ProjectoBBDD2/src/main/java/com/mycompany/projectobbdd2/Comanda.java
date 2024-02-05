@@ -28,6 +28,61 @@ public class Comanda {
         this.bocadillo = bocadillo;
         this.racion = racion;
     }
+
+    @Override
+    public String toString() {
+        return "refresco=" + refresco + ", cafe=" + cafe + ", cerveza=" + cerveza + ", infusion=" + infusion + ", bocadillo=" + bocadillo + ", racion=" + racion;
+    }
+    
+    
+
+    public int getRefresco() {
+        return refresco;
+    }
+
+    public void setRefresco(int refresco) {
+        this.refresco = refresco;
+    }
+
+    public int getCafe() {
+        return cafe;
+    }
+
+    public void setCafe(int cafe) {
+        this.cafe = cafe;
+    }
+
+    public int getCerveza() {
+        return cerveza;
+    }
+
+    public void setCerveza(int cerveza) {
+        this.cerveza = cerveza;
+    }
+
+    public int getInfusion() {
+        return infusion;
+    }
+
+    public void setInfusion(int infusion) {
+        this.infusion = infusion;
+    }
+
+    public int getBocadillo() {
+        return bocadillo;
+    }
+
+    public void setBocadillo(int bocadillo) {
+        this.bocadillo = bocadillo;
+    }
+
+    public int getRacion() {
+        return racion;
+    }
+
+    public void setRacion(int racion) {
+        this.racion = racion;
+    }
     
     
     

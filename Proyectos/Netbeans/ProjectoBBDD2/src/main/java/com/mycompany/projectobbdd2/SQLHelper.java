@@ -6,16 +6,18 @@ package com.mycompany.projectobbdd2;
 
 import java.io.File;
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 
 /**
  *
  * @author 6002755
  */
 public class SQLHelper {
-    static final String BBDD = "./bar.db";
-    Connection con = null;
+    static final String BBDD = "./bar.bd";
+    
     
     public SQLHelper(){  
         
@@ -49,20 +51,97 @@ public class SQLHelper {
 
 
             statement.executeUpdate(codigoSQL);
+            System.out.println("BBDD creada");
           
         }
-
-        
-        
-
-        
-        
-        
-
         return connection;
-
+    }
+    
+    public static void insertarDatos(Connection con) throws SQLException{
+        String sql = 
+                "INSERT INTO Vendedor (nombre, numVenta) VALUES ('David', 1);" +
+                "INSERT INTO Vendedor (nombre, numVenta) VALUES ('Mía', 2);" +
+                "INSERT INTO Vendedor (nombre, numVenta) VALUES ('Jiawei', 3);" +
+                "INSERT INTO Vendedor (nombre, numVenta) VALUES ('Alberto', 4);" +
+        
+                "INSERT INTO Comanda (refresco, cafe, cerveza, infusion, bocadillo, racion) VALUES (1, 2, 3, 4, 5, 3);" +
+                "INSERT INTO Comanda (refresco, cafe, cerveza, infusion, bocadillo, racion) VALUES (7, 8, 9, 10, 11, 2);" +
+                "INSERT INTO Comanda (refresco, cafe, cerveza, infusion, bocadillo, racion) VALUES (2, 3, 1, 0, 5, 1);" +
+                "INSERT INTO Comanda (refresco, cafe, cerveza, infusion, bocadillo, racion) VALUES (13, 14, 15, 16, 17, 1);" ;
+        
+        Statement stat = con.createStatement();
+        
+        stat.executeUpdate(sql);
+    }
+    public static void insertaVendedor(Vendedor v, Connection con){
+        try {
+            String sql = "INSERT INTO Vendedor VALUES ('" + v.getNombre() + "', " + v.getNumVenta() + ");";
+            Statement stat = con.createStatement();
+            stat.executeUpdate(sql);
+        } catch (SQLException ex) {
+            Logger.getLogger(SQLHelper.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
     }
-
-
+    public static void insertaComanda(Comanda c, Connection con){
+        try {
+            String sql = "INSERT INTO Comanda (refresco, cafe, cerveza, infusion, bocadillo, racion) VALUES (" + c.getRefresco() + ", " + c.getCafe() + ", " + c.getCerveza() + ", " + c.getInfusion() + ", " + c.getBocadillo() + ", " + c.getRacion() + "); ";
+            Statement stat = con.createStatement();
+            
+            stat.executeUpdate(sql);
+        } catch (SQLException ex) {
+            Logger.getLogger(SQLHelper.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
+    
+    public static ArrayList<Vendedor> consultaVendedores(Connection con){
+        ArrayList<Vendedor> lista = new ArrayList<>();
+        try {
+            String sql = "SELECT * FROM Vendedor;";
+            Statement stat = con.createStatement();
+            ResultSet rs = stat.executeQuery(sql);
+            
+            while (rs.next()){
+                String nombre = rs.getString("nombre");
+                int numEmp = rs.getInt("numVenta");
+                Vendedor ven = new Vendedor(nombre, numEmp);
+                lista.add(ven);
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(SQLHelper.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return lista;
+        
+    }
+    
+    public static ArrayList<Comanda> consultaComandas(Connection con){
+        ArrayList<Comanda> lista = new ArrayList<>();
+        try {
+            String sql = "SELECT * FROM Comanda;";
+            Statement stat = con.createStatement();
+            ResultSet rs = stat.executeQuery(sql);
+            
+            while (rs.next()){
+                
+                
+                int refresco = rs.getInt("refresco");
+                int cafe = rs.getInt("cafe");
+                int cerveza = rs.getInt("cerveza");
+                int infusion = rs.getInt("infusion");
+                int bocadillo = rs.getInt("bocadillo");
+                int racion = rs.getInt("racion");
+                Comanda com = new Comanda(refresco, cafe, cerveza, infusion, bocadillo, racion);
+                lista.add(com);
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(SQLHelper.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return lista;
+        
+    }
 }
