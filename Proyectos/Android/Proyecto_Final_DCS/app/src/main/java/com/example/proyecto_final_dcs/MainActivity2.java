@@ -10,7 +10,7 @@ import android.view.MenuItem;
 
 import com.example.proyecto_final_dcs.Modelo.Usuario;
 
-public class MainActivity2 extends AppCompatActivity implements OnDialogListener {
+public class MainActivity2 extends AppCompatActivity implements ComponentListener {
 
     private Usuario user;
     @Override

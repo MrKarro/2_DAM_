@@ -1,4 +1,4 @@
-package com.example.proyecto_final_dcs;
+package com.example.proyecto_final_dcs.Vista;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -15,11 +15,15 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 
+import com.example.proyecto_final_dcs.ComponentListener;
+import com.example.proyecto_final_dcs.R;
+
 public class LoginDialog extends DialogFragment implements DialogInterface.OnClickListener {
 
     EditText nombre, contra;
     Button enviar;
-    OnDialogListener listener;
+    ComponentListener listener;
+    boolean add;
 
 
     @NonNull
@@ -35,7 +39,7 @@ public class LoginDialog extends DialogFragment implements DialogInterface.OnCli
         enviar = view.findViewById(R.id.enviar);
 
         builder.setView(view);
-        builder.setTitle("Insertar user");
+        builder.setTitle("Usuario");
         builder.setPositiveButton("Añadir", this);
         builder.setNegativeButton("Cancelar", this);
 
@@ -49,6 +53,9 @@ public class LoginDialog extends DialogFragment implements DialogInterface.OnCli
     public void onClick(DialogInterface dialogInterface, int i) {
         switch (i){
             case -1:
+                if (add){
+
+                }
 
 
                 break;
@@ -58,12 +65,19 @@ public class LoginDialog extends DialogFragment implements DialogInterface.OnCli
         }
     }
 
+    public boolean isAdd() {
+        return add;
+    }
+
+    public void setAdd(boolean add) {
+        this.add = add;
+    }
 
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
-        if (context instanceof OnDialogListener){
-            listener = (OnDialogListener) context;
+        if (context instanceof ComponentListener){
+            listener = (ComponentListener) context;
         }
 
     }

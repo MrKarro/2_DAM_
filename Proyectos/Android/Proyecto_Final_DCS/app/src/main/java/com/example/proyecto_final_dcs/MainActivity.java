@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.proyecto_final_dcs.Vista.LoginDialog;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     Button ingresar, registrar;
@@ -24,9 +26,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
         if (view.getId() == R.id.ingresar){
 
+            LoginDialog dialog = new LoginDialog();
+            dialog.setAdd(false);
+            dialog.show(getSupportFragmentManager(), "Ingresar");
+
+
+
 
         } else if (view.getId() == R.id.registrar){
-
+            LoginDialog dialog = new LoginDialog();
+            dialog.setAdd(true);
+            dialog.show(getSupportFragmentManager(), "Registrar");
         }
     }
 }
