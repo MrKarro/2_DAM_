@@ -3,7 +3,7 @@ CREATE TABLE Pelicula (
   identificador INT(3) NOT NULL AUTO_INCREMENT,
   titulo VARCHAR(100) NOT NULL,
   duracion TIME,
-  año INT(4),
+  anho INT(4),
   portada VARCHAR(200),
   director INT(3),
   disponible TINYINT(1) DEFAULT 1,
@@ -46,7 +46,7 @@ CREATE TABLE Usuario (
 
 
 INSERT INTO Pelicula (titulo, duracion, año, portada, director, disponible) VALUES
-('El Señor de los Anillos: La Comunidad del Anillo', '03:12:00', 2001, 'portada_lotr.jpg', 1, 1),
+('El Senhor de los Anillos: La Comunidad del Anillo', '03:12:00', 2001, 'portada_lotr.jpg', 1, 1),
 ('El Padrino', '02:55:00', 1972, 'portada_padrino.jpg', 2, 1),
 ('Interstellar', '02:58:00', 2014, 'portada_interstellar.jpg', 3, 1);
 
@@ -63,8 +63,8 @@ INSERT INTO Alquiler (id_pelicula, id_usuario, fecha_alquiler, fecha_devolucion)
 
 
 INSERT INTO Usuario (dni, nombre, login, password, trabajador, bloqueado) VALUES
-('12345678A', 'Juan Pérez', 'juanperez', 'clave1234', 0, 0),
-('87654321B', 'Ana García', 'anagarcia', 'clave5678', 0, 0),
-('98765432C', 'Pedro López', 'pedrolopez', 'clave9012', 1, 0);
+('12345678A', 'Cliente1', 'Cli1', '123456', 0, 0),
+('87654321B', 'Cliente2', 'Cli2', '123456', 0, 0),
+('98765432C', 'Trabajador1', 'Tra1', '123456', 1, 0);
 
 
