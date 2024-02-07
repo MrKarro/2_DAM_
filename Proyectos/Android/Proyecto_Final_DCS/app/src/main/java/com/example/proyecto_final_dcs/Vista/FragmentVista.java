@@ -15,11 +15,15 @@ import android.widget.Spinner;
 import com.example.proyecto_final_dcs.ComponentListener;
 import com.example.proyecto_final_dcs.R;
 
+import java.util.ArrayList;
+
 
 public class FragmentVista extends Fragment {
 
     Spinner filtro;
     RecyclerView lista;
+
+    boolean trabajador;
 
     ComponentListener listener;
 
@@ -33,6 +37,8 @@ public class FragmentVista extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
+            trabajador = getArguments().getBoolean("trabajador");
+
 
         }
     }
@@ -41,7 +47,9 @@ public class FragmentVista extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_vista, container, false);
+        if (trabajador){
 
+        }
 
         return view;
     }

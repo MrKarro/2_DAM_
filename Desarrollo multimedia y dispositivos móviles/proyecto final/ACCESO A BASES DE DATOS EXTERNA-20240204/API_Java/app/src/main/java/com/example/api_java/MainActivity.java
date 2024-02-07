@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
 
         lc.createLibros(new Libro(0, "X", "T"));
 
-        lc.getLibros();
+        Arraylist<Libro> lib = lc.getLibros();
 
         lc.getLibro(5);
     }

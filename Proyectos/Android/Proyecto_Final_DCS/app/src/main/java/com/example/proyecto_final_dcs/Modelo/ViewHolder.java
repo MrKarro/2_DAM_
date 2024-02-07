@@ -1,4 +1,4 @@
-package com.example.proyecto_final_dcs.Vista;
+package com.example.proyecto_final_dcs.Modelo;
 
 import android.view.View;
 import android.widget.ImageView;
@@ -12,14 +12,13 @@ public class ViewHolder extends RecyclerView.ViewHolder{
 
     private ImageView foto;
 
-    private TextView titulo, director, duracion;
+    private TextView titulo, duracion;
 
     public ViewHolder(View view) {
         super(view);
         // Define click listener for the ViewHolder's View
 
         titulo = (TextView) view.findViewById(R.id.titulo);
-        director = (TextView) view.findViewById(R.id.director);
         duracion = (TextView) view.findViewById(R.id.duracion);
         foto = (ImageView) view.findViewById(R.id.foto);
 
@@ -42,13 +41,6 @@ public class ViewHolder extends RecyclerView.ViewHolder{
         this.titulo = titulo;
     }
 
-    public TextView getDirector() {
-        return director;
-    }
-
-    public void setDirector(TextView director) {
-        this.director = director;
-    }
 
     public TextView getDuracion() {
         return duracion;

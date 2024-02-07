@@ -28,6 +28,8 @@ public class LibroController {
                         if (response.isSuccessful()) {
                             assert response.body() != null;
                             for (Libro libro: response.body())
+
+
                                 Log.d("TAG", libro.toString());
                         } else {
                             Log.d("TAG", "Error");

@@ -69,12 +69,7 @@ public class MainActivity2 extends AppCompatActivity implements OnDialogListener
             fragmentTransaction.commit();
         }
 
-
-
     }
-
-
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         if (user.getRol().equals("administrador") && Configuration.ORIENTATION_PORTRAIT == getResources().getConfiguration().orientation){

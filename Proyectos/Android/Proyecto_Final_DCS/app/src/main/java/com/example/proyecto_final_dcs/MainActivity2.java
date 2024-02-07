@@ -2,21 +2,34 @@ package com.example.proyecto_final_dcs;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.FrameLayout;
 
 import com.example.proyecto_final_dcs.Modelo.Usuario;
+import com.example.proyecto_final_dcs.Vista.FragmentVista;
 
 public class MainActivity2 extends AppCompatActivity implements ComponentListener {
 
     private Usuario user;
+    FrameLayout vista;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
+        vista = findViewById(R.id.frag);
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        FragmentVista frag = new FragmentVista();
+        Bundle args = new Bundle();
+        args.putBoolean("trabajador", user.isTrabajador());
+        frag.setArguments(args);
+        fragmentTransaction.replace(R.id.frag, frag);
     }
 
     @Override
@@ -27,11 +40,10 @@ public class MainActivity2 extends AppCompatActivity implements ComponentListene
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
+        MenuInflater inflater = getMenuInflater();
         if (user.isTrabajador()){
-            MenuInflater inflater = getMenuInflater();
             inflater.inflate(R.menu.menu_opciones_trab, menu);
         } else {
-            MenuInflater inflater = getMenuInflater();
             inflater.inflate(R.menu.menu_opciones_cli, menu);
         }
 
@@ -58,4 +70,6 @@ public class MainActivity2 extends AppCompatActivity implements ComponentListene
 
         return super.onOptionsItemSelected(item);
     }
+
+
 }
