@@ -54,7 +54,7 @@ public class MostrarCosas extends javax.swing.JDialog {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        jButtonCerrar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList<>();
         jButtonPed = new javax.swing.JButton();
@@ -62,10 +62,10 @@ public class MostrarCosas extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jButton1.setText("Cerrar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButtonCerrar.setText("Cerrar");
+        jButtonCerrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButtonCerrarActionPerformed(evt);
             }
         });
 
@@ -76,7 +76,7 @@ public class MostrarCosas extends javax.swing.JDialog {
         });
         jScrollPane1.setViewportView(jList1);
 
-        jButtonPed.setText("Pedidos");
+        jButtonPed.setText("Comandas");
         jButtonPed.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonPedActionPerformed(evt);
@@ -96,17 +96,16 @@ public class MostrarCosas extends javax.swing.JDialog {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 45, Short.MAX_VALUE)
-                        .addComponent(jButtonVend)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButtonPed)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton1)
-                        .addGap(58, 58, 58))
-                    .addComponent(jScrollPane1))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 375, Short.MAX_VALUE)
                 .addContainerGap())
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(49, 49, 49)
+                .addComponent(jButtonVend)
+                .addGap(18, 18, 18)
+                .addComponent(jButtonPed)
+                .addGap(18, 18, 18)
+                .addComponent(jButtonCerrar)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -115,7 +114,7 @@ public class MostrarCosas extends javax.swing.JDialog {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
+                    .addComponent(jButtonCerrar)
                     .addComponent(jButtonPed)
                     .addComponent(jButtonVend))
                 .addContainerGap(13, Short.MAX_VALUE))
@@ -140,9 +139,9 @@ public class MostrarCosas extends javax.swing.JDialog {
         jList1.setModel(rellenaTabla(listaVend));
     }//GEN-LAST:event_jButtonVendActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButtonCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCerrarActionPerformed
         setVisible(false);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jButtonCerrarActionPerformed
 
     private void jButtonPedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPedActionPerformed
         jList1.setModel(rellenaTabla(listaComanda));
@@ -238,7 +237,7 @@ public class MostrarCosas extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButtonCerrar;
     private javax.swing.JButton jButtonPed;
     private javax.swing.JButton jButtonVend;
     private javax.swing.JList<String> jList1;

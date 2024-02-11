@@ -15,15 +15,18 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 
-import com.example.proyecto_final_dcs.ComponentListener;
+import com.example.proyecto_final_dcs.Interfaces.ComponentListener;
+import com.example.proyecto_final_dcs.Modelo.Usuario;
 import com.example.proyecto_final_dcs.R;
+import com.example.proyecto_final_dcs.VideoclubController;
 
 public class LoginDialog extends DialogFragment implements DialogInterface.OnClickListener {
 
-    EditText nombre, contra;
-    Button enviar;
+    EditText nombre, contra, dni, nick;
+
     ComponentListener listener;
     boolean add;
+    VideoclubController vc = new VideoclubController();
 
 
     @NonNull
@@ -31,12 +34,27 @@ public class LoginDialog extends DialogFragment implements DialogInterface.OnCli
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
 
-        LayoutInflater inflater = requireActivity().getLayoutInflater();
-        View view = inflater.inflate(R.layout.user_dialog, null);
 
-        nombre = view.findViewById(R.id.user);
-        contra = view.findViewById(R.id.contra);
-        enviar = view.findViewById(R.id.enviar);
+
+        LayoutInflater inflater = requireActivity().getLayoutInflater();
+        View view;
+        if (!add){
+            view = inflater.inflate(R.layout.user_dialog_login, null);
+            nick = view.findViewById(R.id.user);
+            contra = view.findViewById(R.id.contra);
+        } else {
+            view = inflater.inflate(R.layout.user_dialog_register, null);
+            nick = view.findViewById(R.id.user);
+            contra = view.findViewById(R.id.contra);
+            nombre = view.findViewById(R.id.nombre);
+            dni = view.findViewById(R.id.dni);
+
+
+        }
+
+
+
+
 
         builder.setView(view);
         builder.setTitle("Usuario");
@@ -54,7 +72,14 @@ public class LoginDialog extends DialogFragment implements DialogInterface.OnCli
         switch (i){
             case -1:
                 if (add){
-
+                    Usuario user = new Usuario();
+                    user.setNombre(nombre.getText().toString());
+                    user.setDni(dni.getText().toString());
+                    user.setLogin(nick.getText().toString());
+                    user.setPassword(contra.getText().toString());
+                    vc.createUsuario(getContext(), user);
+                } else {
+                    // comprobar si el usuario existe mediante el vc.getUsuario pero no se como recogerlo
                 }
 
 

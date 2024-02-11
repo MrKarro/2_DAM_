@@ -12,10 +12,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Spinner;
 
-import com.example.proyecto_final_dcs.ComponentListener;
+import com.example.proyecto_final_dcs.Interfaces.ComponentListener;
 import com.example.proyecto_final_dcs.R;
-
-import java.util.ArrayList;
 
 
 public class FragmentVista extends Fragment {

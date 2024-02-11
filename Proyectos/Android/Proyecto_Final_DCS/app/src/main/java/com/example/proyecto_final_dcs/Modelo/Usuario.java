@@ -10,6 +10,9 @@ public class Usuario {
     private boolean bloqueado;
 
     // Constructor
+    public Usuario(){
+
+    }
     public Usuario(int identificador, String dni, String nombre, String login, String password, boolean trabajador, boolean bloqueado) {
         this.identificador = identificador;
         this.dni = dni;

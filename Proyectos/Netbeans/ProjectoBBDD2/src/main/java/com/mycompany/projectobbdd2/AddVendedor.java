@@ -127,37 +127,38 @@ public class AddVendedor extends javax.swing.JDialog {
             
         } catch (Exception e){
             JOptionPane.showMessageDialog(rootPane, "Error, ID de vendedor no válido.", "Error", JOptionPane.WARNING_MESSAGE);
-            jTextFieldNum.requestFocus();
+            
         }
         if (numEmp <= 0){
             JOptionPane.showMessageDialog(rootPane, "Error, ID de vendedor no válido.", "Error", JOptionPane.WARNING_MESSAGE);
             jTextFieldNum.requestFocus();
         }
-        
-        Vendedor nuevo = new Vendedor(jTextFieldNombre.getText(), numEmp);
-        if (vendedores.size() != 0){
-            boolean existe = false;
-        
-            for (Vendedor v : vendedores){
-                if (numEmp == v.getNumVenta()){
-                    existe = true;
+        if (numEmp != -1){
+            Vendedor nuevo = new Vendedor(jTextFieldNombre.getText(), numEmp);
+            if (vendedores.size() != 0){
+                boolean existe = false;
+
+                for (Vendedor v : vendedores){
+                    if (numEmp == v.getNumVenta()){
+                        existe = true;
+                    }
+
                 }
-                
-            }
-            if (existe){
-                JOptionPane.showMessageDialog(rootPane, "Error, ID de vendedor existente.", "Error", JOptionPane.WARNING_MESSAGE);
+                if (existe){
+                    JOptionPane.showMessageDialog(rootPane, "Error, ID de vendedor existente.", "Error", JOptionPane.WARNING_MESSAGE);
+                } else {
+                    vendedores.add(nuevo);
+
+                    principal.setVendedores(vendedores);
+                    setVisible(false);
+                }
+
             } else {
                 vendedores.add(nuevo);
 
                 principal.setVendedores(vendedores);
                 setVisible(false);
             }
-              
-        } else {
-            vendedores.add(nuevo);
-                
-                principal.setVendedores(vendedores);
-                setVisible(false);
         }
         
     }//GEN-LAST:event_jButtonAddActionPerformed

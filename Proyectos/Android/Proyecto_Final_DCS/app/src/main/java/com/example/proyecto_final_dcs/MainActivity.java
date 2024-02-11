@@ -10,10 +10,16 @@ import com.example.proyecto_final_dcs.Vista.LoginDialog;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
+    VideoclubController vc = new VideoclubController();
+
+
     Button ingresar, registrar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        vc.getPeliculas();
+        vc.getDirectores();
+
         setContentView(R.layout.activity_main);
         ingresar = findViewById(R.id.ingresar);
         registrar = findViewById(R.id.registrar);

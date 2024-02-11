@@ -5,6 +5,7 @@
 package com.mycompany.projectobbdd2;
 
 import java.awt.Image;
+import java.io.File;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -28,6 +29,7 @@ public class Ventana extends javax.swing.JFrame {
     
     private static ArrayList<Vendedor> vendedores= new ArrayList<>();
     private static ArrayList<Comanda> pedidos= new ArrayList<>();
+    
     public Ventana() {
         try {
             initComponents();
@@ -89,7 +91,8 @@ public class Ventana extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
         jMenuItemMuestraVendedores = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
-        jMenuItem4 = new javax.swing.JMenuItem();
+        jMenuItemDemo = new javax.swing.JMenuItem();
+        jMenuItemBorrar = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Bar");
@@ -291,15 +294,23 @@ public class Ventana extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu2);
 
-        jMenu3.setText("Demo");
+        jMenu3.setText("Acciones BBDD");
 
-        jMenuItem4.setText("Añadir datos demo");
-        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItemDemo.setText("Añadir datos demo");
+        jMenuItemDemo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem4ActionPerformed(evt);
+                jMenuItemDemoActionPerformed(evt);
             }
         });
-        jMenu3.add(jMenuItem4);
+        jMenu3.add(jMenuItemDemo);
+
+        jMenuItemBorrar.setText("Borrar contenido BBDD");
+        jMenuItemBorrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemBorrarActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuItemBorrar);
 
         jMenuBar1.add(jMenu3);
 
@@ -334,14 +345,20 @@ public class Ventana extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jMenuItemMuestraVendedoresActionPerformed
 
-    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-        try {
-            SQLHelper.insertarDatos(con);
-        } catch (SQLException ex) {
-            Logger.getLogger(Ventana.class.getName()).log(Level.SEVERE, null, ex);
+    private void jMenuItemDemoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemDemoActionPerformed
+        File base = new File(SQLHelper.BBDD);
+        
+        if (base.getTotalSpace()>0){
+            try {
+                SQLHelper.insertarDatos(con);
+            } catch (SQLException ex) {
+                Logger.getLogger(Ventana.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else {
+            JOptionPane.showMessageDialog(rootPane, "Ya hay datos en la base de datos.");
         }
         
-    }//GEN-LAST:event_jMenuItem4ActionPerformed
+    }//GEN-LAST:event_jMenuItemDemoActionPerformed
 
     private void jMenuItemAddVendedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemAddVendedorActionPerformed
         AddVendedor vent = new AddVendedor(this, true);
@@ -360,6 +377,10 @@ public class Ventana extends javax.swing.JFrame {
         Comanda com = new Comanda(refresco, cafe, cerveza, infusion, bocadillo, racion);
         SQLHelper.insertaComanda(com, con);
     }//GEN-LAST:event_jButtonEnviarActionPerformed
+
+    private void jMenuItemBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemBorrarActionPerformed
+        SQLHelper.borraBase(con);
+    }//GEN-LAST:event_jMenuItemBorrarActionPerformed
 
     public static ArrayList<Vendedor> getVendedores() {
         return vendedores;
@@ -428,8 +449,9 @@ public class Ventana extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItemAddVendedor;
+    private javax.swing.JMenuItem jMenuItemBorrar;
+    private javax.swing.JMenuItem jMenuItemDemo;
     private javax.swing.JMenuItem jMenuItemMuestraVendedores;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

@@ -9,6 +9,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 
 /**
@@ -75,9 +76,15 @@ public class SQLHelper {
     }
     public static void insertaVendedor(Vendedor v, Connection con){
         try {
-            String sql = "INSERT INTO Vendedor VALUES ('" + v.getNombre() + "', " + v.getNumVenta() + ");";
             Statement stat = con.createStatement();
-            stat.executeUpdate(sql);
+            String busca = "SELECT nombre, numVenta FROM Vendedor where numVenta = " + v.getNumVenta();
+            ResultSet rs = stat.executeQuery(busca);
+            if (!rs.next()){
+                String sql = "INSERT INTO Vendedor VALUES ('" + v.getNombre() + "', " + v.getNumVenta() + ");";
+            
+                stat.executeUpdate(sql);
+            }
+
         } catch (SQLException ex) {
             Logger.getLogger(SQLHelper.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -142,6 +149,37 @@ public class SQLHelper {
         }
         
         return lista;
+        
+    }
+    public static void borraBase(Connection con){
+        try {
+            String sql = "DROP TABLE Vendedor;";
+            Statement stat = con.createStatement();
+            stat.executeUpdate(sql);
+            sql = "DROP TABLE Comanda;";
+            stat.executeUpdate(sql);
+            sql = 
+                "CREATE TABLE Vendedor ( " +
+                    "nombre VARCHAR(255) NOT NULL, " +
+                    "numVenta INTEGER NOT NULL " +
+                "); " +
+
+                "CREATE TABLE Comanda ( " +
+                  "refresco INTEGER NOT NULL, " +
+                  "cafe INTEGER NOT NULL, " +
+                  "cerveza INTEGER NOT NULL, " +
+                  "infusion INTEGER NOT NULL,  " +
+                  "bocadillo INTEGER NOT NULL, " +
+                  "racion INTEGER NOT NULL " +
+                ");";
+            stat.executeUpdate(sql);
+            
+            
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(SQLHelper.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
         
     }
 }

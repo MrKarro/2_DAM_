@@ -1,4 +1,4 @@
-package com.example.proyecto_final_dcs;
+package com.example.proyecto_final_dcs.Interfaces;
 
 
 public interface ComponentListener {
