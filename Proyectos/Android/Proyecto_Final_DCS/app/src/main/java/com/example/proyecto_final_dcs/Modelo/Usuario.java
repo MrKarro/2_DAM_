@@ -1,6 +1,8 @@
 package com.example.proyecto_final_dcs.Modelo;
 
-public class Usuario {
+import java.io.Serializable;
+
+public class Usuario implements Serializable {
     private int identificador;
     private String dni;
     private String nombre;
@@ -21,6 +23,19 @@ public class Usuario {
         this.password = password;
         this.trabajador = trabajador;
         this.bloqueado = bloqueado;
+    }
+
+    @Override
+    public String toString() {
+        return "Usuario{" +
+                "identificador=" + identificador +
+                ", dni='" + dni + '\'' +
+                ", nombre='" + nombre + '\'' +
+                ", login='" + login + '\'' +
+                ", password='" + password + '\'' +
+                ", trabajador=" + trabajador +
+                ", bloqueado=" + bloqueado +
+                '}';
     }
 
     // Getters y Setters

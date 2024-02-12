@@ -34,31 +34,27 @@ public class LoginDialog extends DialogFragment implements DialogInterface.OnCli
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
 
-
-
         LayoutInflater inflater = requireActivity().getLayoutInflater();
         View view;
         if (!add){
             view = inflater.inflate(R.layout.user_dialog_login, null);
             nick = view.findViewById(R.id.user);
             contra = view.findViewById(R.id.contra);
+            builder.setPositiveButton("Ingresar", this);
         } else {
             view = inflater.inflate(R.layout.user_dialog_register, null);
             nick = view.findViewById(R.id.user);
             contra = view.findViewById(R.id.contra);
             nombre = view.findViewById(R.id.nombre);
             dni = view.findViewById(R.id.dni);
+            builder.setPositiveButton("Añadir", this);
 
 
         }
 
-
-
-
-
         builder.setView(view);
         builder.setTitle("Usuario");
-        builder.setPositiveButton("Añadir", this);
+
         builder.setNegativeButton("Cancelar", this);
 
 
@@ -80,6 +76,7 @@ public class LoginDialog extends DialogFragment implements DialogInterface.OnCli
                     vc.createUsuario(getContext(), user);
                 } else {
                     // comprobar si el usuario existe mediante el vc.getUsuario pero no se como recogerlo
+                    vc.getUsuario(getContext(), nick.getText().toString());
                 }
 
 

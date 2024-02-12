@@ -15,7 +15,7 @@ import com.example.proyecto_final_dcs.Interfaces.ComponentListener;
 import com.example.proyecto_final_dcs.Modelo.Usuario;
 import com.example.proyecto_final_dcs.Vista.FragmentVista;
 
-public class MainActivity2 extends AppCompatActivity implements ComponentListener {
+public class MainActivity2 extends AppCompatActivity  {
 
     private Usuario user;
     FrameLayout vista;
@@ -24,6 +24,11 @@ public class MainActivity2 extends AppCompatActivity implements ComponentListene
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
         vista = findViewById(R.id.frag);
+        if (getIntent().getExtras() != null){
+            user = (Usuario) getIntent().getSerializableExtra("user");
+
+        }
+
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         FragmentVista frag = new FragmentVista();
@@ -33,10 +38,7 @@ public class MainActivity2 extends AppCompatActivity implements ComponentListene
         fragmentTransaction.replace(R.id.frag, frag);
     }
 
-    @Override
-    public void actualizaLista(int orientacion) {
 
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

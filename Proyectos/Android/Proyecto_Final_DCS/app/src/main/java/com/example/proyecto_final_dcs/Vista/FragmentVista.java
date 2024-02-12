@@ -36,9 +36,11 @@ public class FragmentVista extends Fragment {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
             trabajador = getArguments().getBoolean("trabajador");
-
-
         }
+
+
+
+
     }
 
     @Override
@@ -46,6 +48,7 @@ public class FragmentVista extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_vista, container, false);
         if (trabajador){
+
 
         }
 

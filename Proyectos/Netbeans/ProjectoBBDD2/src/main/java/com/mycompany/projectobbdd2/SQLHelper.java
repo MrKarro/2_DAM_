@@ -31,7 +31,7 @@ public class SQLHelper {
         // Se crea la conexión a la base de datos
         Connection connection = DriverManager.getConnection("jdbc:sqlite:" + BBDD);
         //Se comprueba si no existe la base de datos se crea
-        if (!archivoBD.exists()) {
+        if (archivoBD.length() == 0) {
             // Se genera una sentencia para crear las tablas de la BBDD y se introduces unos datos de ejemplo.
             Statement statement = connection.createStatement();
             String codigoSQL = 

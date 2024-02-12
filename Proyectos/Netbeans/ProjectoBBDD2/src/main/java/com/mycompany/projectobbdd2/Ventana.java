@@ -32,9 +32,10 @@ public class Ventana extends javax.swing.JFrame {
     
     public Ventana() {
         try {
-            initComponents();
             SQLHelper sql = new SQLHelper();
             con = sql.crearComprobarBBDD();
+            initComponents();
+            
             vendedores = SQLHelper.consultaVendedores(con);
             DefaultComboBoxModel modelo =(DefaultComboBoxModel) jComboBoxVendedores.getModel();
             for (Vendedor v : vendedores){

@@ -1,10 +1,13 @@
 package com.example.proyecto_final_dcs;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
 
+import com.example.proyecto_final_dcs.Interfaces.ComponentListener;
 import com.example.proyecto_final_dcs.Modelo.Alquiler;
 import com.example.proyecto_final_dcs.Modelo.Director;
 import com.example.proyecto_final_dcs.Modelo.Pelicula;
@@ -17,7 +20,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class VideoclubController {
+public class VideoclubController implements ComponentListener {
     private final VideoclubService service = new VideoclubService();
 
     public void createUsuario(Context context, Usuario user){
@@ -58,13 +61,24 @@ public class VideoclubController {
         );
     }
 
-    public void getUsuario(String login) {
+    public void getUsuario(Context context, String login) {
         service.getUsuario(login).enqueue(new Callback<Usuario>() {
             @Override
             public void onResponse(@NonNull Call<Usuario> call, @NonNull Response<Usuario> response) {
                 if (response.isSuccessful()) {
                     assert response.body() != null;
                     Log.d("TAG", response.body().toString());
+                    Usuario user = response.body();
+
+                    Intent intent = new Intent(context, MainActivity2.class);
+                    Bundle bun = new Bundle();
+                    bun.putSerializable("user", user);
+                    intent.putExtras(bun);
+                    context.startActivity(intent);
+
+
+
+
                 } else {
                     Log.d("TAG", "Error");
                 }
@@ -210,6 +224,13 @@ public class VideoclubController {
                 Log.d("Error", Objects.requireNonNull(t.getMessage()));
             }
         });
+    }
+
+
+    @Override
+    public Usuario getUser(Usuario user) {
+
+        return user;
     }
 
 
