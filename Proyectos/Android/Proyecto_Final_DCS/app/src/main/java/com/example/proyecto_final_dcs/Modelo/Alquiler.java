@@ -1,8 +1,9 @@
 package com.example.proyecto_final_dcs.Modelo;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Alquiler {
+public class Alquiler implements Serializable {
     private int identificador;
     private int id_pelicula;
     private int id_usuario;
@@ -18,6 +19,18 @@ public class Alquiler {
         this.fecha_alquiler = fecha_alquiler;
         this.fecha_devolucion = fecha_devolucion;
         this.extendido = extendido;
+    }
+
+    @Override
+    public String toString() {
+        return "Alquiler{" +
+                "identificador=" + identificador +
+                ", id_pelicula=" + id_pelicula +
+                ", id_usuario=" + id_usuario +
+                ", fecha_alquiler=" + fecha_alquiler +
+                ", fecha_devolucion=" + fecha_devolucion +
+                ", extendido=" + extendido +
+                '}';
     }
 
     // Getters y Setters

@@ -13,7 +13,12 @@ import android.view.ViewGroup;
 import android.widget.Spinner;
 
 import com.example.proyecto_final_dcs.Interfaces.ComponentListener;
+import com.example.proyecto_final_dcs.Modelo.Alquiler;
+import com.example.proyecto_final_dcs.Modelo.RecyclerAdapter;
 import com.example.proyecto_final_dcs.R;
+import com.example.proyecto_final_dcs.VideoclubController;
+
+import java.util.ArrayList;
 
 
 public class FragmentVista extends Fragment {
@@ -24,6 +29,7 @@ public class FragmentVista extends Fragment {
     boolean trabajador;
 
     ComponentListener listener;
+    VideoclubController vc = new VideoclubController();
 
     public FragmentVista() {
         // Required empty public constructor
@@ -48,6 +54,10 @@ public class FragmentVista extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_vista, container, false);
         if (trabajador){
+            //ArrayList<Alquiler> alqs = vc.getAlquileres();
+            //RecyclerAdapter adapter = new RecyclerAdapter(alqs);
+            lista = view.findViewById(R.id.lista);
+            //lista.setAdapter(adapter);
 
 
         }

@@ -8,13 +8,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.proyecto_final_dcs.R;
 
-public class ViewHolder extends RecyclerView.ViewHolder{
+public class ViewHolderPeli extends RecyclerView.ViewHolder{
 
     private ImageView foto;
 
     private TextView titulo, duracion;
 
-    public ViewHolder(View view) {
+    public ViewHolderPeli(View view) {
         super(view);
         // Define click listener for the ViewHolder's View
 
