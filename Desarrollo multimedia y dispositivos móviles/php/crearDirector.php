@@ -18,7 +18,7 @@
 
     $sql = "INSERT INTO director VALUES ('$nombre', '$fecha_nacimiento')";
 
-    if ($conn->query($sql) === TRUE) {
+    if ($conn->query($sql) == TRUE) {
         echo json_encode(["message" => "Director insertado con éxito"]);
     } else {
         echo json_encode(["error" => "Error al insertar el director: " . $conn->error]);

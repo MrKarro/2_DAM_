@@ -10,15 +10,13 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
+import android.widget.Toast;
 
-import com.example.proyecto_final_dcs.Interfaces.ComponentListener;
-import com.example.proyecto_final_dcs.Interfaces.VideoclubCallback;
 import com.example.proyecto_final_dcs.Modelo.Alquiler;
 import com.example.proyecto_final_dcs.Modelo.Director;
 import com.example.proyecto_final_dcs.Modelo.Pelicula;
 import com.example.proyecto_final_dcs.Modelo.Usuario;
 import com.example.proyecto_final_dcs.Vista.AlquileresFragment;
-import com.example.proyecto_final_dcs.Vista.FragmentVista;
 import com.example.proyecto_final_dcs.Vista.PeliculaFragment;
 
 import java.util.ArrayList;
@@ -43,7 +41,7 @@ public class MainActivity2 extends AppCompatActivity {
 
         }
 
-        actualizaListas();
+
 
         if (user.isTrabajador()){
             cargarAlquileres(alqs);
@@ -54,30 +52,7 @@ public class MainActivity2 extends AppCompatActivity {
         }
     }
 
-    private void actualizaListas() {
-        vc.getTodo(new VideoclubCallback() {
-            @Override
-            public void peliculasCallback(ArrayList<Pelicula> pelis) {
-                peliculas = pelis;
-            }
 
-            @Override
-            public void alquileresCallback(ArrayList<Alquiler> alquileres) {
-                alqs = alquileres;
-            }
-
-            @Override
-            public void directoresCallback(ArrayList<Director> directores) {
-                direcs = directores;
-            }
-
-            @Override
-            public void usuariosCallback(ArrayList<Usuario> usuarios) {
-                users = usuarios;
-
-            }
-        });
-    }
 
 
     @Override
@@ -108,7 +83,7 @@ public class MainActivity2 extends AppCompatActivity {
 
 
         } else if (item.getItemId() == R.id.verDisp){
-            ArrayList<Pelicula> pelisDisp = new ArrayList<Pelicula>();
+            ArrayList<Pelicula> pelisDisp = new ArrayList<>();
 
             for (Pelicula p : peliculas){
                 if (p.isDisponible()){
@@ -120,13 +95,8 @@ public class MainActivity2 extends AppCompatActivity {
 
         } else if (item.getItemId() == R.id.verMiAlqui){
 
-            ArrayList<Alquiler> miAlqs = new ArrayList<Alquiler>();
+            ArrayList<Alquiler> miAlqs = new ArrayList<>();
 
-            for (Alquiler a : alqs){
-                if (user.getIdentificador() == a.getId_usuario()){
-                    miAlqs.add(a);
-                }
-            }
             cargarAlquileres(miAlqs);
 
 
@@ -141,15 +111,16 @@ public class MainActivity2 extends AppCompatActivity {
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         Bundle args = new Bundle();
-
-        AlquileresFragment frag = new AlquileresFragment();
         args.putSerializable("alquileres", alqs);
         args.putSerializable("usuarios", users);
+        args.putSerializable("peliculas", peliculas);
+        args.putSerializable("user", user);
+        AlquileresFragment frag = new AlquileresFragment();
 
-        frag.setArguments(args);
         fragmentTransaction.replace(R.id.frag, frag);
         fragmentTransaction.commit();
     }
+
     public void cargarPeliculas(ArrayList<Pelicula> pelis ){
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();

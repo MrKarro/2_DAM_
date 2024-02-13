@@ -27,18 +27,8 @@
             "nombre" => $row["nombre"],
             "login" => $row["login"],
             "password" => $row["password"],
-            if ( $row["trabajador"] === 1){
-				$trab = true;
-			} else {
-				$trab = false;
-			}
-            "trabajador" => $trab,
-            if ( $row["bloqueado"] === 1){
-				$bloq = true;
-			} else {
-				$bloq = false;
-			}
-            "bloqueado" => $bloq
+            "trabajador" => $row["trabajador"] == 1 ? true : false,
+            "bloqueado" => $row["bloqueado"] == 1 ? true : false
         );
 
     $usuarios[] = $usuario;

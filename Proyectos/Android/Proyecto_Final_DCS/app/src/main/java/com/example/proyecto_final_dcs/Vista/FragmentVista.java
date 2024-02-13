@@ -12,13 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Spinner;
 
-import com.example.proyecto_final_dcs.Interfaces.ComponentListener;
-import com.example.proyecto_final_dcs.Modelo.Alquiler;
-import com.example.proyecto_final_dcs.Modelo.RecyclerAdapter;
 import com.example.proyecto_final_dcs.R;
-import com.example.proyecto_final_dcs.VideoclubController;
-
-import java.util.ArrayList;
 
 
 public class FragmentVista extends Fragment {
@@ -28,7 +22,7 @@ public class FragmentVista extends Fragment {
 
     boolean trabajador;
 
-    ComponentListener listener;
+
 
 
     public FragmentVista() {
@@ -65,18 +59,5 @@ public class FragmentVista extends Fragment {
         return view;
     }
 
-    @Override
-    public void onAttach(@NonNull Context context) {
-        super.onAttach(context);
-        if (context instanceof ComponentListener){
-            listener = (ComponentListener) context;
-        }
 
-    }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        listener = null;
-    }
 }

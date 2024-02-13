@@ -21,13 +21,16 @@
         $alquilers = array();
 
     while ($row = $result->fetch_assoc()) {
+        $fecha_alquiler = (string)$row["fecha_alquiler"];
+        $fecha_devolucion = (string)$row["fecha_devolucion"];
         $alquiler = array(
             "identificador" => $row["identificador"],
             "id_pelicula" => $row["id_pelicula"],
             "id_usuario" => $row["id_usuario"],
-            "fecha_alquiler" => $row["fecha_alquiler"],
-            "fecha_devolucion" => $row["fecha_devolucion"],
-            "extendido" => $row["extendido"]
+            "fecha_alquiler" => $fecha_alquiler,
+            "fecha_devolucion" => $fecha_devolucion,
+            "extendido" => $row["extendido"] == 1 ? true : false
+            
         );
 
     $alquilers[] = $alquiler;

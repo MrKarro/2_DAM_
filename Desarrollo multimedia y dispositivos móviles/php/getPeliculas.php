@@ -21,14 +21,15 @@
 		$peliculas = array();
 
 	while ($row = $result->fetch_assoc()) {
+		$duracion = (string)$row["duracion"];
 		$pelicula = array(
 			"identificador" => $row["identificador"],
 			"titulo" => $row["titulo"],
-			"duracion" => $row["duracion"],
+			"duracion" => $duracion,
 			"anho" => $row["anho"],
 			"portada" => $row["portada"],
 			"idDirector" => $row["director"],
-			"disponible" => $row["disponible"] == 1 ? true : false,
+			"disponible" => $row["disponible"] == 1 ? true : false
 
 		);
 

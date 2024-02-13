@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Vista.AlquileresFragment"
+    tools:context=".Vista.PeliculaFragment"
     android:orientation="vertical">
 
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="80dp"
         android:orientation="horizontal">
 
         <Spinner
@@ -19,7 +20,7 @@
             />
 
         <EditText
-            android:layout_width="300dp"
+            android:layout_width="180dp"
             android:layout_height="48dp"
             android:hint="Texto"
             android:id="@+id/texto"

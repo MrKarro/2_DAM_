@@ -5,13 +5,13 @@ import java.sql.Time;
 public class Pelicula {
     private int identificador;
     private String titulo;
-    private Time duracion;
+    private String duracion;
     private int anho;
     private String portada;
     private int idDirector;
     private boolean disponible;
 
-    public Pelicula(int identificador, String titulo, Time duracion, int anho, String portada, int idDirector, boolean disponible) {
+    public Pelicula(int identificador, String titulo, String duracion, int anho, String portada, int idDirector, boolean disponible) {
         this.identificador = identificador;
         this.titulo = titulo;
         this.duracion = duracion;
@@ -37,11 +37,11 @@ public class Pelicula {
         this.titulo = titulo;
     }
 
-    public Time getDuracion() {
+    public String getDuracion() {
         return duracion;
     }
 
-    public void setDuracion(Time duracion) {
+    public void setDuracion(String duracion) {
         this.duracion = duracion;
     }
 

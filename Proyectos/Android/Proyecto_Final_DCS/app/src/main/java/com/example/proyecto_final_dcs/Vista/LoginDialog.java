@@ -7,7 +7,6 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -15,16 +14,18 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 
-import com.example.proyecto_final_dcs.Interfaces.ComponentListener;
 import com.example.proyecto_final_dcs.Modelo.Usuario;
 import com.example.proyecto_final_dcs.R;
 import com.example.proyecto_final_dcs.VideoclubController;
+
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 public class LoginDialog extends DialogFragment implements DialogInterface.OnClickListener {
 
     EditText nombre, contra, dni, nick;
 
-    ComponentListener listener;
+
     boolean add;
     VideoclubController vc = new VideoclubController();
 
@@ -72,13 +73,16 @@ public class LoginDialog extends DialogFragment implements DialogInterface.OnCli
                     user.setNombre(nombre.getText().toString());
                     user.setDni(dni.getText().toString());
                     user.setLogin(nick.getText().toString());
-                    user.setPassword(contra.getText().toString());
+
+                    user.setPassword(getMD5(contra.getText().toString()));
+
 
                     vc.createUsuario(getContext(), user);
                 } else {
                     // comprobar si el usuario existe mediante el vc.getUsuario pero no se como recogerlo
 
-                    vc.getUsuario(getContext(), nick.getText().toString());
+
+                    vc.getUsuario(getContext(), nick.getText().toString(), getMD5(contra.getText().toString()));
                 }
 
 
@@ -105,19 +109,25 @@ public class LoginDialog extends DialogFragment implements DialogInterface.OnCli
         this.vc = vc;
     }
 
-    @Override
-    public void onAttach(@NonNull Context context) {
-        super.onAttach(context);
-        if (context instanceof ComponentListener){
-            listener = (ComponentListener) context;
+
+
+    public static String getMD5(String s) {
+        try {
+            // Create MD5 Hash
+            MessageDigest digest = java.security.MessageDigest.getInstance("MD5");
+            digest.update(s.getBytes());
+            byte messageDigest[] = digest.digest();
+
+            // Create Hex String
+            StringBuilder hexString = new StringBuilder();
+            for (byte aMessageDigest : messageDigest)
+                hexString.append(Integer.toHexString(0xFF & aMessageDigest));
+            return hexString.toString();
+
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
         }
-
-    }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        listener = null;
+        return "";
     }
 
 }

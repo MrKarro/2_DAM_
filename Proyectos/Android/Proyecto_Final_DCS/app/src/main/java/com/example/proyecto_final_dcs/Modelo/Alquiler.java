@@ -7,12 +7,12 @@ public class Alquiler implements Serializable {
     private int identificador;
     private int id_pelicula;
     private int id_usuario;
-    private Date fecha_alquiler;
-    private Date fecha_devolucion;
+    private String fecha_alquiler;
+    private String fecha_devolucion;
     private boolean extendido;
 
     // Constructor
-    public Alquiler(int identificador, int id_pelicula, int id_usuario, Date fecha_alquiler, Date fecha_devolucion, boolean extendido) {
+    public Alquiler(int identificador, int id_pelicula, int id_usuario, String fecha_alquiler, String fecha_devolucion, boolean extendido) {
         this.identificador = identificador;
         this.id_pelicula = id_pelicula;
         this.id_usuario = id_usuario;
@@ -58,19 +58,19 @@ public class Alquiler implements Serializable {
         this.id_usuario = id_usuario;
     }
 
-    public Date getFecha_alquiler() {
+    public String getFecha_alquiler() {
         return fecha_alquiler;
     }
 
-    public void setFecha_alquiler(Date fecha_alquiler) {
+    public void setFecha_alquiler(String fecha_alquiler) {
         this.fecha_alquiler = fecha_alquiler;
     }
 
-    public Date getFecha_devolucion() {
+    public String getFecha_devolucion() {
         return fecha_devolucion;
     }
 
-    public void setFecha_devolucion(Date fecha_devolucion) {
+    public void setFecha_devolucion(String fecha_devolucion) {
         this.fecha_devolucion = fecha_devolucion;
     }
 
