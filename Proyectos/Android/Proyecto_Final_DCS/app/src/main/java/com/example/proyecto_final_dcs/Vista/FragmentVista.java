@@ -29,7 +29,7 @@ public class FragmentVista extends Fragment {
     boolean trabajador;
 
     ComponentListener listener;
-    VideoclubController vc = new VideoclubController();
+
 
     public FragmentVista() {
         // Required empty public constructor

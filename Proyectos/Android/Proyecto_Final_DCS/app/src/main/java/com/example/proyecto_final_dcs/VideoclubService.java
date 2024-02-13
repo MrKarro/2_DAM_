@@ -22,7 +22,7 @@ public class VideoclubService {
 
     private Retrofit getRetrofit() {
         return new Retrofit.Builder()
-                .baseUrl("http://172.20.80.1/app-dcs/")
+                .baseUrl("http://10.0.2.2/app-dcs/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
     }

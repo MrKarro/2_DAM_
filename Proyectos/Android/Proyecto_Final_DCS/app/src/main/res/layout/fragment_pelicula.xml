@@ -21,8 +21,8 @@
         <EditText
             android:layout_width="300dp"
             android:layout_height="48dp"
-            android:hint="DNI"
-            android:id="@+id/dni"
+            android:hint="Texto"
+            android:id="@+id/texto"
             android:inputType="text"
             />
         <Button

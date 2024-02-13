@@ -73,9 +73,11 @@ public class LoginDialog extends DialogFragment implements DialogInterface.OnCli
                     user.setDni(dni.getText().toString());
                     user.setLogin(nick.getText().toString());
                     user.setPassword(contra.getText().toString());
+
                     vc.createUsuario(getContext(), user);
                 } else {
                     // comprobar si el usuario existe mediante el vc.getUsuario pero no se como recogerlo
+
                     vc.getUsuario(getContext(), nick.getText().toString());
                 }
 
@@ -93,6 +95,14 @@ public class LoginDialog extends DialogFragment implements DialogInterface.OnCli
 
     public void setAdd(boolean add) {
         this.add = add;
+    }
+
+    public VideoclubController getVc() {
+        return vc;
+    }
+
+    public void setVc(VideoclubController vc) {
+        this.vc = vc;
     }
 
     @Override

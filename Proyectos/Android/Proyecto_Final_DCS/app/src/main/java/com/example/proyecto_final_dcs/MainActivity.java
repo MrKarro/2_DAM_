@@ -6,7 +6,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.proyecto_final_dcs.Interfaces.VideoclubCallback;
+import com.example.proyecto_final_dcs.Modelo.Alquiler;
+import com.example.proyecto_final_dcs.Modelo.Director;
+import com.example.proyecto_final_dcs.Modelo.Pelicula;
+import com.example.proyecto_final_dcs.Modelo.Usuario;
 import com.example.proyecto_final_dcs.Vista.LoginDialog;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -17,8 +24,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        vc.getPeliculas();
-        vc.getDirectores();
+
 
         setContentView(R.layout.activity_main);
         ingresar = findViewById(R.id.ingresar);
@@ -34,6 +40,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             LoginDialog dialog = new LoginDialog();
             dialog.setAdd(false);
+            dialog.setVc(vc);
             dialog.show(getSupportFragmentManager(), "Ingresar");
 
 
@@ -42,7 +49,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         } else if (view.getId() == R.id.registrar){
             LoginDialog dialog = new LoginDialog();
             dialog.setAdd(true);
+            dialog.setVc(vc);
             dialog.show(getSupportFragmentManager(), "Registrar");
         }
     }
+
+
+
 }

@@ -13,14 +13,20 @@ import java.util.ArrayList;
 
 public class RecyclerAdapter extends RecyclerView.Adapter {
 
-    ArrayList<Object> objetos;
-
+    ArrayList<Pelicula> pelis;
+    ArrayList<Alquiler> alqs;
 
     boolean peli;
 
-    public RecyclerAdapter(ArrayList<Object> objetos, boolean peli) {
-        this.objetos  = objetos;
+    public RecyclerAdapter(ArrayList<Pelicula> pelis, boolean peli) {
+        this.pelis  = pelis;
         this.peli = peli;
+
+
+    }
+    public RecyclerAdapter(ArrayList<Alquiler> alqs) {
+        this.alqs  = alqs;
+        this.peli = false;
 
 
     }
@@ -53,16 +59,16 @@ public class RecyclerAdapter extends RecyclerView.Adapter {
 
             ViewHolderPeli hold = (ViewHolderPeli) holder;
             //hold.getFoto().setImageDrawable(pelis.get(position).getPortada());
-            hold.getTitulo().setText(((Pelicula) objetos.get(position)).getTitulo());
+            hold.getTitulo().setText(((Pelicula) pelis.get(position)).getTitulo());
 
-            hold.getDuracion().setText(((Pelicula) objetos.get(position)).getDuracion().toString());
+            hold.getDuracion().setText(((Pelicula) pelis.get(position)).getDuracion().toString());
         } else {
             ViewHolderAlquiler holdAlq = (ViewHolderAlquiler) holder;
-            holdAlq.getId_peli().setText(((Alquiler) objetos.get(position)).getId_pelicula());
-            holdAlq.getId_user().setText(((Alquiler) objetos.get(position)).getId_usuario());
-            holdAlq.getFecha_alq().setText(((Alquiler) objetos.get(position)).getFecha_alquiler().toString());
-            holdAlq.getFecha_dev().setText(((Alquiler) objetos.get(position)).getFecha_devolucion().toString());
-            holdAlq.getExtendido().setSelected(((Alquiler) objetos.get(position)).isExtendido());
+            holdAlq.getId_peli().setText(((Alquiler) alqs.get(position)).getId_pelicula());
+            holdAlq.getId_user().setText(((Alquiler) alqs.get(position)).getId_usuario());
+            holdAlq.getFecha_alq().setText(((Alquiler) alqs.get(position)).getFecha_alquiler().toString());
+            holdAlq.getFecha_dev().setText(((Alquiler) alqs.get(position)).getFecha_devolucion().toString());
+            holdAlq.getExtendido().setSelected(((Alquiler) alqs.get(position)).isExtendido());
 
 
         }
@@ -72,6 +78,9 @@ public class RecyclerAdapter extends RecyclerView.Adapter {
 
     @Override
     public int getItemCount() {
-        return objetos.size();
+        if (peli)
+            return pelis.size();
+        else
+            return alqs.size();
     }
 }
