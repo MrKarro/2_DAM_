@@ -1,0 +1,13 @@
+<odoo>
+    <data>
+        <record model="ir.module.category" id="carpinteria_group_category">
+            <field name="name">Carpintería</field>
+            <field name="description">Grupos del módulo Carpintería</field>
+        </record>
+        <record id="carpinteria_carpinteros_group" model="res.groups">
+            <field name="name">Carpinteros</field>
+            <field name="category_id" ref="carpinteria_group_category"/>
+        </record>
+
+    </data>
+</odoo>

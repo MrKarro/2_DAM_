@@ -132,5 +132,9 @@ public class VideoclubService {
         return getRetrofit().create(VideoclubDAO.class).getAlquileres();
     }
 
+    public Call<List<Alquiler>> getAlquileresId(int idUsuario){
+        return getRetrofit().create(VideoclubDAO.class).getAlquilerId(idUsuario);
+    }
+
 
 }

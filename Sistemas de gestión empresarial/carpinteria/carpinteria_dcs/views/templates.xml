@@ -1,0 +1,131 @@
+<odoo>
+    <data>
+
+        <template id="listing">
+          <ul>
+            <li t-foreach="objects" t-as="object">
+              <a t-attf-href="#{ root }/objects/#{ object.id }">
+                <t t-esc="object.display_name"/>
+              </a>
+            </li>
+          </ul>
+        </template>
+        <template id="object">
+          <h1><t t-esc="object.display_name"/></h1>
+          <dl>
+            <t t-foreach="object._fields" t-as="field">
+              <dt><t t-esc="field"/></dt>
+              <dd><t t-esc="object[field]"/></dd>
+            </t>
+          </dl>
+        </template>
+
+
+        <template id="plantilla_ficha_material">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="web.external_layout">
+                        <div class="page">
+                            <main>
+                                <h2><span t-field="o.name"/></h2>
+                                <p style="color: black; font-family: Verdana; font-weight: bold;">Nombre:
+                                    <span t-field="o.name"/>
+                                </p>
+                                <t t-if="o.imagen">
+                                    <img style="max-height:8cm; max-width:8cm;" t-attf-src="data:image/jpg;base64,{{ o.imagen }}"  widget="imagen"/>
+                                </t>
+                                <p></p>
+                                <t t-if="o.tipo">
+                                    <p><span style="color: black; font-family: Verdana; font-weight: bold;">Tipo:</span>
+                                    <span t-field="o.tipo" />
+                                    </p>
+                                </t>
+                                <t t-if="o.stock">
+                                    <p><span style="color: black; font-family: Verdana; font-weight: bold;">Cantidad en stock:</span>
+                                    <span t-field="o.stock" />
+                                    </p>
+                                </t>
+                                <t t-if="o.precio">
+                                    <p><span style="color: black; font-family: Verdana; font-weight: bold;">Precio:</span>
+                                    <span t-field="o.precio" />
+                                    </p>
+                                </t>
+                                <t t-if="o.disponible">
+                                    <p><span style="color: black; font-family: Verdana; font-weight: bold;">Disponible:</span>
+                                    <span t-field="o.disponible" />
+                                    </p>
+                                </t>
+                            </main>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+        <template id="report_ficha_material">
+            <t t-call="web.html_container">
+                <t t-call="carpinteria_dcs.plantilla_ficha_material"></t>
+            </t>
+        </template>
+        <template id="report_imprimir_fichas">
+            <t t-call="web.html_container">
+                <t t-call="carpinteria_dcs.plantilla_ficha_material">
+                </t>
+            </t>
+        </template>
+
+
+
+<!--        -->
+
+
+        <template id="plantilla_ficha_producto">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="web.external_layout">
+                        <div class="page">
+                            <main>
+                                <h2><span t-field="o.name"/></h2>
+                                <p style="color: black; font-family: Verdana; font-weight: bold;">Nombre:
+                                    <span t-field="o.name"/>
+                                </p>
+                                <t t-if="o.logo_Producto">
+                                    <img style="max-height:8cm; max-width:8cm;" t-attf-src="data:image/jpg;base64,{{ o.logo_Producto }}"  widget="imagen"/>
+                                </t>
+                                <p></p>
+                                <t t-if="o.descripcion">
+                                    <p><span style="color: black; font-family: Verdana; font-weight: bold;">Descripción:</span>
+                                    <span t-field="o.descripcion" />
+                                    </p>
+                                </t>
+
+                                <t t-if="o.precio">
+                                    <p><span style="color: black; font-family: Verdana; font-weight: bold;">Precio:</span>
+                                    <span t-field="o.precio" />
+                                    </p>
+                                </t>
+
+                            </main>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+        <template id="report_ficha_material">
+            <t t-call="web.html_container">
+                <t t-call="carpinteria_dcs.plantilla_ficha_material"></t>
+            </t>
+        </template>
+        <template id="report_imprimir_fichas">
+            <t t-call="web.html_container">
+                <t t-call="carpinteria_dcs.plantilla_ficha_material">
+                </t>
+            </t>
+        </template>
+
+
+
+
+
+
+    </data>
+</odoo>

@@ -1,0 +1,117 @@
+<odoo>
+     <data>
+
+          <record id="material_roble" model="carpinteria.material">
+             <field name="name">Roble</field>
+             <field name="stock">50</field>
+             <field name="precio">80</field>
+              <field name="imagen" type="base64" file="carpinteria_dcs/static/img/roble.jpg"/>
+             <field name="disponible" eval="True"/>
+             <field name="tipo">Ro</field>
+         </record>
+
+
+         <record id="producto_mesa_roble" model="carpinteria.producto">
+             <field name="name">Mesa de Roble</field>
+             <field name="descripcion">Mesa elegante hecha de roble sólido</field>
+             <field name="precio">200</field>
+             <field name="logo_Producto" type="base64" file="carpinteria_dcs/static/img/mesaroble.jpg"/>
+             <!-- <field name="Material_id" eval="[(6, 0, [ref('material_roble')])]"/> -->
+         </record>
+
+         <record id="producto_silla_roble" model="carpinteria.producto">
+             <field name="name">Silla de Roble</field>
+             <field name="descripcion">Silla resistente y cómoda hecha de roble</field>
+             <field name="precio">100</field>
+             <field name="logo_Producto" type="base64" file="carpinteria_dcs/static/img/sillaroble.jpg"/>
+             <!-- <field name="Material_id" eval="[(6, 0, [ref('material_roble')])]"/>-->
+         </record>
+
+
+         <record id="material_pino" model="carpinteria.material">
+             <field name="name">Pino</field>
+             <field name="stock">100</field>
+             <field name="precio">40</field>
+             <field name="imagen" type="base64" file="carpinteria_dcs/static/img/pino.jpg"/>
+             <field name="disponible" eval="True"/>
+             <field name="tipo">Pi</field>
+         </record>
+
+
+         <record id="producto_mesa_pino" model="carpinteria.producto">
+             <field name="name">Mesa de Pino</field>
+             <field name="descripcion">Mesa simple pero resistente hecha de pino</field>
+             <field name="precio">150</field>
+             <field name="logo_Producto" type="base64" file="carpinteria_dcs/static/img/mesapino.jpg"/>
+             <!-- <field name="Material_id" eval="[(6, 0, [ref('material_pino')])]"/>-->
+         </record>
+
+         <record id="producto_estanteria_pino" model="carpinteria.producto">
+             <field name="name">Estantería de Pino</field>
+             <field name="descripcion">Estantería práctica y económica hecha de pino</field>
+             <field name="precio">80</field>
+             <field name="logo_Producto" type="base64" file="carpinteria_dcs/static/img/estanteriapino.jpg"/>
+             <!-- <field name="Material_id" eval="[(6, 0, [ref('material_pino')])]"/>-->
+         </record>
+
+         <record id="material_haya" model="carpinteria.material">
+            <field name="name">Haya</field>
+            <field name="stock">80</field>
+            <field name="precio">60</field>
+            <field name="imagen" type="base64" file="carpinteria_dcs/static/img/haya.jpg"/>
+            <field name="disponible" eval="True"/>
+            <field name="tipo">Ha</field>
+        </record>
+
+         <record id="material_cerezo" model="carpinteria.material">
+            <field name="name">Cerezo</field>
+            <field name="stock">70</field>
+            <field name="precio">90</field>
+            <field name="imagen" type="base64" file="carpinteria_dcs/static/img/cerezo.jpg"/>
+            <field name="disponible" eval="True"/>
+            <field name="tipo">Ce</field>
+        </record>
+
+
+        <record id="material_nogal" model="carpinteria.material">
+            <field name="name">Nogal</field>
+            <field name="stock">60</field>
+            <field name="precio">120</field>
+            <field name="imagen" type="base64" file="carpinteria_dcs/static/img/nogal.jpg"/>
+            <field name="disponible" eval="True"/>
+            <field name="tipo">Ng</field>
+        </record>
+
+
+        <record id="material_cedro" model="carpinteria.material">
+            <field name="name">Cedro</field>
+            <field name="stock">90</field>
+            <field name="precio">70</field>
+            <field name="imagen" type="base64" file="carpinteria_dcs/static/img/cedro.jpg"/>
+            <field name="disponible" eval="True"/>
+            <field name="tipo">Cd</field>
+        </record>
+
+
+        <record id="material_caoba" model="carpinteria.material">
+            <field name="name">Caoba</field>
+            <field name="stock">75</field>
+            <field name="precio">110</field>
+            <field name="imagen" type="base64" file="carpinteria_dcs/static/img/caoba.jpg"/>
+            <field name="disponible" eval="True"/>
+            <field name="tipo">Ca</field>
+        </record>
+
+
+        <record id="material_wengue" model="carpinteria.material">
+            <field name="name">Wengué</field>
+            <field name="stock">85</field>
+            <field name="precio">130</field>
+            <field name="imagen" type="base64" file="carpinteria_dcs/static/img/wenge.jpg"/>
+            <field name="disponible" eval="True"/>
+            <field name="tipo">We</field>
+        </record>
+
+
+     </data>
+</odoo>

@@ -232,6 +232,28 @@ public class VideoclubController {
         });
     }
 
+    public void getAlquilerId(int id, VideoclubCallback interfaz) {
+        service.getAlquileresId(id).enqueue(new Callback<List<Alquiler>>() {
+            @Override
+            public void onResponse(@NonNull Call<List<Alquiler>> call, @NonNull Response<List<Alquiler>> response) {
+                if (response.isSuccessful()) {
+
+                    interfaz.alquileresIdCallback((ArrayList<Alquiler>) response.body());
+                } else {
+                    Log.d("TAG", "Error");
+                }
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<List<Alquiler>> call, @NonNull Throwable t) {
+
+                Log.d("Error", Objects.requireNonNull(t.getMessage()));
+            }
+        });
+
+
+    }
+
 
 
 

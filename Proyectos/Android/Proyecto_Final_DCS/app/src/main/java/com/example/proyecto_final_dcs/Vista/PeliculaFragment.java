@@ -27,6 +27,7 @@ import com.example.proyecto_final_dcs.R;
 import com.example.proyecto_final_dcs.VideoclubController;
 
 import java.util.ArrayList;
+import java.util.concurrent.CompletableFuture;
 
 
 public class PeliculaFragment extends Fragment implements View.OnClickListener {
@@ -74,16 +75,23 @@ public class PeliculaFragment extends Fragment implements View.OnClickListener {
         linearLayoutManager.setOrientation(RecyclerView.VERTICAL);
         lista.setLayoutManager(linearLayoutManager);
         vc = new VideoclubController();
-        rellenaPelis(vc);
-        rellenaDirecs(vc);
+
+        CompletableFuture<Void> directoresFuture = CompletableFuture.runAsync(() -> rellenaDirecs(vc));
+
+        CompletableFuture<Void> peliculasFuture = CompletableFuture.runAsync(() -> rellenaPelis(vc));
+
+        CompletableFuture<Void> allFutures = CompletableFuture.allOf(directoresFuture, peliculasFuture);
+        allFutures.thenRun(() -> {
+            // Una vez que todas las llamadas asíncronas se completen, ejecutamos el filtrado
+
+        });
+
         filtro  = view.findViewById(R.id.spin);
         texto = view.findViewById(R.id.texto);
         filtrar = view.findViewById(R.id.botFiltrar);
         filtrar.setOnClickListener(this);
         String[] tiposFiltro = {"titulo", "anho", "director"};
-        if (user != null){
 
-        }
         ArrayAdapter<String> adaptador = new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_item, tiposFiltro);
         filtro.setAdapter(adaptador);
         return view;
@@ -143,16 +151,19 @@ public class PeliculaFragment extends Fragment implements View.OnClickListener {
             @Override
             public void peliculasCallback(ArrayList<Pelicula> pelis) {
                 peliculas = pelis;
-
                 adapter = new RecyclerAdapterPelicula(peliculas);
 
                 lista.setAdapter(adapter);
+
+
+
             }
 
             @Override
             public void alquileresCallback(ArrayList<Alquiler> alquileres) {
 
             }
+            public void alquileresIdCallback(ArrayList<Alquiler> alqs){}
 
             @Override
             public void directoresCallback(ArrayList<Director> directores) {
@@ -179,10 +190,12 @@ public class PeliculaFragment extends Fragment implements View.OnClickListener {
             public void alquileresCallback(ArrayList<Alquiler> alquileres) {
 
             }
+            public void alquileresIdCallback(ArrayList<Alquiler> alqs){}
 
             @Override
             public void directoresCallback(ArrayList<Director> directores) {
-               direcs = directores;
+                direcs = directores;
+
             }
 
             @Override

@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -84,6 +85,7 @@ public class AddPeliDialog extends DialogFragment implements DialogInterface.OnC
             public void alquileresCallback(ArrayList<Alquiler> alquileres) {
 
             }
+            public void alquileresIdCallback(ArrayList<Alquiler> alqs){}
 
             @Override
             public void directoresCallback(ArrayList<Director> directores) {
@@ -131,6 +133,7 @@ public class AddPeliDialog extends DialogFragment implements DialogInterface.OnC
 
                     }
                 }
+                Log.i("pelicula: ", peli.toString());
                 System.out.println(peli);
                 vc.createPelicula(getContext(), peli);
 

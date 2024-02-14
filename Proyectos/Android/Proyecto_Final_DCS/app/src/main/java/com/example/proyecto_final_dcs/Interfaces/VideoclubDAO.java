@@ -48,4 +48,7 @@ public interface VideoclubDAO {
     @GET("getAlquileres.php")
     public Call<List<Alquiler>> getAlquileres();
 
+    @GET("getAlquilerId.php")
+    public Call<List<Alquiler>> getAlquilerId(@Query("idUsuario") int idUsuario);
+
 }

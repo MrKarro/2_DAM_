@@ -18,6 +18,7 @@ import com.example.proyecto_final_dcs.Modelo.Pelicula;
 import com.example.proyecto_final_dcs.Modelo.Usuario;
 import com.example.proyecto_final_dcs.Vista.AddPeliDialog;
 import com.example.proyecto_final_dcs.Vista.AlquileresFragment;
+import com.example.proyecto_final_dcs.Vista.MisAlqsFragment;
 import com.example.proyecto_final_dcs.Vista.PeliculaFragment;
 
 import java.util.ArrayList;
@@ -92,6 +93,7 @@ public class MainActivity2 extends AppCompatActivity {
 
 
         } else if (item.getItemId() == R.id.verDisp){
+
             ArrayList<Pelicula> pelisDisp = new ArrayList<>();
 
             for (Pelicula p : peliculas){
@@ -104,9 +106,16 @@ public class MainActivity2 extends AppCompatActivity {
 
         } else if (item.getItemId() == R.id.verMiAlqui){
 
-            ArrayList<Alquiler> miAlqs = new ArrayList<>();
 
-            cargarAlquileres(miAlqs);
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            Bundle args = new Bundle();
+            args.putSerializable("user", user);
+
+            MisAlqsFragment frag = new MisAlqsFragment();
+            frag.setArguments(args);
+            fragmentTransaction.replace(R.id.frag, frag);
+            fragmentTransaction.commit();
 
 
         } else if (item.getItemId() == R.id.cambContra){

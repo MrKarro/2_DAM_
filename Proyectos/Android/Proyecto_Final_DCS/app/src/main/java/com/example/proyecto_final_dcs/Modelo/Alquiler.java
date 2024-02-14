@@ -11,6 +11,7 @@ public class Alquiler implements Serializable {
     private String fecha_devolucion;
     private boolean extendido;
 
+
     // Constructor
     public Alquiler(int identificador, int id_pelicula, int id_usuario, String fecha_alquiler, String fecha_devolucion, boolean extendido) {
         this.identificador = identificador;

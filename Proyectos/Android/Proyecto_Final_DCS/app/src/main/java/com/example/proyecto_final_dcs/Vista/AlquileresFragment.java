@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,6 +27,7 @@ import com.example.proyecto_final_dcs.R;
 import com.example.proyecto_final_dcs.VideoclubController;
 
 import java.util.ArrayList;
+import java.util.concurrent.CompletableFuture;
 
 
 public class AlquileresFragment extends Fragment implements View.OnClickListener {
@@ -56,7 +58,7 @@ public class AlquileresFragment extends Fragment implements View.OnClickListener
             alqs = (ArrayList<Alquiler>) getArguments().getSerializable("alquileres");
             users = (ArrayList<Usuario>) getArguments().getSerializable("usuarios");
             peliculas = (ArrayList<Pelicula>) getArguments().getSerializable("peliculas");
-            user =(Usuario) getArguments().getSerializable("user");
+
 
 
 
@@ -68,7 +70,7 @@ public class AlquileresFragment extends Fragment implements View.OnClickListener
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_alquileres, container, false);
-
+        user =(Usuario) getArguments().getSerializable("user");
         lista = view.findViewById(R.id.lista);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         linearLayoutManager.setOrientation(RecyclerView.VERTICAL);
@@ -78,19 +80,28 @@ public class AlquileresFragment extends Fragment implements View.OnClickListener
         filtrar = view.findViewById(R.id.botFiltrar);
         filtrar.setOnClickListener(this);
 
-        rellenaAlquileres(vc);
-        rellenaUsuarios(vc);
-        Toast.makeText(getContext(), "users: " + users.size(), Toast.LENGTH_SHORT).show();
-        rellenaPelis(vc);
-        if (user != null){
+//        rellenaAlquileres(vc);
+//        rellenaUsuarios(vc);
+//        Toast.makeText(getContext(), "users: " + users.size(), Toast.LENGTH_SHORT).show();
+//        rellenaPelis(vc);
+//
+//
+//
+//        Log.i("DNI", user.getDni());
+//
+//        filtraAlqs(user.getDni());
 
+
+
+        CompletableFuture<Void> alquileresFuture = CompletableFuture.runAsync(() -> rellenaAlquileres(vc));
+        CompletableFuture<Void> usuariosFuture = CompletableFuture.runAsync(() -> rellenaUsuarios(vc));
+        CompletableFuture<Void> peliculasFuture = CompletableFuture.runAsync(() -> rellenaPelis(vc));
+
+        CompletableFuture<Void> allFutures = CompletableFuture.allOf(alquileresFuture, usuariosFuture, peliculasFuture);
+        allFutures.thenRun(() -> {
+            // Una vez que todas las llamadas asíncronas se completen, ejecutamos el filtrado
             filtraAlqs(user.getDni());
-
-        } else {
-
-            adapter = new RecyclerAdapterAlquiler(alqs);
-            lista.setAdapter(adapter);
-        }
+        });
 
 
 
@@ -106,8 +117,6 @@ public class AlquileresFragment extends Fragment implements View.OnClickListener
 
             String dniBuscado = dni.getText().toString();
             filtraAlqs(dniBuscado);
-
-
         }
     }
 
@@ -142,15 +151,19 @@ public class AlquileresFragment extends Fragment implements View.OnClickListener
 
             @Override
             public void alquileresCallback(ArrayList<Alquiler> alquileres) {
-                for (Alquiler p : alquileres) {
-                    alqs.add(p);
 
-                }
-                Toast.makeText(getContext(), " " + alquileres.size(), Toast.LENGTH_SHORT).show();
-                adapter = new RecyclerAdapterAlquiler(alqs);
+                getActivity().runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        alqs = alquileres;
 
-                lista.setAdapter(adapter);
+                        adapter = new RecyclerAdapterAlquiler(alqs);
+
+                        lista.setAdapter(adapter);
+                    }
+                });
             }
+            public void alquileresIdCallback(ArrayList<Alquiler> alqs){}
 
             @Override
             public void directoresCallback(ArrayList<Director> directores) {
@@ -177,18 +190,22 @@ public class AlquileresFragment extends Fragment implements View.OnClickListener
             public void alquileresCallback(ArrayList<Alquiler> alquileres) {
 
             }
-
+            public void alquileresIdCallback(ArrayList<Alquiler> alqs){}
             @Override
             public void directoresCallback(ArrayList<Director> directores) {
 
             }
 
+
             @Override
             public void usuariosCallback(ArrayList<Usuario> usuarios) {
-                for (Usuario p : usuarios) {
-                    users.add(p);
 
-                }
+                getActivity().runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        users = usuarios;
+                    }
+                });
 
             }
 
@@ -199,10 +216,13 @@ public class AlquileresFragment extends Fragment implements View.OnClickListener
 
             @Override
             public void peliculasCallback(ArrayList<Pelicula> pelis) {
-                for (Pelicula p : pelis) {
-                    peliculas.add(p);
 
-                }
+                getActivity().runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        peliculas = pelis;
+                    }
+                });
 
             }
 
@@ -210,6 +230,7 @@ public class AlquileresFragment extends Fragment implements View.OnClickListener
             public void alquileresCallback(ArrayList<Alquiler> alquileres) {
 
             }
+            public void alquileresIdCallback(ArrayList<Alquiler> alqs){}
 
             @Override
             public void directoresCallback(ArrayList<Director> directores) {

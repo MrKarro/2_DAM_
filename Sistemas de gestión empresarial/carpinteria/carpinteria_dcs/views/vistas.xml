@@ -1,0 +1,344 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="vista_carpinteria_Material_tree">
+            <field name="name">vista_carpinteria_Material_tree</field>
+            <field name="model">carpinteria.material</field>
+            <field name="arch" type="xml">
+                <tree string="LISTADO">
+                    <field name="name" />
+                    <field name="stock" />
+                    <field name="precio" />
+                    <field name="tipo" />
+                </tree>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="accion_carpinteria_Material_form">
+             <field name="name">Catálogo de materiales</field>
+             <field name="type">ir.actions.act_window</field>
+             <field name="res_model">carpinteria.material</field>
+             <field name="view_mode">tree,form,kanban</field>
+             <field name="help" type="html">
+             <p class="oe_view_nocontent_create">
+                Materiales
+             </p>
+             <p>
+                Haz clic en 'Crear' para insertar un material.
+             </p>
+             </field>
+         </record>
+
+        <record id="vista_carpinteria_Material_form" model="ir.ui.view">
+            <field name="name">vista_carpinteria_Material_form</field>
+            <field name="model">carpinteria.material</field>
+            <field name="arch" type="xml">
+                 <form string="material">
+                    <sheet>
+                        <group name="group_top">
+                            <group name="group_left">
+                                <field name="name"/>
+                                <field name="stock"/>
+                                <field name="precio"/>
+                                <field name="tipo"/>
+                                <field name="disponible"/>
+                            </group>
+                            <group name="group_right">
+                                <field name="imagen" widget="image"/>
+                            </group>
+                        </group>
+                    </sheet>
+                 </form>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="accion_carpinteria_Material_form1">
+            <field name="name">Catálogo de materiales</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">carpinteria.material</field>
+            <field name="view_mode">list</field>
+            <field name="help"  type="html">
+                <p class="oe_view_content_create">
+                    materiales2
+                </p>
+                <p>
+                    Haz clic en 'Crear' para insertar un material
+                </p>
+            </field>
+        </record>
+
+
+
+
+        <record model="ir.actions.act_window" id="accion_carpinteria_Material_tree">
+             <field name="name">Catálogo de materiales</field>
+             <field name="type">ir.actions.act_window</field>
+             <field name="res_model">carpinteria.material</field>
+             <field name="view_mode">tree,form,kanban</field>
+             <field name="help" type="html">
+             <p class="oe_view_nocontent_create">
+             materiales
+             </p>
+             <p>
+             Haz clic en 'Crear' para insertar un material.
+             </p>
+             </field>
+         </record>
+
+
+
+        <record model="ir.actions.act_window" id="accion_carpinteria_Material_form3">
+             <field name="name">Catálogo de materiales</field>
+             <field name="type">ir.actions.act_window</field>
+             <field name="res_model">carpinteria.material</field>
+             <field name="view_mode">form</field>
+             <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    materiales
+                </p>
+                <p>
+                    Haz clic en 'Crear' para insertar un material.
+                </p>
+            </field>
+         </record>
+
+        <record model="ir.actions.act_window" id="accion_carpinteria_Material_formkanban">
+             <field name="name">Catálogo de materiales</field>
+             <field name="type">ir.actions.act_window</field>
+             <field name="res_model">carpinteria.material</field>
+             <field name="view_mode">kanban,form</field>
+             <field name="help" type="html">
+             <p class="oe_view_nocontent_create">
+             materiales
+             </p>
+             <p>
+             Haz clic en 'Crear' para añadir un material.
+             </p>
+             </field>
+         </record>
+
+
+
+        <record id="vista_carpinteria_Material_kanban" model="ir.ui.view">
+            <field name="name">vista_carpinteria_Material_kanban</field>
+            <field name="model">carpinteria.material</field>
+            <field name="arch" type="xml">
+                <kanban>
+                    <field name="id"/>
+                    <field name="name"/>
+                    <field name="tipo"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_global_click">
+                                <div class="o_kanban_image">
+                                    <img alt="Imagen"
+                                         t-att-src="kanban_image('carpinteria.material', 'imagen', record.id.raw_value)"/>
+                                </div>
+                                <div class="oe_kanban_details">
+                                    <strong class="o_kanban_record_title">
+                                        <field name="name"/>
+                                    </strong>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+
+        <record id="vista_carpinteria_producto_form" model="ir.ui.view">
+            <field name="name">vista_carpinteria_producto_form</field>
+            <field name="model">carpinteria.producto</field>
+            <field name="arch" type="xml">
+                <form string="Producto">
+                    <sheet>
+                        <group name="group_top">
+                            <group name="group_left">
+                                <field name="name"/>
+                                <field name="descripcion"/>
+                                <field name="precio"/>
+
+                            </group>
+                            <group name="group_right">
+                                <field name="logo_Producto" widget="image"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="vista_carpinteria_producto_kanban" model="ir.ui.view">
+            <field name="name">vista_carpinteria_producto_kanban</field>
+            <field name="model">carpinteria.producto</field>
+            <field name="arch" type="xml">
+                <kanban>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_global_click">
+                                <div class="o_kanban_image">
+                                    <img t-att-src="kanban_image('carpinteria.producto', 'logo_Producto', record.id.raw_value)" alt="Producto"/>
+                                </div>
+                                <div class="oe_kanban_details">
+                                    <strong class="o_kanban_record_title">
+                                        <field name="name"/>
+                                    </strong>
+
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <record id="vista_carpinteria_producto_tree" model="ir.ui.view">
+            <field name="name">vista_carpinteria_producto_tree</field>
+            <field name="model">carpinteria.producto</field>
+            <field name="arch" type="xml">
+                <tree string="Listado de Productos">
+                    <field name="name"/>
+                    <field name="descripcion"/>
+                    <field name="precio"/>
+
+                </tree>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="accion_carpinteria_producto_kanban">
+            <field name="name">Catálogo de productos (Kanban)</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">carpinteria.producto</field>
+            <field name="view_mode">kanban,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Productos</p>
+                <p>Haz clic en 'Crear' para añadir un producto.</p>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="accion_carpinteria_producto_tree">
+            <field name="name">Catálogo de productos</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">carpinteria.producto</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Productos</p>
+                <p>Haz clic en 'Crear' para añadir un producto.</p>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="accion_carpinteria_producto_form">
+            <field name="name">Añadir Producto</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">carpinteria.producto</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+
+
+
+        <!--    _________________Menús_________________    -->
+
+
+        <menuitem id="menu_root_carpinteria" name="Carpinteria" sequence="30" />
+
+        <menuitem id="menu_productos_catalogo" name="Catálogo de productos" parent="menu_root_carpinteria" sequence="0"/>
+        
+
+
+        <menuitem id="menu_root_carpinteria_Material_view" name="Materiales" parent="menu_root_carpinteria"/>
+            <record model="ir.actions.act_window" id="listar_material_action">
+                <field name="name">carpinteria</field>
+                <field name="res_model">carpinteria.material</field>
+                <field name="view_mode">tree,form</field>
+            </record>
+
+        <record id="action_1" model="ir.actions.act_window">
+            <field name="name">OPCIÓN MENU 1</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">carpinteria.material</field>
+            <field name="view_mode">form</field>
+        </record>
+
+        <record id="action_2" model="ir.actions.act_window">
+            <field name="name">Catálogo</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">carpinteria.material</field>
+            <field name="view_mode">tree,kanban,form</field>
+        </record>
+        <record id="action_3" model="ir.actions.act_window">
+            <field name="name">OPCIÓN MENU 3</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">carpinteria.material</field>
+            <field name="view_mode">kanban</field>
+       <!--     <field name="view_mode">list,form</field>   -->
+        </record>
+
+
+
+        <record id="accion_buscar" model="ir.actions.act_url">
+            <field name="name">Información sobre madera</field>
+            <field name="url">https://maderame.com/elegir-madera/</field>
+            <field name="target">self</field>
+        </record>
+        <record id="accion_buscar2" model="ir.actions.act_url">
+            <field name="name">Consejos para cuidado</field>
+            <field name="url">https://blogs.20minutos.es/un-hogar-con-mucho-oficio/2016/07/05/7-trucos-para-cuidar-tus-muebles-de-madera/</field>
+            <field name="target">self</field>
+        </record>
+        <record id="accion_venancio" model="ir.actions.act_url">
+            <field name="name">IES Venancio Blanco</field>
+            <field name="url">https://www.iesvenancioblanco.es/</field>
+            <field name="target">self</field>
+        </record>
+
+        <record id="accion_ayuda_odoo" model="ir.actions.act_url">
+            <field name="name">Buscador Odoo</field>
+            <field name="url">https://www.odoo.com/documentation/15.0/es/</field>
+            <field name="target">self</field>
+        </record>
+
+        <menuitem id="menu_carpinteria_raiz" name="carpinteria_dcs" sequence="1" web_icon="carpinteria,static/description/icon.png"/>
+        <menuitem id="menu_carpinteria_catalogo" name="Catálogo de materiales" parent="menu_carpinteria_raiz" sequence="10"/>
+
+        <menuitem id="menu_carpinteria_Materials1" name="Lista" parent="menu_carpinteria_catalogo" sequence="12" action="action_2"/>
+        <menuitem id="menu_carpinteria_Materials" name="Nuevo material" parent="menu_carpinteria_catalogo" sequence="13" action="action_1"/>
+
+
+
+
+
+        <menuitem id="menu_carpinteria_Materials_tree" name="Vista tree" parent="menu_carpinteria_catalogo" sequence="15"
+        action="accion_carpinteria_Material_tree"/>
+        <menuitem id="menu_carpinteria_Materials2" name="Vista kanban" parent="menu_carpinteria_catalogo" sequence="16"
+        action="accion_carpinteria_Material_formkanban"/>
+
+
+        <!-- se genera el menú pendiente de asignar las distintas acciones a los botones -->
+        <menuitem id="menu_carpinteria_listados" name="Catálogo de productos" parent="menu_carpinteria_raiz" sequence="20" />
+
+
+        <menuitem id="menu_carpinteria_Materials12" name="Añade producto" parent="menu_carpinteria_listados" sequence="22" action="accion_carpinteria_producto_form"/>
+        <menuitem id="menu_carpinteria_Materials121" name="Consulta productos" parent="menu_carpinteria_listados" sequence="23" action="accion_carpinteria_producto_tree"/>
+        <menuitem id="menu_carpinteria_Materials122" name="Consulta productos (Kanban)" parent="menu_carpinteria_listados" sequence="24" action="accion_carpinteria_producto_kanban"/>
+
+        <menuitem id="menu_carpinteria_informacion" name="Informacion" parent="menu_carpinteria_raiz" sequence="30" />
+
+        
+        <menuitem id="menu_carpinteria_MaterialsVen" name="IES Venancio Blanco" parent="menu_carpinteria_informacion" sequence="32" action="accion_venancio"/>
+
+
+
+        <menuitem id="menu_carpinteria_Materials_Sec" name="Información" parent="menu_carpinteria_informacion" sequence="33" />
+        <menuitem id="menu_carpinteria_Ayuda" name="Información sobre madera" parent="menu_carpinteria_Materials_Sec" sequence="34" action="accion_buscar"/>
+        <menuitem id="menu_carpinteria_info" name="Consejos para cuidado" parent="menu_carpinteria_Materials_Sec" sequence="35" action="accion_buscar2"/>
+
+
+
+
+
+
+
+
+
+
+    </data>
+</odoo>
