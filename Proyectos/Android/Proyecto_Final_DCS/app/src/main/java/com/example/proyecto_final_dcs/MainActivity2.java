@@ -16,6 +16,7 @@ import com.example.proyecto_final_dcs.Modelo.Alquiler;
 import com.example.proyecto_final_dcs.Modelo.Director;
 import com.example.proyecto_final_dcs.Modelo.Pelicula;
 import com.example.proyecto_final_dcs.Modelo.Usuario;
+import com.example.proyecto_final_dcs.Vista.AddPeliDialog;
 import com.example.proyecto_final_dcs.Vista.AlquileresFragment;
 import com.example.proyecto_final_dcs.Vista.PeliculaFragment;
 
@@ -75,6 +76,14 @@ public class MainActivity2 extends AppCompatActivity {
             cargarPeliculas(peliculas);
 
         } else if (item.getItemId() == R.id.insertarPeli){
+            AddPeliDialog addPeli = new AddPeliDialog();
+
+
+
+
+            addPeli.show(getSupportFragmentManager(), "Añadir");
+
+
 
 
         } else if (item.getItemId() == R.id.verAlquileres){
@@ -115,8 +124,9 @@ public class MainActivity2 extends AppCompatActivity {
         args.putSerializable("usuarios", users);
         args.putSerializable("peliculas", peliculas);
         args.putSerializable("user", user);
-        AlquileresFragment frag = new AlquileresFragment();
 
+        AlquileresFragment frag = new AlquileresFragment();
+        frag.setArguments(args);
         fragmentTransaction.replace(R.id.frag, frag);
         fragmentTransaction.commit();
     }
@@ -128,6 +138,7 @@ public class MainActivity2 extends AppCompatActivity {
         PeliculaFragment frag = new PeliculaFragment();
         args.putSerializable("peliculas", pelis);
         args.putSerializable("directores", direcs);
+        args.putSerializable("user", user);
         frag.setArguments(args);
         fragmentTransaction.replace(R.id.frag, frag);
         fragmentTransaction.commit();

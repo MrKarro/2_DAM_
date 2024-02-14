@@ -19,7 +19,7 @@ CREATE TABLE Director (
 CREATE TABLE Pelicula (
   identificador INT(3) NOT NULL AUTO_INCREMENT,
   titulo VARCHAR(100) NOT NULL,
-  duracion TIME,
+  duracion VARCHAR(50),
   anho INT(4),
   portada VARCHAR(200),
   director INT(3),

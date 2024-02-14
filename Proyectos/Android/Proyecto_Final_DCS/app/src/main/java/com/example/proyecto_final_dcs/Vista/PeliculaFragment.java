@@ -40,6 +40,7 @@ public class PeliculaFragment extends Fragment implements View.OnClickListener {
     ArrayList<Pelicula> peliculas;
     ArrayList<Director> direcs;
     RecyclerAdapterPelicula adapter;
+    Usuario user;
 
 
     public PeliculaFragment() {
@@ -54,7 +55,7 @@ public class PeliculaFragment extends Fragment implements View.OnClickListener {
         if (getArguments() != null) {
             peliculas = (ArrayList<Pelicula>) getArguments().getSerializable("peliculas");
             direcs = (ArrayList<Director>) getArguments().getSerializable("directores");
-
+            user =(Usuario) getArguments().getSerializable("user");
 
         }
 
@@ -80,7 +81,9 @@ public class PeliculaFragment extends Fragment implements View.OnClickListener {
         filtrar = view.findViewById(R.id.botFiltrar);
         filtrar.setOnClickListener(this);
         String[] tiposFiltro = {"titulo", "anho", "director"};
+        if (user != null){
 
+        }
         ArrayAdapter<String> adaptador = new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_item, tiposFiltro);
         filtro.setAdapter(adaptador);
         return view;
@@ -139,10 +142,7 @@ public class PeliculaFragment extends Fragment implements View.OnClickListener {
 
             @Override
             public void peliculasCallback(ArrayList<Pelicula> pelis) {
-                for (Pelicula p : pelis) {
-                    peliculas.add(p);
-
-                }
+                peliculas = pelis;
 
                 adapter = new RecyclerAdapterPelicula(peliculas);
 
@@ -182,10 +182,7 @@ public class PeliculaFragment extends Fragment implements View.OnClickListener {
 
             @Override
             public void directoresCallback(ArrayList<Director> directores) {
-                for (Director p : directores) {
-                    direcs.add(p);
-
-                }
+               direcs = directores;
             }
 
             @Override

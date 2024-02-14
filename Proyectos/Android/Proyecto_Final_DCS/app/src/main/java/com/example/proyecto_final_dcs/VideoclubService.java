@@ -92,6 +92,7 @@ public class VideoclubService {
                     public void onFailure(@NonNull Call<Pelicula> call, @NonNull Throwable t) {
                         Log.d("TAG", "Error");
                         Log.d("TAG", "ERROR: " + t.getMessage());
+                        System.out.println(t.getMessage());
                         Toast.makeText(context, "Película no añadida", Toast.LENGTH_SHORT).show();
                     }
                 }

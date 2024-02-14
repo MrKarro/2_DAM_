@@ -28,13 +28,13 @@
             "login" => $row["login"],
             "password" => $row["password"],
             "trabajador" => $row["trabajador"] == 1 ? true : false,
-            "bloqueado" => $row["bloqueado"] == 1 ? true : false
+            "bloqueado" => $row["bloqueado"] == 0 ? true : false
         );
 
-    $usuarios[] = $usuario;
+        $usuarios[] = $usuario;
     }
 
-        echo json_encode($usuarios);
+    echo json_encode($usuarios);
     } else {
         echo json_encode(["mensaje" => "No se encontraron usuarios"]);
     }

@@ -11,6 +11,8 @@ public class Pelicula {
     private int idDirector;
     private boolean disponible;
 
+    public Pelicula(){};
+
     public Pelicula(int identificador, String titulo, String duracion, int anho, String portada, int idDirector, boolean disponible) {
         this.identificador = identificador;
         this.titulo = titulo;
@@ -19,6 +21,19 @@ public class Pelicula {
         this.portada = portada;
         this.idDirector = idDirector;
         this.disponible = disponible;
+    }
+
+    @Override
+    public String toString() {
+        return "Pelicula{" +
+                "identificador=" + identificador +
+                ", titulo='" + titulo + '\'' +
+                ", duracion='" + duracion + '\'' +
+                ", anho=" + anho +
+                ", portada='" + portada + '\'' +
+                ", idDirector=" + idDirector +
+                ", disponible=" + disponible +
+                '}';
     }
 
     public int getIdentificador() {

@@ -80,20 +80,18 @@ public class AlquileresFragment extends Fragment implements View.OnClickListener
 
         rellenaAlquileres(vc);
         rellenaUsuarios(vc);
+        Toast.makeText(getContext(), "users: " + users.size(), Toast.LENGTH_SHORT).show();
         rellenaPelis(vc);
-        if (user.getIdentificador() != 0){
-            ArrayList<Alquiler> miAlqs = new ArrayList<>();
+        if (user != null){
 
-            for (Alquiler a : alqs){
-                if (user.getIdentificador() == a.getId_usuario()){
-                    miAlqs.add(a);
+            filtraAlqs(user.getDni());
 
-                }
-            }
-            adapter = new RecyclerAdapterAlquiler(miAlqs);
         } else {
+
             adapter = new RecyclerAdapterAlquiler(alqs);
+            lista.setAdapter(adapter);
         }
+
 
 
 
@@ -105,26 +103,32 @@ public class AlquileresFragment extends Fragment implements View.OnClickListener
     @Override
     public void onClick(View view) {
         if (view.getId() == R.id.botFiltrar){
-            int idBuscado = 0;
-            String dniBuscado = dni.getText().toString();
-            for (Usuario u : users){
-                if (u.getDni().equals(dniBuscado)){
-                    idBuscado = u.getIdentificador();
-                }
-            }
-            ArrayList<Alquiler> alqFiltrado = new ArrayList<>();
-            for (Alquiler a : alqs){
-                if (a.getId_usuario() == idBuscado){
-                    alqFiltrado.add(a);
-                }
-            }
-            if (alqFiltrado.size() == 0){
-                Toast.makeText(getContext(), "No hay películas con esos parámetros", Toast.LENGTH_SHORT).show();
-            } else {
-                RecyclerAdapterAlquiler adapter = new RecyclerAdapterAlquiler(alqFiltrado);
-                lista.setAdapter(adapter);
-            }
 
+            String dniBuscado = dni.getText().toString();
+            filtraAlqs(dniBuscado);
+
+
+        }
+    }
+
+    public void filtraAlqs(String dni){
+        int idBuscado = 0;
+        for (Usuario u : users){
+            if (u.getDni().equals(dni)){
+                idBuscado = u.getIdentificador();
+            }
+        }
+        ArrayList<Alquiler> alqFiltrado = new ArrayList<>();
+        for (Alquiler a : alqs){
+            if (a.getId_usuario() == idBuscado){
+                alqFiltrado.add(a);
+            }
+        }
+        if (alqFiltrado.size() == 0){
+            Toast.makeText(getContext(), "No hay películas con esos parámetros", Toast.LENGTH_SHORT).show();
+        } else {
+            RecyclerAdapterAlquiler adapter = new RecyclerAdapterAlquiler(alqFiltrado);
+            lista.setAdapter(adapter);
         }
     }
 
