@@ -21,7 +21,7 @@
 	$duracion = $data['duracion'];
 	$anho = $data['anho'];
 	$portada = $data['portada'];
-	$director = $data['director'];
+	$director = $data['idDirector'];
 	
 
 	$sql = "INSERT INTO pelicula (titulo, duracion, anho, portada, director) VALUES ('$titulo', '$duracion', '$anho', '$portada', '$director')";

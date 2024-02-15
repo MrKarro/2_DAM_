@@ -3,6 +3,8 @@ package com.example.proyecto_final_dcs.Modelo;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.PopupMenu;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -11,9 +13,10 @@ import com.example.proyecto_final_dcs.R;
 
 import java.util.ArrayList;
 
-public class RecyclerAdapterPelicula extends RecyclerView.Adapter {
+public class RecyclerAdapterPelicula extends RecyclerView.Adapter  {
 
-    ArrayList<Pelicula> pelis;
+    static ArrayList<Pelicula> pelis;
+
 
 
     boolean peli;
@@ -46,6 +49,8 @@ public class RecyclerAdapterPelicula extends RecyclerView.Adapter {
             hold.getDuracion().setText(((Pelicula) pelis.get(position)).getDuracion().toString());
 
 
+
+
     }
 
     @Override
@@ -53,4 +58,5 @@ public class RecyclerAdapterPelicula extends RecyclerView.Adapter {
             return pelis.size();
 
     }
+
 }

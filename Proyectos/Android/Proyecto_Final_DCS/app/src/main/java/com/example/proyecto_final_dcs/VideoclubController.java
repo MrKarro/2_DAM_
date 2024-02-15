@@ -6,11 +6,14 @@ import android.os.Bundle;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.proyecto_final_dcs.Interfaces.VideoclubCallback;
 import com.example.proyecto_final_dcs.Modelo.Alquiler;
 import com.example.proyecto_final_dcs.Modelo.Director;
 import com.example.proyecto_final_dcs.Modelo.Pelicula;
+import com.example.proyecto_final_dcs.Modelo.RecyclerAdapterAlquiler;
+import com.example.proyecto_final_dcs.Modelo.RecyclerAdapterPelicula;
 import com.example.proyecto_final_dcs.Modelo.Usuario;
 
 import java.util.ArrayList;
@@ -143,7 +146,7 @@ public class VideoclubController {
     }
 
 
-    public void getPeliculas(VideoclubCallback interfaz ) {
+    public void getPeliculas(VideoclubCallback interfaz, RecyclerView lista ) {
         service.getPeliculas().enqueue(
                 new Callback<List<Pelicula>>() {
                     @Override
@@ -152,6 +155,11 @@ public class VideoclubController {
                         if (response.isSuccessful()) {
 
                             assert response.body() != null;
+
+                            RecyclerAdapterPelicula adapter = new RecyclerAdapterPelicula((ArrayList<Pelicula>) response.body());
+
+                            lista.setAdapter(adapter);
+
 
 
                         } else {
@@ -164,6 +172,36 @@ public class VideoclubController {
                     public void onFailure(@NonNull Call<List<Pelicula>> call, @NonNull Throwable t) {
                         Log.d("Error", Objects.requireNonNull(t.getMessage()));
                        // Toast.makeText(context, "peliculas failure", Toast.LENGTH_SHORT).show();
+                    }
+                }
+        );
+    }
+    public void getPeliculas(RecyclerView lista ) {
+        service.getPeliculas().enqueue(
+                new Callback<List<Pelicula>>() {
+                    @Override
+                    public void onResponse(@NonNull Call<List<Pelicula>> call, @NonNull Response<List<Pelicula>> response) {
+
+                        if (response.isSuccessful()) {
+
+                            assert response.body() != null;
+
+                            RecyclerAdapterPelicula adapter = new RecyclerAdapterPelicula((ArrayList<Pelicula>) response.body());
+
+                            lista.setAdapter(adapter);
+
+
+
+                        } else {
+                            Log.d("TAG", "Error");
+                        }
+
+                    }
+
+                    @Override
+                    public void onFailure(@NonNull Call<List<Pelicula>> call, @NonNull Throwable t) {
+                        Log.d("Error", Objects.requireNonNull(t.getMessage()));
+                        // Toast.makeText(context, "peliculas failure", Toast.LENGTH_SHORT).show();
                     }
                 }
         );
@@ -253,6 +291,53 @@ public class VideoclubController {
 
 
     }
+    public void getAlquilerId(int id, RecyclerView lista) {
+        service.getAlquileresId(id).enqueue(new Callback<List<Alquiler>>() {
+            @Override
+            public void onResponse(@NonNull Call<List<Alquiler>> call, @NonNull Response<List<Alquiler>> response) {
+                if (response.isSuccessful()) {
+
+                    RecyclerAdapterAlquiler adapter = new RecyclerAdapterAlquiler((ArrayList<Alquiler>) response.body());
+
+                    lista.setAdapter(adapter);
+                } else {
+                    Log.d("TAG", "Error");
+                }
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<List<Alquiler>> call, @NonNull Throwable t) {
+
+                Log.d("Error", Objects.requireNonNull(t.getMessage()));
+            }
+        });
+
+
+    }
+
+    public void eliminarAlquiler(int idPelicula, int idUsuario) {
+        Call<Void> call = service.eliminarAlquiler(idPelicula, idUsuario);
+        call.enqueue(new Callback<Void>() {
+            @Override
+            public void onResponse(Call<Void> call, Response<Void> response) {
+                if (response.isSuccessful()) {
+
+                    Log.d("VideoclubController", "Alquiler eliminado correctamente");
+                } else {
+
+                    Log.e("VideoclubController", "Error al eliminar el alquiler: " + response.code());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Void> call, Throwable t) {
+                // Error de red u otro tipo de error
+                Log.e("VideoclubController", "Error: " + t.getMessage());
+            }
+        });
+    }
+
+
 
 
 

@@ -55,6 +55,7 @@ public class MisAlqsFragment extends Fragment {
         linearLayoutManager.setOrientation(RecyclerView.VERTICAL);
         lista.setLayoutManager(linearLayoutManager);
         rellenaAlqs(vc, user);
+        vc.getAlquilerId(user.getIdentificador(), lista);
 
 
 

@@ -35,7 +35,7 @@ public class PeliculaFragment extends Fragment implements View.OnClickListener {
     Spinner filtro;
     EditText texto;
     Button filtrar;
-    RecyclerView lista;
+    static RecyclerView lista;
     VideoclubController vc;
 
     ArrayList<Pelicula> peliculas;
@@ -175,7 +175,7 @@ public class PeliculaFragment extends Fragment implements View.OnClickListener {
 
             }
 
-        });
+        }, lista);
     }
 
     public void rellenaDirecs(VideoclubController vc) {

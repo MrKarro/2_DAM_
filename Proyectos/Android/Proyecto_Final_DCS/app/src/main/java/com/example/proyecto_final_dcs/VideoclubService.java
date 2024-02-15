@@ -17,6 +17,7 @@ import java.util.List;
 import retrofit2.*;
 
 import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.http.Query;
 
 public class VideoclubService {
 
@@ -135,6 +136,12 @@ public class VideoclubService {
     public Call<List<Alquiler>> getAlquileresId(int idUsuario){
         return getRetrofit().create(VideoclubDAO.class).getAlquilerId(idUsuario);
     }
+
+    public Call<Void> eliminarAlquiler(@Query("idPelicula") int idPelicula, @Query("idUsuario") int idUsuario){
+        return getRetrofit().create(VideoclubDAO.class).eliminarAlquiler(idPelicula, idUsuario);
+    }
+
+
 
 
 }

@@ -136,6 +136,8 @@ public class AddPeliDialog extends DialogFragment implements DialogInterface.OnC
                 Log.i("pelicula: ", peli.toString());
                 System.out.println(peli);
                 vc.createPelicula(getContext(), peli);
+                vc.getPeliculas(PeliculaFragment.lista);
+
 
 
                 break;

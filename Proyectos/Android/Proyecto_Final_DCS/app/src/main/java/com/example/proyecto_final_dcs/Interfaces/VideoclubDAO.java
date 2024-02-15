@@ -51,4 +51,8 @@ public interface VideoclubDAO {
     @GET("getAlquilerId.php")
     public Call<List<Alquiler>> getAlquilerId(@Query("idUsuario") int idUsuario);
 
+
+    @DELETE("deleteAlquiler.php")
+    public Call<Void> eliminarAlquiler(@Query("idPelicula") int idPelicula, @Query("idUsuario") int idUsuario);
+
 }

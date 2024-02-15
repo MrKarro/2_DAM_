@@ -242,6 +242,6 @@ public class AlquileresFragment extends Fragment implements View.OnClickListener
 
             }
 
-        });
+        }, lista);
     }
 }

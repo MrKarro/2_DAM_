@@ -10,6 +10,7 @@ public class Alquiler implements Serializable {
     private String fecha_alquiler;
     private String fecha_devolucion;
     private boolean extendido;
+    private String titulo_pelicula;
 
 
     // Constructor

@@ -16,28 +16,29 @@
     $idUsuario = $_GET['idUsuario'];
 
   
-    $sql = "SELECT pelicula.* FROM pelicula INNER JOIN alquiler ON pelicula.identificador = alquiler.id_pelicula WHERE alquiler.id_usuario = $idUsuario";
+    $sql = "SELECT alquiler.*, pelicula.titulo AS titulo_pelicula 
+            FROM alquiler 
+            INNER JOIN pelicula ON alquiler.id_pelicula = pelicula.identificador 
+            WHERE alquiler.id_usuario = $idUsuario";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
-        $peliculas = array();
+        $alquileres = array();
 
         while ($row = $result->fetch_assoc()) {
-            $duracion = (string)$row["duracion"];
-            $pelicula = array(
-                "identificador" => $row["identificador"],
-                "titulo" => $row["titulo"],
-                "duracion" => $duracion,
-                "anho" => $row["anho"],
-                "portada" => $row["portada"],
-                "idDirector" => $row["director"],
-                "disponible" => $row["disponible"] == 1 ? true : false
+            $alquiler = array(
+                "id_alquiler" => $row["id_alquiler"],
+                "id_usuario" => $row["id_usuario"],
+                "id_pelicula" => $row["id_pelicula"],
+                "fecha_alquiler" => $row["fecha_alquiler"],
+                "titulo_pelicula" => $row["titulo_pelicula"],
+                // Agrega otros campos según tu estructura de tabla alquiler
             );
 
-            $peliculas[] = $pelicula;
+            $alquileres[] = $alquiler;
         }
 
-        echo json_encode($peliculas);
+        echo json_encode($alquileres);
     } else {
         echo json_encode(["mensaje" => "No se encontraron películas para este usuario"]);
     }

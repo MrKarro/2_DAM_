@@ -25,7 +25,7 @@ import java.util.ArrayList;
 
 public class MainActivity2 extends AppCompatActivity {
 
-    private Usuario user;
+    private static Usuario user;
     FrameLayout vista;
     ArrayList<Pelicula> peliculas = new ArrayList<>();
     ArrayList<Alquiler> alqs = new ArrayList<>();
@@ -153,6 +153,7 @@ public class MainActivity2 extends AppCompatActivity {
         fragmentTransaction.commit();
     }
 
-
-
+    public static Usuario getUser() {
+        return user;
+    }
 }
