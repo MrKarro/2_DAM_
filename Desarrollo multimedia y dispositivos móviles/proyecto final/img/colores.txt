@@ -1,0 +1,2 @@
+color iconos:   #FFA830
+#414141

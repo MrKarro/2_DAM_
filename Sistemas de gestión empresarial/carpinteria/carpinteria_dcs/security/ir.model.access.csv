@@ -1,7 +1,10 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 carpinteria_dcs.carpinteros,carpinteria_dcs.carpinteros,model_carpinteria_material,carpinteria_carpinteros_group,1,1,1,1
 carpinteria_dcs.administrador,carpinteria_dcs.administrador,model_carpinteria_material,base.group_system,1,1,1,1
+carpinteria_dcs.administrador,carpinteria_dcs.administrador,model_carpinteria_material,base.group_user,1,1,1,1
 carpinteria_dcs.carpinteros,carpinteria_dcs.carpinteros,model_carpinteria_producto,carpinteria_carpinteros_group,1,1,1,1
 carpinteria_dcs.administrador,carpinteria_dcs.administrador,model_carpinteria_producto,base.group_system,1,1,1,1
+carpinteria_dcs.administrador,carpinteria_dcs.administrador,model_carpinteria_producto,base.group_user,1,1,1,1
 carpinteria_dcs.carpinteros,carpinteria_dcs.carpinteros,model_carpinteria_pedido,carpinteria_carpinteros_group,1,1,1,1
 carpinteria_dcs.administrador,carpinteria_dcs.administrador,model_carpinteria_pedido,base.group_system,1,1,1,1
+carpinteria_dcs.administrador,carpinteria_dcs.administrador,model_carpinteria_pedido,base.group_user,1,1,1,1

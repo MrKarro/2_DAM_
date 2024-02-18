@@ -28,7 +28,7 @@ class producto(models.Model):
     descripcion = fields.Text(string='Descripción')
     precio = fields.Integer('Precio')
     
-    logo_Producto = fields.Binary(string='Imagen')
+    logo_Producto = fields.Binary(string='ImagenProducto')
     material_id = fields.Many2many('carpinteria.material', string='Material')
     pedido_ids = fields.Many2many('carpinteria.pedido', 'carpinteria_material_Pedido_rel', string='Pedido')
 

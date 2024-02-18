@@ -16,7 +16,7 @@
              <field name="descripcion">Mesa elegante hecha de roble sólido</field>
              <field name="precio">200</field>
              <field name="logo_Producto" type="base64" file="carpinteria_dcs/static/img/mesaroble.jpg"/>
-             <!-- <field name="Material_id" eval="[(6, 0, [ref('material_roble')])]"/> -->
+              <field name="material_id" eval="[(6, 0, [ref('material_roble')])]"/>
          </record>
 
          <record id="producto_silla_roble" model="carpinteria.producto">
@@ -24,7 +24,7 @@
              <field name="descripcion">Silla resistente y cómoda hecha de roble</field>
              <field name="precio">100</field>
              <field name="logo_Producto" type="base64" file="carpinteria_dcs/static/img/sillaroble.jpg"/>
-             <!-- <field name="Material_id" eval="[(6, 0, [ref('material_roble')])]"/>-->
+              <field name="material_id" eval="[(6, 0, [ref('material_roble')])]"/>
          </record>
 
 
@@ -43,7 +43,7 @@
              <field name="descripcion">Mesa simple pero resistente hecha de pino</field>
              <field name="precio">150</field>
              <field name="logo_Producto" type="base64" file="carpinteria_dcs/static/img/mesapino.jpg"/>
-             <!-- <field name="Material_id" eval="[(6, 0, [ref('material_pino')])]"/>-->
+              <field name="material_id" eval="[(6, 0, [ref('material_pino')])]"/>
          </record>
 
          <record id="producto_estanteria_pino" model="carpinteria.producto">
@@ -51,7 +51,7 @@
              <field name="descripcion">Estantería práctica y económica hecha de pino</field>
              <field name="precio">80</field>
              <field name="logo_Producto" type="base64" file="carpinteria_dcs/static/img/estanteriapino.jpg"/>
-             <!-- <field name="Material_id" eval="[(6, 0, [ref('material_pino')])]"/>-->
+              <field name="material_id" eval="[(6, 0, [ref('material_pino')])]"/>
          </record>
 
          <record id="material_haya" model="carpinteria.material">

@@ -17,9 +17,12 @@
     $dni = $data['dni'];
     $login = $data['login'];
     $password = $data['password'];
+    $trabajador = $data['trabajador'];
+    if ($trabajador === true)
+        $trab = 1;
     
 
-    $sql = "INSERT INTO usuario (nombre, dni, login, password) VALUES ('$nombre', '$dni', '$login', '$password')";
+    $sql = "INSERT INTO usuario (nombre, dni, login, password, trabajador) VALUES ('$nombre', '$dni', '$login', '$password', $trab)";
 
     if ($conn->query($sql) === TRUE) {
         echo json_encode(["message" => "Usuario insertado con éxito"]);

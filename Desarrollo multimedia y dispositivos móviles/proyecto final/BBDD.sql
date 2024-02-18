@@ -1,9 +1,12 @@
+CREATE DATABASE videoclub_dcs;
+USE videoclub_dcs;
+
 CREATE TABLE Usuario (
   identificador INT(3) NOT NULL AUTO_INCREMENT,
   dni VARCHAR(9) NOT NULL,
   nombre VARCHAR(100) NOT NULL,
   login VARCHAR(20) NOT NULL,
-  password VARCHAR(32) NOT NULL,
+  password VARCHAR(256) NOT NULL,
   trabajador TINYINT(1) DEFAULT 0,
   bloqueado TINYINT(1) DEFAULT 0,
   PRIMARY KEY (identificador)
@@ -43,6 +46,7 @@ CREATE TABLE Alquiler (
   FOREIGN KEY (id_pelicula) REFERENCES Pelicula(identificador),
   FOREIGN KEY (id_usuario) REFERENCES Usuario(identificador)
 );
+
 
 INSERT INTO Usuario (dni, nombre, login, password, trabajador, bloqueado) VALUES
 ('12345678A', 'Cliente1', 'Cli1', '123456', 0, 0),
