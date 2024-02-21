@@ -40,16 +40,8 @@ public class Arbitro extends Thread{
         for (int i = 1; !juegoTerminado; i++){
             System.out.println("TURNO " + i);
             
-            for (int j = 0; j < jugadores.size(); j++){
-                int numeroRecibido = cola.get();  // Toma el número de la cola
-                System.out.println("Árbitro verificando número: " + numeroRecibido);
-                if (comprobarNumero(numeroRecibido)) {
-                    System.out.println("¡Un jugador ha acertado, el juego acaba!");
-                    setJuegoTerminado(true);
-                    System.exit(0);
-                }
-            }
-               
+            compruebaJugada();
+            
             try {
                 barrera.await();
             } catch (InterruptedException ex) {
@@ -57,11 +49,23 @@ public class Arbitro extends Thread{
             } catch (BrokenBarrierException ex) {
                 Logger.getLogger(Arbitro.class.getName()).log(Level.SEVERE, null, ex);
             }
-            
+    
         }  
         
         
     }
+    
+    public synchronized void compruebaJugada(){
+        for (int j = 0; j < jugadores.size(); j++){
+                int numeroRecibido = cola.get();  // Toma el número de la cola
+                System.out.println("Árbitro verificando número: " + numeroRecibido);
+                if (comprobarNumero(numeroRecibido)) {
+                    System.out.println("¡Un jugador ha acertado, el juego acaba!");
+                    setJuegoTerminado(true);
+                    return;
+                }
+            }
+    } 
 
     public int getTurnoActual() {
         return turnoActual;

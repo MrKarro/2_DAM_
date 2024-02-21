@@ -54,8 +54,5 @@ public class Cola {
     public void setDisponible(boolean disponible) {
         this.disponible = disponible;
     }
-    
-    
-    
-    
+
 }
