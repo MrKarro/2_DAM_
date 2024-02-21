@@ -1,0 +1,90 @@
+CREATE TABLE DEPARTAMENTOS (
+    ID_DEPARTAMENTO NUMBER PRIMARY KEY,
+    NOMBRE_DEPARTAMENTO VARCHAR2(50),
+    LOCALIZACION VARCHAR2(100)
+);
+
+
+INSERT INTO DEPARTAMENTOS VALUES (1, 'Ventas', 'Plasencia');
+INSERT INTO DEPARTAMENTOS VALUES (2, 'RRHH', 'Salamanca');
+INSERT INTO DEPARTAMENTOS VALUES (3, 'Producción', 'Salamanca');
+
+
+CREATE TABLE EMPLEADOS (
+    ID_EMPLEADO NUMBER PRIMARY KEY,
+    NOMBRE VARCHAR2(50),
+    APELLIDO VARCHAR2(50),
+    PUESTO VARCHAR2(50),
+    SALARIO NUMBER,
+    ID_DEPARTAMENTO NUMBER REFERENCES DEPARTAMENTOS(ID_DEPARTAMENTO)
+);
+
+
+INSERT INTO EMPLEADOS VALUES (1, 'David', 'Carro', 'Gerente', 5000, 1);
+INSERT INTO EMPLEADOS VALUES (2, 'Lidia', 'Elez', 'Analista', 3000, 1);
+INSERT INTO EMPLEADOS VALUES (3, 'Alberto', 'Rodriguez', 'Vendedor', 4000, 2);
+INSERT INTO EMPLEADOS VALUES (4, 'Jiawei', 'Xia', 'Técnico', 3500, 3);
+
+INSERT INTO EMPLEADOS VALUES (5, 'Juan', 'Pérez', 'Gerente', 5000, 1);
+INSERT INTO EMPLEADOS VALUES (6, 'María', 'López', 'Vendedor', 3000, 2);
+INSERT INTO EMPLEADOS VALUES (7, 'Carlos', 'Álvarez', 'Analista', 4000, 3);
+INSERT INTO EMPLEADOS VALUES (8, 'Ana', 'Martínez', 'Técnico', 3500, 3);
+
+
+CREATE TYPE PERSONA_VARRAY AS VARRAY(5) OF VARCHAR2(35);
+/
+
+
+CREATE TABLE GRUPOS (
+    NOMBRE_GRUPO VARCHAR2(15),
+    PERSONAS PERSONA_VARRAY
+);
+
+CREATE OR REPLACE PROCEDURE LLENAR_GRUPOS AS
+BEGIN
+    FOR depto IN (SELECT D.NOMBRE_DEPARTAMENTO, D.LOCALIZACION 
+                  FROM DEPARTAMENTOS D
+                  JOIN EMPLEADOS E ON D.ID_DEPARTAMENTO = E.ID_DEPARTAMENTO
+                  GROUP BY D.NOMBRE_DEPARTAMENTO, D.LOCALIZACION) LOOP
+        DECLARE
+            personas PERSONA_VARRAY := PERSONA_VARRAY(); 
+        BEGIN
+            FOR emp IN (SELECT E.APELLIDO, E.ID_EMPLEADO 
+                        FROM EMPLEADOS E
+                        JOIN DEPARTAMENTOS D ON E.ID_DEPARTAMENTO = D.ID_DEPARTAMENTO
+                        WHERE D.NOMBRE_DEPARTAMENTO = depto.NOMBRE_DEPARTAMENTO
+                        AND ROWNUM <= 5) 
+            LOOP
+                personas.EXTEND;
+                personas(personas.COUNT) := emp.APELLIDO || ' (' || emp.ID_EMPLEADO || ')';
+            END LOOP;
+            INSERT INTO GRUPOS VALUES (depto.NOMBRE_DEPARTAMENTO, personas);
+        END;
+    END LOOP;
+    COMMIT;
+END;
+/
+
+
+EXECUTE LLENAR_GRUPOS;
+
+-- Usamos esto para mostrar los datos
+DECLARE
+    v_apellido VARCHAR2(35);
+BEGIN
+    FOR depto_rec IN (SELECT D.NOMBRE_DEPARTAMENTO 
+                      FROM DEPARTAMENTOS D
+                      JOIN EMPLEADOS E ON D.ID_DEPARTAMENTO = E.ID_DEPARTAMENTO
+                      GROUP BY D.NOMBRE_DEPARTAMENTO) LOOP
+        DBMS_OUTPUT.PUT_LINE('Empleados del departamento ' || depto_rec.NOMBRE_DEPARTAMENTO || ':');
+        FOR emp_rec IN (SELECT E.APELLIDO || ' (' || E.ID_EMPLEADO || ')' AS EMPLEADO
+                        FROM EMPLEADOS E
+                        JOIN DEPARTAMENTOS D ON E.ID_DEPARTAMENTO = D.ID_DEPARTAMENTO
+                        WHERE D.NOMBRE_DEPARTAMENTO = depto_rec.NOMBRE_DEPARTAMENTO
+                        AND ROWNUM <= 5) LOOP
+            DBMS_OUTPUT.PUT_LINE(emp_rec.EMPLEADO);
+        END LOOP;
+        DBMS_OUTPUT.PUT_LINE('');
+    END LOOP;
+END;
+/
