@@ -25,66 +25,30 @@ import java.util.logging.Logger;
 public class Jugador {
     
     private static Socket socketCliente;
+    private String nombre;
     
     public static void main(String[] args) {
+        try{
         
-        String servidorIP = "127.0.0.1"; 
-        int puerto = 9876;
-
-        
-            ObjectInputStream objectInputStream = null;
-        try {
-            socketCliente = new Socket();
+            InetAddress dir = InetAddress.getByName("localhost");
+            int puerto = 9876;
+            socketCliente = new Socket(dir, puerto);
             Scanner scanner = new Scanner(System.in);
-            InetAddress direccionServidor;
-           
-            direccionServidor = InetAddress.getByName("localhost");
-           
-            byte[] buffer = new byte[1024];
-            DatagramPacket packet = new DatagramPacket(buffer, buffer.length);
-            socketCliente.connect(direccionServidor, puerto);
-            socketCliente.receive(packet);            
-            ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(packet.getData());
-            objectInputStream = new ObjectInputStream(byteArrayInputStream);
-            Preguntas preguntasRecibidas = (Preguntas) objectInputStream.readObject();
-            String[] preguntas = preguntasRecibidas.getPreguntas();
-            String[][] respuestasPosibles = preguntasRecibidas.getRespuestas();
-            String[] respuestas = new String[preguntas.length];
-            for (int i = 0; i < preguntas.length; i++) {
-                System.out.println("Pregunta " + (i + 1) + ": " + preguntas[i]);
-                System.out.println("Respuestas posibles:");
-                for (int j = 0; j < respuestasPosibles[i].length; j++) {
-                    System.out.println(respuestasPosibles[i][j]);
-                }
-                System.out.print("Ingresa la respuesta: ");
-                respuestas[i] = scanner.nextLine();
-               
-            }
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            ObjectOutputStream objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
-            objectOutputStream.writeObject(respuestas);
-            objectOutputStream.flush();
-            byte[] datosRespuestas = byteArrayOutputStream.toByteArray();
-            // Enviar los datos al servidor
-            DatagramPacket packetEnviar = new DatagramPacket(datosRespuestas, datosRespuestas.length, direccionServidor, puerto);
-            socketCliente.send(packetEnviar);
-            scanner.close();
-            objectOutputStream.close();
-            objectInputStream.close();
-            socketCliente.close();
-        } catch (IOException ex) {
-            Logger.getLogger(Jugador.class.getName()).log(Level.SEVERE, null, ex);
-        } finally {
-            try {
-                objectInputStream.close();
-            } catch (IOException ex) {
-                Logger.getLogger(Jugador.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
+            System.out.println("Introduce tu nombre: ");
+            nombre = scanner.next();
 
-        } catch (Exception e) {
-            e.printStackTrace();
+            ObjectInputStream ois = new ObjectInputStream(socketCliente.getInputStream());
+            Preguntas preg =(Preguntas) ois.readObject();
+            ArrayList<String> respuestas = preg.hazPreguntas();
+            respuestas.add(nombre);
+            ObjectOutputStream oos = new ObjectOutputStream(socketCliente.getOutputStream());
+            oos.writeObject(respuestas);
+            
+            
+        } catch (Exception e){
+            
         }
     }
+        
     
 }

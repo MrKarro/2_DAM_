@@ -5,6 +5,7 @@
 package ejercicio13_conexiones_davidcarrosalinas;
 
 import java.io.Serializable;
+import java.util.Scanner;
 
 /**
  *
@@ -26,6 +27,7 @@ public class Preguntas implements Serializable{
             {"A- Marte", "B- Júpiter", "C- Tierra", "D- Venus"}
             
         };
+    static Scanner scanner = new Scanner(System.in);
     
 
 
@@ -36,5 +38,22 @@ public class Preguntas implements Serializable{
 
     public String[][] getRespuestas() {
         return opcionesRespuesta;
+    }
+    
+    public ArrayList<String> hazPreguntas(){
+        ArrayList<String> respuestas = new ArrayList<>();
+        for (int i = 0; i < preguntas.length; i++){
+            
+            System.out.println(preguntas[i]);
+            for (int j = 0; j < opcionesRespuesta[i].length; j++){
+                System.out.println(opcionesRespuesta[i][j]);
+            }
+            System.out.println("=========================");
+            System.out.println("Introduce una respuesta:");
+            String res = scanner.next();
+            respuestas.add(res);
+                    
+        }
+        return respuestas;
     }
 }

@@ -42,18 +42,18 @@ VALUES (3, 'López', TABLA_ANIDADA(
     DIRECCION('Avenida del Puerto 5', 'Valencia', 46021)
 ));
 
--- Identificador, apellidos y dirección completa de todas las filas de la tabla.
+
 SELECT TA.ID, TA.APELLIDOS, D.CALLE AS CALLE, D.CIUDAD AS CIUDAD, D.COD_POSTAL AS COD_POSTAL 
 FROM EJ_TABLA_ANIDADA TA,
 TABLE(TA.DIREC) D;
 
--- Calles de la fila cuyo ID es 1 cuya ciudad sea Salamanca.
+-- Calles cuyo ID es 1 y ciudad Salamanca.
 
 SELECT DIREC.CALLE
 FROM EJ_TABLA_ANIDADA ta
 JOIN TABLE(ta.direc) DIREC ON ta.ID = 1 AND DIREC.CIUDAD = 'Salamanca';
 
--- Todos los datos de las direcciones del ID 2.
+-- Datos de las direcciones del ID 2.
 
 SELECT DIREC.CALLE, DIREC.CIUDAD, DIREC.COD_POSTAL
 FROM EJ_TABLA_ANIDADA ta
@@ -67,7 +67,7 @@ FROM EJ_TABLA_ANIDADA ta
 JOIN TABLE(ta.direc) DIREC ON ta.ID = 1 
 GROUP BY CIUDAD;
 
---Ciudad con más direcciones que tiene el ID 1.
+--Ciudad con más direcciones del ID 1.
 
 SELECT CIUDAD
 FROM (
@@ -82,7 +82,7 @@ FETCH FIRST ROW ONLY;
 -- Bloque PL/SQL que muestra el nombre de las calles de cada Apellidos.
 
 DECLARE
-    v_apellidos VARCHAR2(35);
+    
 BEGIN
     FOR rec IN (SELECT APELLIDOS, DIREC.CALLE
                 FROM EJ_TABLA_ANIDADA, TABLE(DIREC) DIREC)
