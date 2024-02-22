@@ -3,8 +3,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package ejercicio13_conexiones_davidcarrosalinas;
+import static ejercicio13_conexiones_davidcarrosalinas.Server.tabla;
 import java.io.DataInputStream;
+import java.io.InputStream;
 import java.io.ObjectOutputStream;
+import java.io.OutputStream;
 import java.net.Socket;
 
 import java.util.ArrayList;
@@ -16,13 +19,13 @@ import java.util.ArrayList;
 public class HiloServidor extends Thread {
 
     private Socket conexion;
-    private Pregunta preguntas;
+    private Preguntas preguntas;
     private Tabla tabla;
     
     String[] respuestasCorrectas = {"C", "B", "C", "B", "A"};
     
 
-    public HiloServidor(Socket conexion, Pregunta preguntas, Tabla tabla) {
+    public HiloServidor(Socket conexion, Preguntas preguntas, Tabla tabla) {
         this.conexion = conexion;
         this.preguntas = preguntas;
         this.tabla = tabla;
@@ -32,6 +35,7 @@ public class HiloServidor extends Thread {
     @Override
     public void run() {
         try{
+            
             OutputStream os = conexion.getOutputStream();
             ObjectOutputStream dos = new ObjectOutputStream(os);
             InputStream is = conexion.getInputStream();
@@ -39,26 +43,35 @@ public class HiloServidor extends Thread {
 
             dos.writeObject(preguntas);
 
-            ArrayList<String> respuestasYNombre = dis.read();
-            String nombre = respuestasYNombre[respuestasYNombre.size()-1];
+            ArrayList<String> respuestasYNombre = new ArrayList<>();
+            String respuesta;
+            while (!(respuesta = dis.readUTF()).equals("fin")) {
+                respuestasYNombre.add(respuesta);
+            }
 
             int puntuacion = 0;
             for (int i = 0; i< respuestasYNombre.size()-1; i++){
-                if (s.equalsIgnoreCase(respuestasCorrectas[i])){
+                if (respuestasYNombre.get(i).equalsIgnoreCase(respuestasCorrectas[i])){
                     puntuacion++;
                 }
             }
+            String nombre = respuestasYNombre.get(respuestasYNombre.size()-1);
             tabla.addPuntos(nombre, puntuacion);
+            
             os.close();
             dos.close();
             is.close();
             dis.close();
             conexion.close();
+            
+            
+            
         
         } catch (Exception e){
             System.out.println(e.getMessage());
             
         }
+        tabla.muestraTabla();
     }
         
 }

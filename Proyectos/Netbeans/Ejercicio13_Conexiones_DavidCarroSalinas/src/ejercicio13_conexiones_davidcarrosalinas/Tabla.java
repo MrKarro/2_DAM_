@@ -4,14 +4,20 @@
  */
 package ejercicio13_conexiones_davidcarrosalinas;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 
 /**
  *
  * @author 6002755
  */
 public class Tabla {
-    Map<String, Integer> tabla;
+    Map<String, Integer> tabla = new HashMap<String, Integer>();
+    
+    
     
     
     
@@ -19,9 +25,10 @@ public class Tabla {
         tabla.put(nombre, puntuacion);
     }
     public void muestraTabla(){
-        for (String clave : tabla.keySet()) {
-            Integer valor = tabla.get(clave);
-            System.out.println("Nombre: " + clave + ", Puntuación: " + valor);
+        List<Entry<String, Integer>> list = new ArrayList<>(tabla.entrySet());
+        list.sort(Entry.comparingByValue());
+        for (Entry<String, Integer> entry : list) {
+            System.out.println("Nomabre: " + entry.getKey() + " || Puntos: " + entry.getValue());
         }
     }
 }

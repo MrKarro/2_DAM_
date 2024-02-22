@@ -9,8 +9,11 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
+import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -23,18 +26,25 @@ public class Server {
     static Preguntas preguntas = new Preguntas();
     
     public static void main(String[] args) {
-        System.out.println("Hola soy el servidor");
-        int puerto = 9876;
-        
-        ServerSocket socket = new ServerSocket(puerto);
-        
-        while (true) {
-            System.out.println("Esperando conexion");
-            Socket conexion = socket.accept();
-            HiloServidor hilo = new HiloServidor(conexion, preguntas, tabla);
+        try {
+            System.out.println("Hola soy el servidor");
+            int puerto = 9876;
+            tabla = new Tabla();
             
-            hilo.start();
+            ServerSocket socket = new ServerSocket(puerto);
             
+            while (true) {
+                System.out.println("Esperando conexion");
+                Socket conexion = socket.accept();
+                HiloServidor hilo = new HiloServidor(conexion, preguntas, tabla);
+                
+                hilo.start();
+                
+                
+                
+            }
+        } catch (IOException ex) {
+            Logger.getLogger(Server.class.getName()).log(Level.SEVERE, null, ex);
         }
         
 

@@ -14,6 +14,7 @@ import java.net.DatagramSocket;
 import java.net.InetAddress;
 import java.net.Socket;
 import java.net.UnknownHostException;
+import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -25,7 +26,7 @@ import java.util.logging.Logger;
 public class Jugador {
     
     private static Socket socketCliente;
-    private String nombre;
+    private static String nombre;
     
     public static void main(String[] args) {
         try{
@@ -39,10 +40,14 @@ public class Jugador {
 
             ObjectInputStream ois = new ObjectInputStream(socketCliente.getInputStream());
             Preguntas preg =(Preguntas) ois.readObject();
-            ArrayList<String> respuestas = preg.hazPreguntas();
+            ArrayList<String> respuestas = (ArrayList<String>) preg.hazPreguntas();
             respuestas.add(nombre);
+            respuestas.add("fin");
             ObjectOutputStream oos = new ObjectOutputStream(socketCliente.getOutputStream());
             oos.writeObject(respuestas);
+            
+            
+            ois.close();
             
             
         } catch (Exception e){
