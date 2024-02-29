@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package ejercicio13_conexiones_davidcarrosalinas;
-import static ejercicio13_conexiones_davidcarrosalinas.Server.tabla;
+
 import java.io.DataInputStream;
 import java.io.InputStream;
 import java.io.ObjectOutputStream;
@@ -53,10 +53,13 @@ public class HiloServidor extends Thread {
             for (int i = 0; i< respuestasYNombre.size()-1; i++){
                 if (respuestasYNombre.get(i).equalsIgnoreCase(respuestasCorrectas[i])){
                     puntuacion++;
+                    System.out.println(puntuacion);
                 }
             }
             String nombre = respuestasYNombre.get(respuestasYNombre.size()-1);
             tabla.addPuntos(nombre, puntuacion);
+            
+            
             
             os.close();
             dos.close();

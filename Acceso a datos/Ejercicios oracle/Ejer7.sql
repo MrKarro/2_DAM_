@@ -75,13 +75,15 @@ BEGIN
     FOR depto_rec IN (SELECT D.NOMBRE_DEPARTAMENTO 
                       FROM DEPARTAMENTOS D
                       JOIN EMPLEADOS E ON D.ID_DEPARTAMENTO = E.ID_DEPARTAMENTO
-                      GROUP BY D.NOMBRE_DEPARTAMENTO) LOOP
+                      GROUP BY D.NOMBRE_DEPARTAMENTO) 
+    LOOP
         DBMS_OUTPUT.PUT_LINE('Empleados del departamento ' || depto_rec.NOMBRE_DEPARTAMENTO || ':');
         FOR emp_rec IN (SELECT E.APELLIDO || ' (' || E.ID_EMPLEADO || ')' AS EMPLEADO
                         FROM EMPLEADOS E
                         JOIN DEPARTAMENTOS D ON E.ID_DEPARTAMENTO = D.ID_DEPARTAMENTO
                         WHERE D.NOMBRE_DEPARTAMENTO = depto_rec.NOMBRE_DEPARTAMENTO
-                        AND ROWNUM <= 5) LOOP
+                        AND ROWNUM <= 5) 
+        LOOP
             DBMS_OUTPUT.PUT_LINE(emp_rec.EMPLEADO);
         END LOOP;
         DBMS_OUTPUT.PUT_LINE('');

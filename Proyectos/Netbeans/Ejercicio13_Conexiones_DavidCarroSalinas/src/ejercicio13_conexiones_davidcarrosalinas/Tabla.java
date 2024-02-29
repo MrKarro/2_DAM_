@@ -5,6 +5,7 @@
 package ejercicio13_conexiones_davidcarrosalinas;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -25,8 +26,9 @@ public class Tabla {
         tabla.put(nombre, puntuacion);
     }
     public void muestraTabla(){
+        System.out.println(tabla.size());
         List<Entry<String, Integer>> list = new ArrayList<>(tabla.entrySet());
-        list.sort(Entry.comparingByValue());
+        list.sort(Collections.reverseOrder(Entry.comparingByValue()));
         for (Entry<String, Integer> entry : list) {
             System.out.println("Nomabre: " + entry.getKey() + " || Puntos: " + entry.getValue());
         }

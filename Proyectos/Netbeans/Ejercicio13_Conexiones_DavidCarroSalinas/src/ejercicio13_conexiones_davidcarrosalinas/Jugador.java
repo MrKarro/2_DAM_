@@ -6,6 +6,7 @@ package ejercicio13_conexiones_davidcarrosalinas;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -41,13 +42,19 @@ public class Jugador {
             ObjectInputStream ois = new ObjectInputStream(socketCliente.getInputStream());
             Preguntas preg =(Preguntas) ois.readObject();
             ArrayList<String> respuestas = (ArrayList<String>) preg.hazPreguntas();
+            System.out.println("resp " + respuestas.size());
             respuestas.add(nombre);
             respuestas.add("fin");
-            ObjectOutputStream oos = new ObjectOutputStream(socketCliente.getOutputStream());
-            oos.writeObject(respuestas);
+            DataOutputStream oos = new DataOutputStream(socketCliente.getOutputStream());
+            for (String s : respuestas){
+                oos.writeUTF(s);
+            }
+            
+        
             
             
             ois.close();
+            oos.close();
             
             
         } catch (Exception e){
