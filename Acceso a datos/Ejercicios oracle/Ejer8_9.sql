@@ -60,6 +60,17 @@ FROM EJ_TABLA_ANIDADA ta
 JOIN TABLE(ta.direc) DIREC ON ta.ID = 2;
 
 
+
+
+
+
+
+
+
+
+
+
+
 -- Número de direcciones que tiene en cada ciudad el ID 1.
 
 SELECT CIUDAD, COUNT(*) AS NUMERO_DIRECCIONES
