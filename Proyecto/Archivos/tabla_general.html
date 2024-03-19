@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th, td {
+      padding: 8px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+  </style>
+</head>
+<body>
+  <table id="scores-table">
+    <thead>
+      <tr>
+        <th>User</th>
+        <th>Date</th>
+        <th>Score</th>
+      </tr>
+    </thead>
+    <tbody id="scores-table-body">
+      <!-- Scores will be inserted here -->
+    </tbody>
+  </table>
+
+  <script>
+    // Sample scores data
+    const scores = [
+      { user: 'User 1', date: '2023-03-18', score: 100 },
+      { user: 'User 2', date: '2023-03-19', score: 200 },
+      { user: 'User 3', date: '2023-03-20', score: 300 },
+    ];
+
+    // Function to insert scores into the table
+    function insertScores() {
+      const tableBody = document.getElementById('scores-table-body');
+      scores.sort((a, b) => b.score - a.score).forEach(score => {
+        const row = document.createElement('tr');
+        const userCell = document.createElement('td');
+        userCell.textContent = score.user;
+        const dateCell = document.createElement('td');
+        dateCell.textContent = score.date;
+        const scoreCell = document.createElement('td');
+        scoreCell.textContent = score.score;
+row.appendChild(userCell);
+        row.appendChild(dateCell);
+        row.appendChild(scoreCell);
+        tableBody.appendChild(row);
+      });
+    }
+
+    // Call the function to insert scores
+    insertScores();
+  </script>
+</body>
+</html>

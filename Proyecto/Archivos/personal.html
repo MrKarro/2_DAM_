@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th, td {
+      padding: 8px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <h2>Personal Scores</h2>
+  <table id="personal-scores-table">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Score</th>
+      </tr>
+    </thead>
+    <tbody id="personal-scores-table-body">
+      <!-- Personal scores will be inserted here -->
+    </tbody>
+  </table>
+
+  <h2>Score Evolution</h2>
+  <canvas id="score-evolution-chart"></canvas>
+
+  <script>
+    // Sample scores data
+    const scores = [
+      { user: 'User 1', date: '2023-03-18', score: 100 },
+      { user: 'User 2', date: '2023-03-19', score: 200 },
+      { user: 'User 3', date: '2023-03-20', score: 300 },
+      { user: 'User 1', date: '2023-03-15', score: 50 },
+      { user: 'User 1', date: '2023-03-16', score: 150},
+      { user: 'User 1', date: '2023-03-17', score: 250 },
+      { user: 'User 1', date: '2023-03-21', score: 175 },
+      { user: 'User 1', date: '2023-03-22', score: 225 },
+      { user: 'User 1', date: '2023-03-23', score: 125 },
+      { user: 'User 1', date: '2023-03-24', score: 275 },
+      { user: 'User 1', date: '2023-03-25', score: 75 },
+      { user: 'User 1', date: '2023-03-26', score: 325 },
+      { user: 'User 1', date: '2023-03-27', score: 100 },
+      { user: 'User 1', date: '2023-03-28', score: 200 },
+      { user: 'User 1', date: '2023-03-29', score: 150 },
+      { user: 'User 1', date: '2023-03-30', score: 250 },
+      { user: 'User 1', date: '2023-03-31', score: 50 },
+      { user: 'User 1', date: '2023-04-01', score: 350 },
+      { user: 'User 1', date: '2023-04-02', score: 25 },
+      { user: 'User 1', date: '2023-04-03', score: 400 },
+      { user: 'User 1', date: '2023-04-04', score: 275 }
+    ];
+
+    // Function to insert personal scores into the table
+    function insertPersonalScores(user) {
+      const personalScores = scores.filter(score => score.user === user);
+      const tableBody = document.getElementById('personal-scores-table-body');
+      personalScores.sort((a, b) => new Date(a.date) - new Date(b.date)).forEach(score => {
+        const row = document.createElement('tr');
+        const dateCell = document.createElement('td');
+        dateCell.textContent = score.date;
+        const scoreCell = document.createElement('td');
+        scoreCell.textContent = score.score;
+        row.appendChild(dateCell);
+        row.appendChild(scoreCell);
+        tableBody.appendChild(row);
+      });
+    }
+
+    // Function to create score evolution chart
+    function createScoreEvolutionChart(user) {
+      const personalScores = scores.filter(score => score.user === user);
+      const dates = personalScores.map(score => new Date(score.date));
+      const scoresData = personalScores.map(score => score.score);
+
+      const chart = new Chart(document.getElementById('score-evolution-chart'), {
+        type: 'line',
+        data: {
+          labels: dates,
+          datasets: [{
+            label: 'Score Evolution',
+            data: scoresData,
+            borderColor: 'rgba(75, 192, 192, 1)',
+            fill: false
+          }]
+        },
+        options: {
+          responsive: true,
+          title: {
+            display: true,
+            text: 'Score Evolution'
+          },
+          scales: {
+            xAxes: [{
+              display: true,
+              scaleLabel: {
+                display: true,
+                labelString: 'Date'
+              }
+            }],
+            yAxes: [{
+              display: true,
+              scaleLabel: {
+                display:true,
+                labelString: 'Score'
+              }
+            }]
+          }
+        }
+      });
+    }
+
+    // Call the functions to insert personal scores and create score evolution chart
+    const user = 'User 1';
+    insertPersonalScores(user);
+    createScoreEvolutionChart(user);
+  </script>
+</body>
+</html>
